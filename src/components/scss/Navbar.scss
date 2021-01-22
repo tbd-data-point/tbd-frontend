@@ -1,0 +1,157 @@
+@use '../../assets/styles/colors';
+
+$gradient-light: linear-gradient(0deg, colors.$blue_4 0%, colors.$green_4 100%);
+$gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
+
+.upper-section-wrapper {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+.upper-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.65em 0 0.65em 0;
+  height: 20px;
+  background-color: colors.$black;
+  color: colors.$white;
+}
+
+.upper-info-prompt {
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+  height: 100%;
+  font-size: 12px;
+}
+
+.close {
+  margin-left: auto;
+  margin-right: 60px;
+  width: 11px;
+  height: 11px;
+  background-color: colors.$white;
+  clip-path: polygon(
+    12% 0,
+    0 12%,
+    38% 50%,
+    0 88%,
+    12% 100%,
+    50% 63%,
+    88% 100%,
+    100% 88%,
+    65% 50%,
+    100% 12%,
+    88% 0,
+    50% 38%
+  );
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 15%;
+  width: 70%;
+  font-size: 14px;
+  background-color: colors.$white;
+  display: flex;
+}
+
+.navbar {
+  width: 70%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 72px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-element {
+  height: 100%;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.drop-down-icon {
+  margin-left: 0.5em;
+  clip-path: polygon(50% 100%, 10% 0, 90% 0);
+  background: $gradient-light;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.drop-down-content {
+  display: block;
+}
+
+.navbar-right-section {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-logo {
+  width: 40px;
+  margin-right: 5%;
+}
+
+.navbar-btn-border-wrap {
+  border-radius: 25px;
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: $gradient-btn;
+  padding: 1px;
+}
+
+.navbar-btn {
+  background-color: colors.$white;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 0 15px 0 15px;
+}
+
+#signup {
+  margin-right: 30px;
+}
+
+.line {
+  height: 0.5px;
+  width: 100vw;
+  background-color: colors.$black;
+}
+
+a,
+a:active,
+a:checked,
+a:focus {
+  text-decoration: none;
+  color: colors.$black;
+}
+
+.drop-down-content-wrapper {
+  margin-left: 15%;
+  width: 70%;
+}
+
+.drop-down-content p {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  height: 300vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

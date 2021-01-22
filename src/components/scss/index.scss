@@ -1,0 +1,14 @@
+@use '../../assets/styles/fonts';
+
+body {
+  margin: 0;
+  font-family: fonts.$main-font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
+code {
+  font-family: fonts.$code-font-stack;
+}
