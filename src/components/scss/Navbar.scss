@@ -105,10 +105,9 @@ $gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
 .navbar-btn-border-wrap {
   border-radius: 25px;
   max-width: 250px;
-  padding: 1rem;
-  position: relative;
   background: $gradient-btn;
-  padding: 1px;
+  padding: 1.5px;
+  position: relative;
 }
 
 .navbar-btn {
