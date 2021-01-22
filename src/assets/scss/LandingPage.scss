@@ -1,0 +1,143 @@
+@use '../styles/colors';
+@use '../styles/fonts';
+
+$green-gradient: linear-gradient(90deg, colors.$green_9 0%, colors.$white 100%);
+$blue-gradient: linear-gradient(
+  270deg,
+  rgba(204, 253, 255, 0.67) 0%,
+  #f1ffff 71.35%,
+  #faffff 91.67%,
+  rgba(255, 255, 255, 0) 100%
+);
+
+h1 {
+  font-weight: 300;
+  font-size: fonts.$big;
+}
+
+#headline-no-color {
+  margin: 0;
+}
+
+#headline-color {
+  margin: 0;
+  color: colors.$blue_1;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: fonts.$medium;
+  margin: 2em 0 2em 0;
+}
+
+#text-under-headline {
+  color: colors.$grey_2;
+}
+
+.landing-wrapper {
+  font-weight: 300;
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  background-color: colors.$white;
+  display: flex;
+}
+
+.left-gradient {
+  height: 100%;
+  width: 12%;
+  background: $green-gradient;
+}
+
+.landing-text-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 44%;
+  padding: 4rem;
+}
+
+.right-gradient {
+  height: 100%;
+  width: 44%;
+  background: $blue-gradient;
+}
+
+.headline-wrapper {
+  margin-top: 20%;
+}
+
+.text-button-section {
+  display: flex;
+  margin-bottom: 25%;
+}
+
+.button {
+  font-size: fonts.$medium;
+  padding: 5px 10px 5px 10px;
+}
+
+.button-filled {
+  padding: 6px 11px 6px 11px;
+}
+
+.button-not-filled {
+  border: solid;
+  border-width: 1px;
+}
+
+.right-button {
+  margin-left: 1.2em;
+}
+
+#black-button {
+  background: colors.$black;
+  color: colors.$white;
+}
+
+.middle-section {
+  display: flex;
+  background: colors.$blue_1;
+  color: colors.$white;
+  height: 90vh;
+}
+
+.middle-text-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  margin: 0 5% 0 5%;
+}
+
+.content {
+  height: 300vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#white-button-not-filled {
+  color: colors.$white;
+  border-style: solid;
+  border-color: colors.$white;
+  border-width: 1px;
+}
+
+#white-button-filled {
+  color: colors.$blue_1;
+  background: colors.$white;
+}
+
+#middle-section-image {
+  height: 100%;
+  width: 60%;
+}
+
+#middle-section-headline {
+  margin: 25% 0 0 0;
+}
+
+#middle-section-text {
+  color: colors.$grey_6;
+}

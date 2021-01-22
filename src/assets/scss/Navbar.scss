@@ -1,4 +1,4 @@
-@use '../../assets/styles/colors';
+@use '../styles/colors';
 
 $gradient-light: linear-gradient(0deg, colors.$blue_4 0%, colors.$green_4 100%);
 $gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
@@ -49,6 +49,11 @@ $gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
   );
 }
 
+.navbar-background {
+  width: 100%;
+  background-color: colors.$white;
+}
+
 .navbar-wrapper {
   display: flex;
   align-items: center;
@@ -86,10 +91,6 @@ $gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
   height: 0.5em;
 }
 
-.drop-down-content {
-  display: block;
-}
-
 .navbar-right-section {
   width: 30%;
   display: flex;
@@ -99,14 +100,14 @@ $gradient-btn: linear-gradient(-90deg, colors.$blue_4 0%, colors.$green_3 100%);
 
 .navbar-logo {
   width: 40px;
-  margin-right: 5%;
+  margin-right: 30px;
 }
 
 .navbar-btn-border-wrap {
   border-radius: 25px;
   max-width: 250px;
   background: $gradient-btn;
-  padding: 1.5px;
+  padding: 2px;
   position: relative;
 }
 
@@ -136,21 +137,4 @@ a:checked,
 a:focus {
   text-decoration: none;
   color: colors.$black;
-}
-
-.drop-down-content-wrapper {
-  margin-left: 15%;
-  width: 70%;
-}
-
-.drop-down-content p {
-  margin: 0;
-  padding: 0;
-}
-
-.content {
-  height: 300vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
