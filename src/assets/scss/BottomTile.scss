@@ -1,0 +1,43 @@
+@use '../styles/fonts';
+@use '../styles/colors';
+
+.thumbnail {
+  height: 10rem;
+  width: 10rem;
+}
+
+.headline {
+  font-weight: 300;
+  font-size: fonts.$medium;
+  margin: 2em 0 0 0;
+}
+
+.tile-wrapper {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-text {
+  text-decoration: underline;
+}
+
+.link-icon {
+  margin-left: 0.5em;
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  background: colors.$gradient-light;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.link-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description {
+  margin: 1em 0 1em 0;
+  font-weight: 300;
+  color: colors.$grey_2;
+}

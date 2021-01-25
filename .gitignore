@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,react,sass
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,react,sass
+# Created by https://www.toptal.com/developers/gitignore/api/react,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,node
 
 ### Node ###
 # Logs
@@ -129,10 +129,4 @@ psd
 thumb
 sketch
 
-### Sass ###
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
-
-# End of https://www.toptal.com/developers/gitignore/api/node,react,sass
+# End of https://www.toptal.com/developers/gitignore/api/react,node

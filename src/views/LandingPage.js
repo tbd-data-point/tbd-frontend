@@ -1,8 +1,10 @@
 import React from 'react'
 import Navbar from '../components/Navbar.js'
-import '../assets/scss/LandingPage.scss'
 import { Link, BrowserRouter as Router } from 'react-router-dom'
+
 import leaders from '../assets/img/leaders.jpg'
+import '../assets/scss/LandingPage.scss'
+import '../assets/scss/BottomTile.scss'
 
 const LandingPage = () => {
   return (
@@ -73,8 +75,62 @@ const LandingPage = () => {
         </div>
         <img id="middle-section-image" alt="" src={leaders} />
       </div>
-      <div className="content">TEST</div>
+      <div className="bottom-section-wrapper">
+        <div className="bottom-headline-wrapper">
+          <div className="bottom-headline-section">
+            <h1 id="headline-no-color">Lorem</h1>
+            <h1 id="headline-gradient">&nbsp;ipsum dolor sit</h1>
+          </div>
+          <h2 id="bottom-subtitle">
+            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a
+            pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
+            malesuada ultricies
+          </h2>
+        </div>
+        <div className="bottom-tiles-wrapper">
+          <BottomTile
+            headline="Lorem Ipsum"
+            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
+            link="/test2"
+            source={leaders}
+            bg="linear-gradient(45deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
+          />
+          <BottomTile
+            headline="Lorem Ipsum"
+            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
+            link="/test1"
+            source={leaders}
+            bg="radial-gradient(circle, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
+          />
+          <BottomTile
+            headline="Lorem Ipsum"
+            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
+            link="/test3"
+            source={leaders}
+            bg="linear-gradient(-45deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
+          />
+        </div>
+      </div>
     </>
+  )
+}
+
+const BottomTile = (props) => {
+  return (
+    <div className="tile-wrapper">
+      <div className="thumbnail" style={{ background: props.bg }} />
+      <h2 className="headline">{props.headline}</h2>
+      <p className="description">{props.description}</p>
+
+      <Router>
+        <Link to={props.link}>
+          <div className="link-wrapper">
+            <div className="link-text">See more</div>
+            <div className="link-icon" />
+          </div>
+        </Link>
+      </Router>
+    </div>
   )
 }
 

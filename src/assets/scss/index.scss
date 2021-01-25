@@ -1,5 +1,9 @@
 @use '../styles/fonts';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: fonts.$main-font-stack;

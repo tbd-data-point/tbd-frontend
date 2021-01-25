@@ -30,3 +30,6 @@ $blue_6: #83f9ff;
 $blue_7: #9efaff;
 $blue_8: #b8fcff;
 $blue_9: #ccfdff;
+
+$gradient-light: linear-gradient(0deg, $blue_4 0%, $green_4 100%);
+$gradient-btn: linear-gradient(-90deg, $blue_4 0%, $green_4 100%);

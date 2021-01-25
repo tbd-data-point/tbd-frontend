@@ -20,26 +20,30 @@ const Navbar = () => {
             <div className="navbar-wrapper">
               <img alt="" class="navbar-logo" src={logo}></img>
               <nav className="navbar">
-                <div className="navbar-element">
-                  <Link id="home" to="/">
+                <Link id="home" to="/">
+                  <div className="navbar-element">
+                    <div className="navbar-icon" />
                     Solutions
-                  </Link>
-                  <div className="drop-down-icon" />
-                </div>
-
-                <div className="navbar-element">
-                  <Link to="/about">Company</Link>
-                  <div className="drop-down-icon" />
-                </div>
-
-                <div className="navbar-element">
-                  <Link to="/users">Industries</Link>
-                  <div className="drop-down-icon" />
-                </div>
-                <div className="navbar-element">
-                  <Link to="/users">Resources</Link>
-                  <div className="drop-down-icon" />
-                </div>
+                  </div>
+                </Link>
+                <Link to="/about">
+                  <div className="navbar-element">
+                    <div className="navbar-icon" />
+                    Company
+                  </div>
+                </Link>
+                <Link to="/users">
+                  <div className="navbar-element">
+                    <div className="navbar-icon" />
+                    Industries
+                  </div>
+                </Link>
+                <Link to="/users">
+                  <div className="navbar-element">
+                    <div className="navbar-icon" />
+                    Resources
+                  </div>
+                </Link>
               </nav>
               <div className="navbar-right-section">
                 <Link>
