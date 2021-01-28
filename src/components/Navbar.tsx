@@ -4,7 +4,11 @@ import logo from '../assets/img/logo.svg'
 
 import '../assets/scss/Navbar.scss'
 
-const Navbar = (props) => {
+type NavbarProps = {
+  loginFunction: () => void;
+}
+
+const Navbar = ({loginFunction}:NavbarProps) => {
   const [isOpen, setOpen] = useState(true)
   const closeInfo = () => {
     setOpen(false)
@@ -24,7 +28,7 @@ const Navbar = (props) => {
         <Router>
           <div className="navbar-background">
             <div className="navbar-wrapper">
-              <img alt="" class="navbar-logo" src={logo}></img>
+              <img alt="" className="navbar-logo" src={logo}></img>
               <nav className="navbar">
                 <Link id="home" to="/">
                   <div className="navbar-element">
@@ -52,14 +56,14 @@ const Navbar = (props) => {
                 </Link>
               </nav>
               <div className="navbar-right-section">
-                <Link>
+            
                   <div className="navbar-btn-border-wrap" id="signup">
                     <div className="navbar-btn">Signup</div>
                   </div>
-                </Link>
+               
                 <div
                   className="navbar-btn-border-wrap"
-                  onClick={props.loginFunction}
+                  onClick={loginFunction}
                 >
                   <div className="navbar-btn">Login</div>
                 </div>

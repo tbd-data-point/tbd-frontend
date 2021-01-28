@@ -50,12 +50,12 @@ const LandingPage = () => {
 
           <div className="text-button-section">
             <Router>
-              <Link>
+              <Link to='/'>
                 <div className="button button-filled" id="black-button">
                   Get started
                 </div>
               </Link>
-              <Link>
+              <Link to='/'>
                 <div className="button button-not-filled right-button">
                   See solutions
                 </div>
@@ -78,7 +78,7 @@ const LandingPage = () => {
           </h2>
           <div className="text-button-section">
             <Router>
-              <Link>
+              <Link to='/'>
                 <div
                   className="button button-not-filled"
                   id="white-button-not-filled"
@@ -86,7 +86,7 @@ const LandingPage = () => {
                   Learn more
                 </div>
               </Link>
-              <Link>
+              <Link to='/'>
                 <div
                   className="button button-filled right-button"
                   id="white-button-filled"
@@ -116,21 +116,21 @@ const LandingPage = () => {
             headline="Lorem Ipsum"
             description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
             link="/test2"
-            source={leaders}
+        
             bg="linear-gradient(90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
           />
           <BottomTile
             headline="Lorem Ipsum"
             description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
             link="/test1"
-            source={leaders}
+      
             bg="radial-gradient(circle, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
           />
           <BottomTile
             headline="Lorem Ipsum"
             description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
             link="/test3"
-            source={leaders}
+         
             bg="linear-gradient(-90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
           />
         </div>
@@ -140,15 +140,22 @@ const LandingPage = () => {
   )
 }
 
-const BottomTile = (props) => {
+type BottomTileProps = {
+  bg: string;
+  headline: string;
+  description: string;
+  link: string;
+}
+
+const BottomTile = ({bg, headline, description, link}:BottomTileProps) => {
   return (
     <div className="tile-wrapper">
-      <div className="thumbnail" style={{ background: props.bg }} />
-      <h2 className="headline">{props.headline}</h2>
-      <p className="description">{props.description}</p>
+      <div className="thumbnail" style={{ background: bg }} />
+      <h2 className="headline">{headline}</h2>
+      <p className="description">{description}</p>
 
       <Router>
-        <Link to={props.link}>
+        <Link to={link}>
           <div className="link-wrapper">
             <div className="link-text">See more</div>
             <div className="link-icon" />

@@ -6,14 +6,22 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 import logo from '../assets/img/logo.svg'
 
-const FooterTile = (props) => {
+type FooterTileProps = {
+  className: string;
+  headline: string;
+  lines: {link?: string
+          line: string
+          }[]
+}
+
+const FooterTile = ({className, headline, lines}:FooterTileProps) => {
   return (
-    <div className={`bottom-tile-wrapper ${props.className}`}>
+    <div className={`bottom-tile-wrapper ${className}`}>
       <Router>
-        <Link>
-          <h4>{props.headline}</h4>
+        <Link to='/'>
+          <h4>{headline}</h4>
         </Link>
-        {props.lines.map((l) => {
+        {lines.map((l) => {
           return (
             <>
               {l.link && (
@@ -51,12 +59,12 @@ const Footer = () => {
                   <FaFacebookF />
                 </IconContext.Provider>
               </Link>
-              <Link className="twitter">
+              <Link to='/' className="twitter">
                 <IconContext.Provider value={{ color: '#fff', size: '2.3em' }}>
                   <FaTwitter />
                 </IconContext.Provider>
               </Link>
-              <Link className="linkedin">
+              <Link to='/' className="linkedin">
                 <IconContext.Provider
                   value={{
                     color: '#fff',
@@ -115,15 +123,15 @@ const Footer = () => {
               lines={[
                 {
                   line: '19833 Silicon Valley Avenue',
-                  link: null,
+   
                 },
                 {
                   line: 'Palo Alto',
-                  link: null,
+  
                 },
                 {
                   line: 'USA',
-                  link: null,
+      
                 },
                 { line: '+1 (252) 23 328', link: '/' },
               ]}

@@ -1,5 +1,5 @@
 import './assets/scss/App.scss'
-import './views/LandingPage.js'
+import './views/LandingPage'
 import LandingPage from './views/LandingPage'
 // import TestPage from './views/TestPage'
 
