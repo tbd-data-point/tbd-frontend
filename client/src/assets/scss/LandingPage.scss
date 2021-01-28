@@ -144,7 +144,7 @@ h2 {
 .bottom-section-wrapper {
   width: 70%;
   margin-left: 15%;
-  height: 95vh;
+  height: 110vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -173,9 +173,32 @@ h2 {
 }
 
 .bottom-tiles-wrapper {
-  margin-top: 1em;
+  margin-top: 2em;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.login-section {
+  font-size: 20px;
+  transition: 0.5s ease-out;
+}
+
+.login-section-wrapper {
+  height: calc(100vh - 114px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-left: 25%;
+  transition: 0.7s;
+}
+
+.login-section-close {
+  font-size: 0px;
+}
+
+.login-section-wrapper-close {
+  height: 0;
 }

@@ -1,4 +1,5 @@
 @use '../styles/fonts';
+@use '../styles/colors';
 
 html {
   scroll-behavior: smooth;
@@ -10,9 +11,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 }
 
 code {
   font-family: fonts.$code-font-stack;
+}
+
+a,
+a:active,
+a:checked,
+a:focus {
+  text-decoration: none;
+  color: colors.$black;
 }

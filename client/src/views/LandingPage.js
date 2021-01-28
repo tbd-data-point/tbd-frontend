@@ -1,5 +1,6 @@
-import React from 'react'
-import Navbar from '../components/Navbar.js'
+import React, { useState } from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 import leaders from '../assets/img/leaders.jpg'
@@ -7,9 +8,32 @@ import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
 
 const LandingPage = () => {
+  const [isLoginOpen, setLoginOpen] = useState(false)
+
+  const openLogin = () => {
+    setLoginOpen(true)
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar loginFunction={openLogin} />
+      <div
+        className={`login-section-wrapper ${
+          !isLoginOpen && 'login-section-wrapper-close'
+        }`}
+      >
+        <div
+          className={`login-section ${!isLoginOpen && 'login-section-close'}`}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
       <div className="landing-wrapper">
         <div className="left-gradient" />
         <div className="landing-text-section">
@@ -93,7 +117,7 @@ const LandingPage = () => {
             description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
             link="/test2"
             source={leaders}
-            bg="linear-gradient(45deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
+            bg="linear-gradient(90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
           />
           <BottomTile
             headline="Lorem Ipsum"
@@ -107,10 +131,11 @@ const LandingPage = () => {
             description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
             link="/test3"
             source={leaders}
-            bg="linear-gradient(-45deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
+            bg="linear-gradient(-90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
           />
         </div>
       </div>
+      <Footer />
     </>
   )
 }

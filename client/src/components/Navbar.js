@@ -1,21 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import logo from '../assets/img/logo.svg'
 
 import '../assets/scss/Navbar.scss'
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const [isOpen, setOpen] = useState(true)
+  const closeInfo = () => {
+    setOpen(false)
+  }
   return (
     <>
       <div className="upper-section-wrapper">
-        <Router>
-          <div className="upper-info">
-            <div className="upper-info-prompt">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </div>
-            <div className="close" />
+        <div className={`upper-info ${!isOpen && 'close'}`}>
+          <div className="upper-info-prompt">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
           </div>
+          <div className="close-wrapper" onClick={closeInfo}>
+            <div className="close-btn" />
+          </div>
+        </div>
+        <Router>
           <div className="navbar-background">
             <div className="navbar-wrapper">
               <img alt="" class="navbar-logo" src={logo}></img>
@@ -51,16 +57,16 @@ const Navbar = () => {
                     <div className="navbar-btn">Signup</div>
                   </div>
                 </Link>
-                <Link>
-                  <div className="navbar-btn-border-wrap">
-                    <div className="navbar-btn">Login</div>
-                  </div>
-                </Link>
+                <div
+                  className="navbar-btn-border-wrap"
+                  onClick={props.loginFunction}
+                >
+                  <div className="navbar-btn">Login</div>
+                </div>
               </div>
             </div>
           </div>
         </Router>
-        <div className="line" />
       </div>
     </>
   )

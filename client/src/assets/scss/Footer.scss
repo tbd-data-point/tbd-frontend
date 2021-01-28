@@ -1,0 +1,97 @@
+@use '../styles/colors';
+
+.line-footer {
+  width: 100%;
+  background: colors.$footer-line-gradient;
+  height: 3px;
+}
+
+.footer-wrapper {
+  background: colors.$black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 80%;
+  margin-left: 10%;
+}
+
+footer {
+  width: 100%;
+  color: colors.$white;
+  background: colors.$black;
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: 2.5em auto 2.3em 2.3em 2.3em;
+  column-gap: 3em;
+  align-items: center;
+  margin-top: 2.4em;
+}
+
+.tbd {
+  filter: invert(100%);
+  grid-column: 1;
+}
+
+.tbd-logo {
+  height: 2.5em;
+}
+
+.facebook {
+  grid-column: 3;
+}
+
+.twitter {
+  grid-column: 4;
+}
+
+.linkedin {
+  grid-column: 5;
+}
+
+.bottom-tile-wrapper {
+  width: 100%;
+
+  h4 {
+    font-weight: 400;
+    margin: 0.7em 0 0.7em 0;
+  }
+  p {
+    margin: 0.7em 0 0.7em 0;
+    color: colors.$grey_5;
+  }
+  a,
+  a:active,
+  a:checked,
+  a:focus {
+    text-decoration: none;
+    color: colors.$white;
+  }
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: start;
+  column-gap: 2em;
+  margin-top: 2.2em;
+}
+
+.footer-solutions {
+  grid-column: 1;
+}
+
+footer .line {
+  height: 1px;
+  width: 100%;
+  background: colors.$grey_4;
+  margin-top: 2.4em;
+}
+
+.copyright {
+  margin-top: 1em;
+  font-size: 14px;
+  color: colors.$white;
+  margin: 0.5em 0 0.5em 0;
+}
