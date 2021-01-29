@@ -1,49 +1,5 @@
 body {
-  background-color: white;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
-}
-
-ul {
-  grid-column: 1;
-  display: flex;
-  flex-direction: row;
-}
-
-li {
-  margin-right: 40px;
-}
-
-nav {
-  display: none;
-}
-
-.btn {
-  cursor: pointer;
-  grid-column: 3;
-  width: 50%;
-  padding: 0.2em;
-  background: wheat;
-  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.showed {
-  background-color: black;
-  color: wheat;
-  display: grid;
-  grid-template-columns: 300px auto 200px;
-  grid-column-gap: 20px;
-  align-items: center;
-  padding: 2em;
-}
-
-.middle-btn {
-  height: 100px;
-  width: 100%;
 }

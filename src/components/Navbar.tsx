@@ -6,9 +6,10 @@ import '../assets/scss/Navbar.scss'
 
 type NavbarProps = {
   loginFunction: () => void;
+  signupFunction: () => void;
 }
 
-const Navbar = ({loginFunction}:NavbarProps) => {
+const Navbar = ({loginFunction, signupFunction}:NavbarProps) => {
   const [isOpen, setOpen] = useState(true)
   const closeInfo = () => {
     setOpen(false)
@@ -57,7 +58,7 @@ const Navbar = ({loginFunction}:NavbarProps) => {
               </nav>
               <div className="navbar-right-section">
             
-                  <div className="navbar-btn-border-wrap" id="signup">
+                  <div className="navbar-btn-border-wrap" id="signup" onClick={signupFunction}>
                     <div className="navbar-btn">Signup</div>
                   </div>
                

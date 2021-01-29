@@ -1,12 +1,12 @@
-import './assets/scss/App.scss'
-import './views/LandingPage'
-import LandingPage from './views/LandingPage'
-// import TestPage from './views/TestPage'
+import Routes from './Routes'
+import {HashRouter as Router } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <LandingPage />
+      <Router>
+        <Routes />
+      </Router>  
     </>
   )
 }

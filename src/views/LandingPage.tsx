@@ -1,37 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import leaders from '../assets/img/leaders.jpg'
 import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
 
 const LandingPage = () => {
-  const [isLoginOpen, setLoginOpen] = useState(false)
+  const [login, setLogin] = useState(false)
+  const [signup, setSignup] = useState(false)
 
   const openLogin = () => {
-    setLoginOpen(true)
+    setLogin(!login)
   }
+
+  const openSignup = () => {
+    setSignup(!signup)
+  }
+
+  useEffect(() => {
+    if (login || signup)
+      document.body.style.overflow = 'hidden'
+    if (!login && !signup)
+      document.body.style.overflow = 'auto'
+
+  })
 
   return (
     <>
-      <Navbar loginFunction={openLogin} />
-      <div
-        className={`login-section-wrapper ${
-          !isLoginOpen && 'login-section-wrapper-close'
-        }`}
-      >
-        <div
-          className={`login-section ${!isLoginOpen && 'login-section-close'}`}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+      <Navbar loginFunction={openLogin} signupFunction={openSignup}/>
+      <div className={login ? 'login-section' : 'login-section close'}>
+        <div onClick={openLogin} className='close-btn-wrapper'><div className='close-btn'/></div>
+        <div className='btn-wrapper'>
+          
+            <Link to='/login'><div className='btn filled'>Worker Login</div></Link>
+            <Link to='/login'><div className='btn not-filled'>Buyer Login</div></Link>
+          
+        </div>
+      </div>
+      <div className={signup ? 'signup-section' : 'signup-section close'}>
+        <div onClick={openSignup} className='close-btn-wrapper'><div className='close-btn'/></div>
+        <div className='btn-wrapper'>
+       
+            <Link to='/'><div className='btn filled'>Worker Signup</div></Link>
+            <Link to='/'><div className='btn not-filled'>Buyer Signup</div></Link>
+       
         </div>
       </div>
       <div className="landing-wrapper">
@@ -49,7 +63,7 @@ const LandingPage = () => {
           </h2>
 
           <div className="text-button-section">
-            <Router>
+      
               <Link to='/'>
                 <div className="button button-filled" id="black-button">
                   Get started
@@ -60,7 +74,7 @@ const LandingPage = () => {
                   See solutions
                 </div>
               </Link>
-            </Router>
+     
           </div>
         </div>
         <div className="right-gradient" />
@@ -77,7 +91,7 @@ const LandingPage = () => {
             sagittis id consectetur purus ut faucibus pulvinar elementum.
           </h2>
           <div className="text-button-section">
-            <Router>
+    
               <Link to='/'>
                 <div
                   className="button button-not-filled"
@@ -90,11 +104,12 @@ const LandingPage = () => {
                 <div
                   className="button button-filled right-button"
                   id="white-button-filled"
+                  onClick={openSignup}
                 >
                   Signup
                 </div>
               </Link>
-            </Router>
+         
           </div>
         </div>
         <img id="middle-section-image" alt="" src={leaders} />
@@ -153,15 +168,12 @@ const BottomTile = ({bg, headline, description, link}:BottomTileProps) => {
       <div className="thumbnail" style={{ background: bg }} />
       <h2 className="headline">{headline}</h2>
       <p className="description">{description}</p>
-
-      <Router>
         <Link to={link}>
           <div className="link-wrapper">
             <div className="link-text">See more</div>
             <div className="link-icon" />
           </div>
         </Link>
-      </Router>
     </div>
   )
 }

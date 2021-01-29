@@ -10,9 +10,10 @@
   background: colors.$black;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 80%;
   margin-left: 10%;
+  height: 100%;
 }
 
 footer {

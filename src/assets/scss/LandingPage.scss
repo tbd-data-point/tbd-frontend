@@ -41,12 +41,12 @@ h2 {
 }
 
 .landing-wrapper {
+  position: relative;
   font-weight: 300;
   display: flex;
   width: 100%;
   height: 90vh;
   background-color: colors.$white;
-  display: flex;
 }
 
 .left-gradient {
@@ -180,25 +180,66 @@ h2 {
   justify-content: space-between;
 }
 
-.login-section {
-  font-size: 20px;
-  transition: 0.5s ease-out;
-}
-
-.login-section-wrapper {
-  height: calc(100vh - 114px);
-  display: flex;
-  align-items: center;
+.login-section,
+.signup-section {
+  font-weight: 300;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: colors.$white;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 15% 70% 15%;
   justify-content: center;
-  width: 50%;
-  margin-left: 25%;
-  transition: 0.7s;
+  align-items: center;
+  z-index: 100;
+
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    background-color: colors.$black;
+  }
+  .close-btn-wrapper {
+    cursor: pointer;
+    grid-column: 3;
+    grid-row: 1;
+  }
+  transition: 0.5s;
+  .btn-wrapper {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    column-gap: 2rem;
+  }
+  .btn {
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0.5em 1em;
+    transition: 0.2s ease-out;
+    display: flex;
+    align-items: center;
+  }
+  .btn.filled,
+  .btn.not-filled:hover {
+    background: colors.$black;
+    color: colors.$white;
+  }
+  .btn.not-filled,
+  .btn.filled:hover {
+    box-sizing: border-box;
+    border: colors.$black solid 0.04em;
+    background: colors.$white;
+    color: colors.$black;
+  }
+  .btn:hover {
+    transform: scale(1.05) translateY(-10px);
+  }
 }
 
-.login-section-close {
-  font-size: 0px;
-}
-
-.login-section-wrapper-close {
-  height: 0;
+.login-section.close,
+.signup-section.close {
+  top: -100vh;
 }
