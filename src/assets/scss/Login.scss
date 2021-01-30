@@ -111,3 +111,46 @@
     transform: translateY(-2px) scale(1.01);
   }
 }
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: auto 90% auto;
+    grid-template-rows: 50px auto 100px;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      left: calc(50% - 30px);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0.3em 0;
+    }
+
+    .element {
+      margin: 0.8em 0;
+
+      .decoration {
+        max-width: 90%;
+        left: calc(5% + 2px) !important;
+      }
+
+      .decoration.email {
+        top: 200px !important;
+      }
+
+      .decoration.password {
+        top: 291px !important;
+      }
+
+      label {
+        font-size: 20px;
+        margin: 0.5em 0;
+      }
+    }
+    .element.btn {
+      margin-top: 2em !important;
+    }
+  }
+}
