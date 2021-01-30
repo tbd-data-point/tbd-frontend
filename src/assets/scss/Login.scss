@@ -1,0 +1,156 @@
+@use '../styles/colors';
+@use '../styles/fonts';
+
+.wrapper {
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 450px auto;
+  grid-template-rows: 75px auto 100px;
+
+  .background {
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background: linear-gradient(
+      75deg,
+      rgba(0, 243, 255, 1) 0%,
+      rgba(175, 255, 49, 1) 100%
+    );
+  }
+
+  .logo {
+    height: 100px;
+    width: 100px;
+    left: calc(50% - 50px);
+    top: 25px;
+    position: absolute;
+  }
+
+  h1 {
+    margin-top: 2em;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .form-wrapper {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 100px;
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    width: 100%;
+    label {
+      font-size: 22px;
+    }
+  }
+
+  .element {
+    margin: 2em 0;
+
+    .decoration {
+      height: calc(16px + 2.08em);
+      width: 450px;
+      box-sizing: border-box;
+      border: 0.07em solid;
+      border-image-source: colors.$gradient-btn;
+      border-image-slice: 1;
+      position: absolute;
+      z-index: -50;
+      left: calc(50% - 223px);
+    }
+
+    .email {
+      top: 350px;
+    }
+
+    .password {
+      top: 462px;
+    }
+  }
+
+  input[type='password'],
+  input[type='email'] {
+    background: transparent;
+    margin: 0;
+    height: 20px;
+    font-size: 16px;
+    padding: 1.5em 1em;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    border: 0.07em colors.$black solid;
+    border-radius: 0;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .element.btn {
+    margin-top: 5em;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: colors.$black;
+    color: colors.$white;
+    font-size: 24px;
+    width: 100%;
+    padding: 0.5em 1em;
+    font-family: fonts.$main-font-stack;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: auto 90% auto;
+    grid-template-rows: 50px auto 100px;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      left: calc(50% - 30px);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0.3em 0;
+    }
+
+    .element {
+      margin: 0.8em 0;
+
+      .decoration {
+        max-width: 90%;
+        left: calc(5% + 2px) !important;
+      }
+
+      .decoration.email {
+        top: 200px !important;
+      }
+
+      .decoration.password {
+        top: 291px !important;
+      }
+
+      label {
+        font-size: 20px;
+        margin: 0.5em 0;
+      }
+    }
+    .element.btn {
+      margin-top: 2em !important;
+    }
+  }
+}

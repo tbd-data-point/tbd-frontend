@@ -4,6 +4,7 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
+  z-index: 50;
 }
 
 .upper-info {
@@ -14,19 +15,32 @@
   height: 20px;
   background-color: colors.$black;
   color: colors.$white;
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.close {
+  display: none;
 }
 
 .upper-info-prompt {
   display: flex;
   align-items: center;
   margin-left: 60px;
-  height: 100%;
   font-size: 12px;
 }
 
-.close {
+.close-wrapper {
+  width: 11px;
+  cursor: pointer;
   margin-left: auto;
   margin-right: 60px;
+}
+
+.close-btn {
   width: 11px;
   height: 11px;
   background-color: colors.$white;
@@ -49,6 +63,7 @@
 .navbar-background {
   width: 100%;
   background-color: colors.$white;
+  border-bottom: 0.045em solid colors.$black;
 }
 
 .navbar-wrapper {
@@ -70,6 +85,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  transition: 0.5s;
 }
 
 .navbar-element {
@@ -104,8 +120,8 @@
   border-radius: 25px;
   max-width: 250px;
   background: colors.$gradient-btn;
-  padding: 2px;
-  position: relative;
+  padding: 1px;
+  cursor: pointer;
 }
 
 .navbar-btn {
@@ -123,15 +139,7 @@
 }
 
 .line {
-  height: 0.5px;
+  height: 0.045em;
   width: 100vw;
   background-color: colors.$black;
-}
-
-a,
-a:active,
-a:checked,
-a:focus {
-  text-decoration: none;
-  color: colors.$black;
 }
