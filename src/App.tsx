@@ -1,5 +1,5 @@
 import Routes from './Routes'
-import {HashRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 
 function App() {
   return (
