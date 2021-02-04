@@ -43,8 +43,8 @@ const LandingPage = () => {
         <div onClick={openSignup} className='close-btn-wrapper'><div className='close-btn'/></div>
         <div className='btn-wrapper'>
        
-            <Link to='/'><div className='btn filled'>Worker Signup</div></Link>
-            <Link to='/'><div className='btn not-filled'>Buyer Signup</div></Link>
+            <Link to='/signup'><div className='btn filled'>Worker Signup</div></Link>
+            <Link to='/signup'><div className='btn not-filled'>Buyer Signup</div></Link>
        
         </div>
       </div>

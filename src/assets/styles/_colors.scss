@@ -31,6 +31,39 @@ $blue_7: #9efaff;
 $blue_8: #b8fcff;
 $blue_9: #ccfdff;
 
+$red_1: #550010;
+$red_2: #96001d;
+$red_3: #d80e35;
+$red_4: #ef0936;
+$red_5: #ff214c;
+$red_6: #ff496d;
+$red_7: #ff6583;
+$red_8: #ff889f;
+$red_9: #ffb5c3;
+
 $gradient-light: linear-gradient(0deg, $blue_4 0%, $green_4 100%);
 $gradient-btn: linear-gradient(-90deg, $blue_4 0%, $green_3 100%);
 $footer-line-gradient: linear-gradient(90deg, #80cc08 0%, #00d1db 100%);
+$back-ground-gradient: linear-gradient(
+  75deg,
+  rgba(0, 243, 255, 1) 0%,
+  rgba(175, 255, 49, 1) 100%
+);
+
+$progress-gradient_1: linear-gradient(
+  75deg,
+  rgba(0, 219, 230, 1) 0%,
+  rgba(48, 225, 166, 1) 100%
+);
+
+$progress-gradient_2: linear-gradient(
+  75deg,
+  rgba(48, 225, 166, 1) 0%,
+  rgba(107, 232, 88, 1) 100%
+);
+
+$progress-gradient_3: linear-gradient(
+  75deg,
+  rgba(107, 232, 88, 1) 0%,
+  rgba(155, 238, 24, 1) 100%
+);
