@@ -73,12 +73,10 @@
   width: 70%;
   font-size: 14px;
   background-color: colors.$white;
-  display: flex;
 }
 
-.navbar {
+nav {
   width: 70%;
-  list-style-type: none;
   margin: 0;
   padding: 0;
   height: 72px;
@@ -94,6 +92,13 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding: 0.4em 0.8em 0.4em 0.6em;
+  border-radius: 4px;
+  transition: 0.24s ease-out;
+}
+
+.navbar-element:active {
+  background-color: colors.$grey_8;
 }
 
 .navbar-icon {
@@ -140,6 +145,6 @@
 
 .line {
   height: 0.045em;
-  width: 100vw;
+  width: 100%;
   background-color: colors.$black;
 }

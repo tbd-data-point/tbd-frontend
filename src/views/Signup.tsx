@@ -1,21 +1,25 @@
 import '../assets/scss/Signup.scss'
 import logo from '../assets/img/logo.svg'
-
-import {useState} from 'react'
 import * as yup from 'yup'
 import { TiWarning } from 'react-icons/ti'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import { useData } from './DataContext'
+
+type SignupCred = {
+    fname?: string;
+    lname?: string;
+    email?: string;
+    password?: string;
+    passwordMatch?: string;
+}
 
 const Signup = () => {
-
-    const [progress, setProgress] = useState(1)
-    const nextStep = () => {
-        setProgress(progress + 1);
+    const schema = yup.object().shape({fname: yup.string().required(), lname: yup.string().required(), email: yup.string().email().required(), password: yup.string().required(), passwordMatch: yup.string().oneOf([yup.ref('password'), null]) })
+    const { register, handleSubmit, errors } = useForm<SignupCred>({resolver: yupResolver(schema)});
+    const onSubmit = (data:SignupCred) => {
+        alert(JSON.stringify(data))
     }
-    const steps = [1,2,3,4]
 
     return (
     <>
@@ -24,15 +28,43 @@ const Signup = () => {
         <Link to='/'><img className='logo' src={logo} alt='' /></Link>
         <div className='form-wrapper'>
             <h1>Signup to DataPoint™</h1>
-            <div className='progress-bar'>{steps.map(e => {
-                if (e === steps[steps.length - 1])
-                return <><div className='square'>{e}</div></>
-                else 
-                return <><div className='square'>{e}</div><div className={`progress-line ${e < progress ? `gradient_${e}` : 'black'}`}></div></>
-                
-                })}</div>
-            {progress === 1 ? <StepOne nextStep={nextStep} /> : ''}
-            
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                <div className='element'>
+                    <label>First Name</label>
+                    <div className='input-wrapper'><input name='fname' id='fname' type='text' ref={register()} /><div className='decoration' /></div>
+                    {errors.fname && errors.fname.type === "required" && <ErrorMessage message='Please enter your first name!'/>}
+                </div>
+                <div className='element'>
+                    <label>Last Name</label>
+                    <div className='input-wrapper'><input name='lname' id='lname' type='text' ref={register()} /><div className='decoration' /></div>
+                    {errors.lname && errors.lname.type === "required" && <ErrorMessage message='Please enter your last name!'/>}
+                </div>
+                <div className='element'>
+                    <label>Email</label>
+                    <div className='input-wrapper'><input name='email' id='email' type='email' ref={register()} /><div className='decoration' /></div>
+                    {errors.email && errors.email.type === "required" && <ErrorMessage message='Please enter your email!'/>}
+                    {errors.email && errors.email.type === 'email' && <ErrorMessage message='Please enter valid email!'/>}
+                </div>
+                <div className='element'>
+                    <label>Password</label>
+                    <div className='input-wrapper'><input name='password' id='password' type='password' ref={register()}/>
+                    <div className='decoration' /></div>
+                    {errors.password && errors.password.type === 'required' && <ErrorMessage message='Please enter your password!' />}
+                </div>
+               
+                <div className='element'>
+                    <label>Repeat Password</label>
+                    <div className='input-wrapper'>
+                        <input name='passwordMatch' id='passwordMatch' type='password' ref={register()} />
+                        <div className='decoration' />
+                        
+                    </div>
+                    {errors.passwordMatch && errors.passwordMatch.type === 'oneOf' && <ErrorMessage message='Passwords must match!' />}
+                </div>
+                <div className='btn'>
+                    <button type='submit'>Submit</button>
+                </div>
+            </form>
         </div>
     </div>
     </>)
@@ -48,46 +80,3 @@ const ErrorMessage = ({message}:ErrorMessageProps) => {
    return ((<p className='error'><TiWarning /> &nbsp;{message}</p>)) 
 }
 
-type StepOneProps = {
-    nextStep: () => void
-}
-
-const StepOne = ({nextStep}:StepOneProps) => {
-
-    const { setValues, data } = useData()
-
-    type LoginCred = {
-        email: string;
-        password: string;
-    }
-
-    const schema = yup.object().shape({email: yup.string().email().required(), password: yup.string().required()})
-    const { register, handleSubmit, errors } = useForm<LoginCred>({resolver: yupResolver(schema), defaultValues: { email: data.email }});
-    const onSubmit = (data:LoginCred) => {
-        setValues(data)
-        nextStep()
-    }
-
-
-
-    return <>
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <div className='element'>
-                    <label>Email</label>
-                    <div className='input-wrapper'><input name='email' id='email' type='email' ref={register()} /><div className='decoration email' /></div>
-                    {errors.email && errors.email.type === "required" && <ErrorMessage message='Please enter your email!'/>}
-                    {errors.email && errors.email.type === 'email' && <ErrorMessage message='Please enter valid email!'/>}
-                </div>
-                <div className='element'>
-                    <label>Password</label>
-                    <div className='input-wrapper'><input name='password' id='password' type='password' ref={register({required: true})}/>
-                    <div className='decoration password' /></div>
-                    
-                    {errors.password && errors.password.type === 'required' && <ErrorMessage message='Please enter your password!' />}
-                </div>
-                <div className='btn'>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
-    </>
-}

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
@@ -8,46 +7,10 @@ import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
 
 const LandingPage = () => {
-  const [login, setLogin] = useState(false)
-  const [signup, setSignup] = useState(false)
-
-  const openLogin = () => {
-    setLogin(!login)
-  }
-
-  const openSignup = () => {
-    setSignup(!signup)
-  }
-
-  useEffect(() => {
-    if (login || signup)
-      document.body.style.overflow = 'hidden'
-    if (!login && !signup)
-      document.body.style.overflow = 'auto'
-
-  })
 
   return (
     <>
-      <Navbar loginFunction={openLogin} signupFunction={openSignup}/>
-      <div className={login ? 'login-section' : 'login-section close'}>
-        <div onClick={openLogin} className='close-btn-wrapper'><div className='close-btn'/></div>
-        <div className='btn-wrapper'>
-          
-            <Link to='/login'><div className='btn filled'>Worker Login</div></Link>
-            <Link to='/login'><div className='btn not-filled'>Buyer Login</div></Link>
-          
-        </div>
-      </div>
-      <div className={signup ? 'signup-section' : 'signup-section close'}>
-        <div onClick={openSignup} className='close-btn-wrapper'><div className='close-btn'/></div>
-        <div className='btn-wrapper'>
-       
-            <Link to='/signup'><div className='btn filled'>Worker Signup</div></Link>
-            <Link to='/signup'><div className='btn not-filled'>Buyer Signup</div></Link>
-       
-        </div>
-      </div>
+      <Navbar />
       <div className="landing-wrapper">
         <div className="left-gradient" />
         <div className="landing-text-section">
@@ -104,7 +67,6 @@ const LandingPage = () => {
                 <div
                   className="button button-filled right-button"
                   id="white-button-filled"
-                  onClick={openSignup}
                 >
                   Signup
                 </div>

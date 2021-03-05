@@ -4,7 +4,6 @@
 .wrapper {
   z-index: -100;
   width: 100vw;
-  height: 100vh;
   display: grid;
   grid-template-columns: auto 450px auto;
   grid-template-rows: 75px auto 100px;
@@ -111,7 +110,8 @@
       }
 
       input[type='password'],
-      input[type='email'] {
+      input[type='email'],
+      input[type='text'] {
         background: transparent;
         margin: 0;
         height: 20px;

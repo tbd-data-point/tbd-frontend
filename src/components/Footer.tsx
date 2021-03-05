@@ -115,11 +115,13 @@ const Footer = () => {
                 { line: 'Lorem ipsum', link: '/' },
                 { line: 'Lorem ipsum', link: '/' },
                 { line: 'Lorem ipsum', link: '/' },
+                { line: 'Lorem ipsum', link: '/' },
+             
               ]}
             />
             <FooterTile
               className="footer-contact"
-              headline="Adress 1"
+              headline="Contact"
               lines={[
                 {
                   line: '19833 Silicon Valley Avenue',
