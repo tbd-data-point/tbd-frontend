@@ -1,4 +1,3 @@
-import React from 'react'
 import '../assets/scss/Footer.scss'
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import { IconContext } from 'react-icons'

@@ -5,6 +5,7 @@
   position: -webkit-sticky;
   top: 0;
   z-index: 50;
+  font-weight: 400;
 }
 
 .upper-info {
@@ -15,6 +16,7 @@
   height: 20px;
   background-color: colors.$black;
   color: colors.$white;
+
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
   -moz-user-select: none; /* mozilla browsers */

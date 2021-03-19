@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 
-import { LandingPage, Login, Signup, Solutions, Industries, Resources } from './views'
+import { LandingPage, Login, Signup, Solutions, Industries, Resources, WorkerSettings, TestPage } from './views'
 
 const Routes = () => {
     return (
@@ -11,6 +11,8 @@ const Routes = () => {
             <Route path='/solutions' component={Solutions} />
             <Route path='/industries' component={Industries} />
             <Route path='/resources' component={Resources} />
+            <Route path='/app/settings' component={WorkerSettings} />
+            <Route path='/testing' component={TestPage} />
         </Switch>
     )
 }
