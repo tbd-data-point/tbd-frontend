@@ -131,6 +131,8 @@ const Logo = styled.img`
 `
 
 const Wrapper = styled.div`
+    background: white;
+    z-index: 1000;
     position: sticky;
     top: 0;
 `

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-
-
 type PropsType = {
     items: {label: string, link: string, isFocus?: boolean}[]
 }

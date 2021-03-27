@@ -38,7 +38,6 @@ const Login = () => {
                     <label>Password</label>
                     <div className='input-wrapper'><input name='password' id='password' type='password' ref={register({required: true})}/>
                     <div className='decoration password' /></div>
-                    
                     {errors.password && errors.password.type === 'required' && <ErrorMessage message='Please enter your password!'/>}
                 </div>
                 <div className='btn'>
