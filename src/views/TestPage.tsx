@@ -9,12 +9,17 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 0 100px 0;
+  overflow-x: hidden;
+  & > button {
+    font-size: 30px;
+  }
 `
 
 const TestPage = () => {
+
   return <>
     <Wrapper>
-        <SupervisorReview>Hello.</SupervisorReview>
+        <SupervisorReview />
      </Wrapper>
   </>
 }
