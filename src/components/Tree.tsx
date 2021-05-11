@@ -53,7 +53,6 @@ const Tree = React.memo(({content = '', defaultOpen = false, children, linkTo = 
     const [open, setOpen] = useState(defaultOpen)
     const changeOpen = () => {
         setOpen(!open)
-        console.log(open)
     }
     return <>
         <TreeView>
@@ -72,7 +71,7 @@ const Tree = React.memo(({content = '', defaultOpen = false, children, linkTo = 
                     </Spring> 
                     : '' }
                 </LabelWrap>
-
+            {children ? 
             <Spring
                 native
                 config={{ ...config.default, precision: 0.1 }}
@@ -86,6 +85,7 @@ const Tree = React.memo(({content = '', defaultOpen = false, children, linkTo = 
                 {props => <a.div style={props}>{children}</a.div>}
             
             </Spring>
+            : null }
         </TreeView>
     </>
 })

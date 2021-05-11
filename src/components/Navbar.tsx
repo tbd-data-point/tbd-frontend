@@ -76,7 +76,7 @@ const Navbar = () => {
                     Solutions
                   </div>
                 </Link>
-                <Link to="/about">
+                <Link to="/company">
                   <div className="navbar-element">
                     <div className="navbar-icon" />
                     Company
