@@ -33,6 +33,7 @@ const OfferRect = styled.div`
 
 	margin-top: 50px;
 	margin-bottom: 50px;
+	background-color: white;
 `
 
 const OfferHeader = styled.div`
@@ -154,7 +155,35 @@ const Button = styled('button')<ButtonStyled>`
 	}
 `
 
+const StatusBar = styled.div`
+	width: 502px;
+	height: 30px;
+	color: white;
+	position: absolute;
+	top: 20px;
+	z-index: -1;
+	transition: all 0.4s;
+	font-size: 16px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&.show {
+		transform: translateY(0);
+	}
+	&.hide {
+		transform: translateY(30px);
+	}
+	&.error {
+		background-color: rgb(255, 67, 54);
+	}
+	&.success {
+		background-color: rgb(77, 235, 101);
+	}
+`
+
 const OfferMin = (props: PropsType) => {
+	const [status, setStatus] = useState<any>({ status: 'error', show: 'hide', message: '' })
 	const [preview, setPreview] = useState<any>({ index: null, src: null })
 	const [seeDetails, setSeeDetails] = useState(false)
 	const [displayModal, setDisplayModal] = useState(false)
@@ -187,10 +216,16 @@ const OfferMin = (props: PropsType) => {
 		axios
 			.get('http://localhost:5000/offers/follow/' + props.data._id)
 			.then((res) => {
-				alert(res)
+				setStatus({ status: 'success', show: 'show', message: 'Offer added to your database' })
+				setTimeout(() => {
+					setStatus({ status: 'success', show: 'show', message: 'Offer added to your database' })
+				}, 4000)
 			})
 			.catch((err) => {
-				alert(err)
+				setStatus({ status: 'error', show: 'show', message: 'There was an error while adding the offer' })
+				setTimeout(() => {
+					setStatus({ status: 'error', show: 'hide', message: 'There was an error while adding the offer' })
+				}, 2000)
 			})
 	}
 
@@ -243,6 +278,7 @@ const OfferMin = (props: PropsType) => {
 					</OfferButtons>
 				</OfferContent>
 			</OfferRect>
+			<StatusBar className={`${status.show} ${status.status}`}>{status.message}</StatusBar>
 		</>
 	)
 }

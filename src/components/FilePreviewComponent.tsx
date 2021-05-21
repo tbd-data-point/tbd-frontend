@@ -1,8 +1,6 @@
 import { useRef } from 'react'
 import styled from 'styled-components'
 
-const FileViewer = require('react-file-viewer')
-
 const FilePreviewBcg = styled.div`
 	display: none;
 	top: 0;

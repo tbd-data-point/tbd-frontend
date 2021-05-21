@@ -96,11 +96,11 @@ const Suggestion = styled.div`
 type PropsType = {
 	tags: any
 	setTags: any
+	width?: string
+	height?: string
 }
 
-const TaggedInput = (props: PropsType) => {
-	let tags = props.tags
-	let setTags = props.setTags
+const TaggedInput = ({ tags, setTags, width = '100%', height = '100%' }: PropsType) => {
 	const [suggestTags, setSuggestTags] = useState<string[]>([])
 	const inputDOM = useRef<HTMLInputElement>(null)
 
@@ -150,7 +150,7 @@ const TaggedInput = (props: PropsType) => {
 		<>
 			<TaggedInputWrapper>
 				<InputWrapper>
-					<InputBcg />
+					<InputBcg style={{ width: width, height: height }} />
 					<InputForeground>
 						<TagWrapper>
 							{tags.map((e: string, index: number) => {

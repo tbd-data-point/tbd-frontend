@@ -1,152 +1,152 @@
 @use '../styles/colors';
 
 .upper-section-wrapper {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 50;
-  font-weight: 400;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 50;
+	font-weight: 400;
 }
 
 .upper-info {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 0.65em 0 0.65em 0;
-  height: 20px;
-  background-color: colors.$black;
-  color: colors.$white;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 0.65em 0 0.65em 0;
+	height: 20px;
+	background-color: colors.$black;
+	color: colors.$white;
 
-  user-select: none; /* standard syntax */
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */
+	user-select: none; /* standard syntax */
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+	-moz-user-select: none; /* mozilla browsers */
+	-khtml-user-select: none; /* webkit (konqueror) browsers */
+	-ms-user-select: none; /* IE10+ */
 }
 
 .close {
-  display: none;
+	display: none;
 }
 
 .upper-info-prompt {
-  display: flex;
-  align-items: center;
-  margin-left: 60px;
-  font-size: 12px;
+	display: flex;
+	align-items: center;
+	margin-left: 60px;
+	font-size: 12px;
 }
 
 .close-wrapper {
-  width: 11px;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: 60px;
+	width: 11px;
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: 60px;
 }
 
 .close-btn {
-  width: 11px;
-  height: 11px;
-  background-color: colors.$white;
-  clip-path: polygon(
-    12% 0,
-    0 12%,
-    38% 50%,
-    0 88%,
-    12% 100%,
-    50% 63%,
-    88% 100%,
-    100% 88%,
-    65% 50%,
-    100% 12%,
-    88% 0,
-    50% 38%
-  );
+	width: 11px;
+	height: 11px;
+	background-color: colors.$white;
+	clip-path: polygon(
+		12% 0,
+		0 12%,
+		38% 50%,
+		0 88%,
+		12% 100%,
+		50% 63%,
+		88% 100%,
+		100% 88%,
+		65% 50%,
+		100% 12%,
+		88% 0,
+		50% 38%
+	);
 }
 
 .navbar-background {
-  width: 100%;
-  background-color: colors.$white;
-  border-bottom: 0.045em solid colors.$black;
+	width: 100%;
+	background-color: colors.$white;
+	border-bottom: 0.045em solid colors.$black;
 }
 
 .navbar-wrapper {
-  display: flex;
-  align-items: center;
-  margin-left: 15%;
-  width: 70%;
-  font-size: 14px;
-  background-color: colors.$white;
+	display: flex;
+	align-items: center;
+	margin-left: 15%;
+	width: 70%;
+	font-size: 14px;
+	background-color: colors.$white;
 }
 
 nav {
-  width: 70%;
-  margin: 0;
-  padding: 0;
-  height: 72px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  transition: 0.5s;
+	width: 70%;
+	margin: 0;
+	padding: 0;
+	height: 72px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	transition: 0.5s;
 }
 
 .navbar-element {
-  height: 100%;
-  margin-right: 30px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0.4em 0.8em 0.4em 0.6em;
-  border-radius: 4px;
-  transition: 0.24s ease-out;
+	height: 100%;
+	margin-right: 30px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 0.4em 0.8em 0.4em 0.6em;
+	border-radius: 4px;
+	transition: 0.24s ease-out;
 }
 
 .navbar-element:active {
-  background-color: colors.$grey_8;
+	background-color: colors.$grey_8;
 }
 
 .navbar-icon {
-  margin-right: 0.5em;
-  clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
-  background: colors.$gradient-light;
-  width: 0.5em;
-  height: 0.5em;
+	margin-right: 0.5em;
+	clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
+	background: colors.$gradient-light;
+	width: 0.5em;
+	height: 0.5em;
 }
 
 .navbar-right-section {
-  width: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+	width: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }
 
 .navbar-logo {
-  width: 40px;
-  margin-right: 30px;
+	width: 40px;
+	margin-right: 30px;
 }
 
 .navbar-btn-border-wrap {
-  border-radius: 25px;
-  max-width: 250px;
-  background: colors.$gradient-btn;
-  padding: 1px;
-  cursor: pointer;
+	border-radius: 25px;
+	max-width: 250px;
+	background: colors.$gradient-btn;
+	padding: 1px;
+	cursor: pointer;
 }
 
 .navbar-btn {
-  background-color: colors.$white;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  padding: 0 15px 0 15px;
+	background-color: colors.$white;
+	height: 26px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+	padding: 0 15px 0 15px;
 }
 
 #signup {
-  margin-right: 30px;
+	margin-right: 30px;
 }
 
 .line {
-  height: 0.045em;
-  width: 100%;
-  background-color: colors.$black;
+	height: 0.045em;
+	width: 100%;
+	background-color: colors.$black;
 }

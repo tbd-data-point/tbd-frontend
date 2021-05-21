@@ -5,6 +5,8 @@ import OfferMin from '../components/Offer_min'
 import axios from 'axios'
 import { useEffect, useState, useRef } from 'react'
 
+import OfferFilter from '../components/OfferFilter'
+
 const OfferListWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -21,6 +23,7 @@ const OfferListWrapper = styled.div`
 `
 
 const OffersList = () => {
+	const [filter, setFilter] = useState<any>({ fileType: 'photo', description: '', tags: [] })
 	const [currentEntry, setCurrentEntry] = useState<any>()
 	const observer = useRef(
 		new IntersectionObserver(
@@ -54,7 +57,7 @@ const OffersList = () => {
 	])
 	useEffect(() => {
 		axios
-			.post('http://localhost:5000/offers/' + '3')
+			.post('http://localhost:5000/offers/' + '3', { filter: filter })
 			.then((res) => {
 				console.log(res.data)
 				setOffers(res.data)
@@ -67,7 +70,7 @@ const OffersList = () => {
 				setOffers([])
 				console.log(err)
 			})
-	}, [])
+	}, [filter])
 	useEffect(() => {
 		if (observer.current) {
 			axios
@@ -75,6 +78,7 @@ const OffersList = () => {
 					ids: offers.map((e: any) => {
 						return e._id
 					}),
+					filter: filter,
 				})
 				.then((res) => {
 					if (res.data.length > 0) {
@@ -102,14 +106,14 @@ const OffersList = () => {
 			<OfferListWrapper id='offer-wrapper'>
 				{offers.map((e: any) => {
 					return (
-						<div key={e._id} className={'offer_min'}>
+						<div key={e._id} className={'offer_min'} style={{ position: 'relative' }}>
 							<OfferMin data={e}></OfferMin>
 						</div>
 					)
 				})}
 				{allOffers ? <p>There are no more offers</p> : null}
 			</OfferListWrapper>
-			<Footer />
+			<OfferFilter {...{ filter, setFilter }} />
 		</>
 	)
 }

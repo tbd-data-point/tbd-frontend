@@ -139,7 +139,7 @@ const Button = styled.button<ButtonStyled>`
 		outline: none;
 	}
 `
-interface Section {
+type Section = {
 	name?: string
 }
 
