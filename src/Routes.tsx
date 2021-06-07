@@ -12,6 +12,7 @@ import {
 	OffersList,
 	UploadOffer,
 	Dashboard,
+	ClientDashboard,
 } from './views'
 
 const Routes = () => {
@@ -28,6 +29,8 @@ const Routes = () => {
 			<Route path='/app/offers' component={OffersList} />
 			<Route path='/app/addOffer' component={UploadOffer} />
 			<Route path='/app/dashboard' component={Dashboard} />
+			<Route path='/app/clientdashboard' component={ClientDashboard} />
+			<Route path='/app/editOffer/:data' component={UploadOffer} />
 		</Switch>
 	)
 }

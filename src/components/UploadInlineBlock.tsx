@@ -126,7 +126,6 @@ const UploadBlock = (props: PropsType) => {
 	useEffect(() => {
 		if (filePreviewWrapper && filePreviewWrapper.current) {
 			filePreviewWrapper.current.style.top = window.pageYOffset + 'px'
-			console.log(filePreviewWrapper.current.scrollTop, window.pageYOffset)
 		}
 	}, [props.preview])
 
@@ -147,18 +146,20 @@ const UploadBlock = (props: PropsType) => {
 
 	const fileDrop = (e: any) => {
 		if (!e.fromFileBrowser) e.target.style.boxShadow = null
-		e.preventDefault()
-		const files = [...e.dataTransfer.files].concat(props.selectedFiles)
-		const flags = new Set()
-		const output = files.filter((e) => {
-			if (flags.has(e.name)) {
-				return false
-			}
-			flags.add(e.name)
-			return true
-		})
+		if (e.name) {
+			e.preventDefault()
+			const files = [...e.dataTransfer.files].concat(props.selectedFiles)
+			const flags = new Set()
+			const output = files.filter((e) => {
+				if (flags.has(e.name)) {
+					return false
+				}
+				flags.add(e.name)
+				return true
+			})
 
-		props.setSelectedFiles(output)
+			props.setSelectedFiles(output)
+		}
 	}
 
 	const deleteFile = (index: number) => {

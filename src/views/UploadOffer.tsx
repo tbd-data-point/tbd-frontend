@@ -3,8 +3,9 @@ import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
+import { useParams, useHistory } from 'react-router-dom'
 
 import UploadBlock from '../components/UploadInlineBlock'
 import TaggedInput from '../components/Tagged-input'
@@ -149,7 +150,7 @@ interface ButtonStyled {
 
 type FormData = {
 	title: string
-	desc: string
+	description: string
 	files: any
 	fileType: string
 	fileCount: number
@@ -157,36 +158,62 @@ type FormData = {
 }
 
 type CustomError = {
-	files: number | null
-	tags: number | null
+	files: number | null | string
+	tags: number | null | string
 }
 
 const UploadOffer = () => {
 	const [selectedFiles, setSelectedFiles] = useState<any>([])
 	const [preview, setPreview] = useState<any>({ index: null, src: null })
+
 	const { register, setValue, handleSubmit, errors } = useForm<FormData>()
 	const [customError, setCustomError] = useState<CustomError>({ files: null, tags: null })
 	const [tags, setTags] = useState<string[]>([])
+	const [edit, setEdit] = useState<boolean>(false)
 
-	const onSubmit = handleSubmit(({ title, desc, fileType, fileCount }) => {
+	interface Params {
+		data: string
+	}
+	const data = JSON.parse(atob(useParams<Params>().data))
+	const history = useHistory()
+
+	useEffect(() => {
+		if (data) {
+			Object.keys(data).forEach((key, i) => {
+				setValue(key, data[key])
+			})
+			setEdit(true)
+			setTags(data.keywords || ['ERROR WHILE FETCHING THE OFFER'])
+			Promise.all(
+				data.imgLink.map(async (url: string) => {
+					return axios.get('http://localhost:5000/' + url, { responseType: 'blob' }).then((res) => res.data)
+				})
+			)
+				.then((files) => {
+					setSelectedFiles(files)
+				})
+				.catch((err) => {
+					setSelectedFiles([])
+					setCustomError(Object.assign(customError, { files: 'Error while fetching the files' }))
+				})
+		}
+	}, [])
+
+	const onSubmit = handleSubmit(({ title, description, fileType, fileCount }) => {
 		const dataToUpload = new FormData()
 		dataToUpload.append('title', title)
-		dataToUpload.append('description', desc)
+		dataToUpload.append('description', description)
 		dataToUpload.append('fileType', fileType)
 		dataToUpload.append('fileCount', fileCount.toString())
 
 		if (tags.length === 0)
-			setCustomError((customError) => {
-				return { tags: 1, files: customError.files }
-			})
+			setCustomError(Object.assign(customError, { tags: 'Please select at least one keyword' }))
 		else {
 			dataToUpload.append('keywords', tags.toString())
 		}
 
 		if (selectedFiles.length === 0)
-			setCustomError((customError) => {
-				return { tags: customError.tags, files: 1 }
-			})
+			setCustomError(Object.assign(customError, { files: 'Please select at least one file of a proper type' }))
 		else {
 			selectedFiles.forEach((e: any) => {
 				dataToUpload.append(e.name, e)
@@ -275,7 +302,7 @@ const UploadOffer = () => {
 							<label>4. Detailed Description</label>
 							<textarea
 								rows={8}
-								name='desc'
+								name='description'
 								ref={register({
 									required: {
 										value: true,
@@ -291,7 +318,7 @@ const UploadOffer = () => {
 								onFocus={animateLabel}
 								placeholder={'Add a detailed description of your offer...'}
 								autoComplete={'off'}></textarea>
-							<ErrorMessage>{errors.desc?.message}</ErrorMessage>
+							<ErrorMessage>{errors.description?.message}</ErrorMessage>
 						</Section>
 						<Section>
 							<label>5. Sample files for Data Miners</label>
@@ -304,31 +331,45 @@ const UploadOffer = () => {
 									width: '100%',
 									height: '200px',
 								}}></UploadBlock>
-							<ErrorMessage>
-								{customError.files && 'Upload at least one file of a proper type!'}
-							</ErrorMessage>
+							<ErrorMessage>{customError.files}</ErrorMessage>
 						</Section>
-						<Section className={'pricing'}>
-							<label>6. Pricing</label>
-							<div>
-								<input type={'checkbox'} />
-								<span>Regular</span>
-							</div>
-							<div>
-								<input type={'checkbox'} />
-								<span>PRO</span>
-							</div>
-							<div>
-								<input type={'checkbox'} />
-								<span>Money GOD</span>
-							</div>
-						</Section>
-						<Section className={'buttons'}>
-							<Button>Cancel</Button>
-							<Button upload type={'submit'}>
-								Submit
-							</Button>
-						</Section>
+						{!edit ? (
+							<Section className={'pricing'}>
+								<label>6. Pricing</label>
+								<div>
+									<input type={'checkbox'} />
+									<span>Regular</span>
+								</div>
+								<div>
+									<input type={'checkbox'} />
+									<span>PRO</span>
+								</div>
+								<div>
+									<input type={'checkbox'} />
+									<span>Money GOD</span>
+								</div>
+							</Section>
+						) : null}
+						{!edit ? (
+							<Section className={'buttons'}>
+								<Button>Cancel</Button>
+								<Button upload type={'submit'}>
+									Submit
+								</Button>
+							</Section>
+						) : (
+							<Section className={'buttons'}>
+								<Button
+									onClick={() => {
+										history.push('/app/clientdashboard')
+									}}>
+									Cancel
+								</Button>
+								<Button upload type={'submit'}>
+									Save
+								</Button>
+							</Section>
+						)}
 					</Form>
 				</Content>
 			</Wrapper>

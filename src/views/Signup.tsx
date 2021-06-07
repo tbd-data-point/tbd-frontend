@@ -32,7 +32,7 @@ const Signup = () => {
 	const onSubmit = (data: SignupCred) => {
 		alert(JSON.stringify(data))
 		axios
-			.post('http://localhost:5000/users/register', { ...data })
+			.post('http://localhost:5000/user/register', { ...data })
 			.then((suc) => {
 				setTimeout(() => {
 					history.push('/login')

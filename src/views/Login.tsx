@@ -9,23 +9,26 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useCookies } from 'react-cookie'
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
 	const [loginStatus, setLoginStatus] = useState<number>()
 	const [cookies, setCookie] = useCookies(['user'])
+
+	let history = useHistory()
 
 	type LoginCred = {
 		email: string
 		password: string
 	}
 	const onSubmit = (d: LoginCred) => {
-		alert(JSON.stringify(d))
 		axios
-			.post('http://localhost:5000/users/login', { ...d })
-			.then((suc) => {
-				setCookie('user', suc.data)
-				console.log(cookies.user)
+			.post('http://localhost:5000/user/login', { ...d })
+			.then((res) => {
 				setLoginStatus(1)
+				setCookie('user', res.data)
+				axios.defaults.headers.common['Authorization'] = `Basic ${res.data}`
+				history.push('/app/dashboard')
 			})
 			.catch((err) => {
 				setLoginStatus(0)
@@ -75,7 +78,7 @@ const Login = () => {
 								<ErrorMessage message='Please enter your password!' />
 							)}
 						</div>
-						{loginStatus === 0 && <ErrorMessage message='Bad login or password!' />}
+						{loginStatus == 0 && <ErrorMessage message='Bad login or password!' />}
 
 						<div className='btn'>
 							<button type='submit'>Login</button>
