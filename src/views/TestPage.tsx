@@ -1,5 +1,7 @@
+// import SupervisorReview from '../components/SupervisorReview'
+
+import PhotoReview from '../components/PhotoReview'
 import styled from 'styled-components'
-import SupervisorReview from '../components/SupervisorReview'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -16,12 +18,11 @@ const Wrapper = styled.div`
 `
 
 const TestPage = () => {
-
-  return <>
+  return (
     <Wrapper>
-        <SupervisorReview />
-     </Wrapper>
-  </>
+      <PhotoReview />
+    </Wrapper>
+  )
 }
 
 export default TestPage

@@ -1,0 +1,42 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
+a,
+a:active,
+a:checked,
+a:focus {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:active {
+  color: black;
+}

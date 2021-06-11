@@ -1,34 +1,38 @@
 import '../assets/scss/Footer.scss'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 import logo from '../assets/img/logo.svg'
 
 type FooterTileProps = {
-  className: string;
-  headline: string;
-  lines: {link?: string
-          line: string
-          }[]
+  className: string
+  headline: string
+  lines: { link?: string; line: string }[]
 }
 
-const FooterTile = ({className, headline, lines}:FooterTileProps) => {
+const FooterTile = ({ className, headline, lines }: FooterTileProps) => {
   return (
     <div className={`bottom-tile-wrapper ${className}`}>
       <Router>
-        <Link to='/'>
+        <Link to="/">
           <h4>{headline}</h4>
         </Link>
-        {lines.map((l) => {
+        {lines.map((l, i) => {
           return (
             <>
               {l.link && (
-                <Link to={l.link}>
-                  <p className="bottom-tile-adress-line">{l.line}</p>
+                <Link key={i} to={l.link}>
+                  <p key={i + 100} className="bottom-tile-adress-line">
+                    {l.line}
+                  </p>
                 </Link>
               )}
-              {!l.link && <p className="bottom-tile-adress-line">{l.line}</p>}
+              {!l.link && (
+                <p key={i} className="bottom-tile-adress-line">
+                  {l.line}
+                </p>
+              )}
             </>
           )
         })}
@@ -58,12 +62,8 @@ const Footer = () => {
                   <FaFacebookF />
                 </IconContext.Provider>
               </Link>
-              <Link to='/' className="twitter">
-                <IconContext.Provider value={{ color: '#fff', size: '2.3em' }}>
-                  <FaTwitter />
-                </IconContext.Provider>
-              </Link>
-              <Link to='/' className="linkedin">
+              <Link to="/" className="twitter"></Link>
+              <Link to="/" className="linkedin">
                 <IconContext.Provider
                   value={{
                     color: '#fff',
@@ -115,7 +115,6 @@ const Footer = () => {
                 { line: 'Lorem ipsum', link: '/' },
                 { line: 'Lorem ipsum', link: '/' },
                 { line: 'Lorem ipsum', link: '/' },
-             
               ]}
             />
             <FooterTile
@@ -124,15 +123,12 @@ const Footer = () => {
               lines={[
                 {
                   line: '19833 Silicon Valley Avenue',
-   
                 },
                 {
                   line: 'Palo Alto',
-  
                 },
                 {
                   line: 'USA',
-      
                 },
                 { line: '+1 (252) 23 328', link: '/' },
               ]}

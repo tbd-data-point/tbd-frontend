@@ -10,47 +10,59 @@ const Navbar = () => {
     setOpen(false)
   }
   const [login, setLogin] = useState(false)
-    const [signup, setSignup] = useState(false)
-  
-    const openLogin = () => {
-      setLogin(!login)
-    }
-  
-    const openSignup = () => {
-      setSignup(!signup)
-    }
+  const [signup, setSignup] = useState(false)
 
-    const enableScroll = () => {
-      document.body.style.overflow = 'auto'
-    }
-  
-    useEffect(() => {
-      if (login || signup)
-        document.body.style.overflow = 'hidden'
-      if (!login && !signup)
-        document.body.style.overflow = 'auto'
-  
-    })
+  const openLogin = () => {
+    setLogin(!login)
+  }
+
+  const openSignup = () => {
+    setSignup(!signup)
+  }
+
+  const enableScroll = () => {
+    document.body.style.overflow = 'auto'
+  }
+
+  useEffect(() => {
+    if (login || signup) document.body.style.overflow = 'hidden'
+    if (!login && !signup) document.body.style.overflow = 'auto'
+  })
 
   return (
-    
     <>
-    <div className={login ? 'login-section' : 'login-section close'}>
-        <div onClick={openLogin} className='close-btn-wrapper'><div className='close-btn'/></div>
-        <div className='btn-wrapper'>
-          
-            <Link to='/login'><div className='btn filled' onClick={enableScroll} >Worker Login</div></Link>
-            <Link to='/login'><div className='btn not-filled' onClick={enableScroll}>Buyer Login</div></Link>
-          
+      <div className={login ? 'login-section' : 'login-section close'}>
+        <div onClick={openLogin} className="close-btn-wrapper">
+          <div className="close-btn" />
+        </div>
+        <div className="btn-wrapper">
+          <Link to="/login">
+            <div className="btn filled" onClick={enableScroll}>
+              Worker Login
+            </div>
+          </Link>
+          <Link to="/login">
+            <div className="btn not-filled" onClick={enableScroll}>
+              Buyer Login
+            </div>
+          </Link>
         </div>
       </div>
       <div className={signup ? 'signup-section' : 'signup-section close'}>
-        <div onClick={openSignup} className='close-btn-wrapper'><div className='close-btn'/></div>
-        <div className='btn-wrapper'>
-       
-            <Link to='/signup'><div className='btn filled' onClick={enableScroll}>Worker Signup</div></Link>
-            <Link to='/signup'><div className='btn not-filled' onClick={enableScroll}>Buyer Signup</div></Link>
-       
+        <div onClick={openSignup} className="close-btn-wrapper">
+          <div className="close-btn" />
+        </div>
+        <div className="btn-wrapper">
+          <Link to="/signup">
+            <div className="btn filled" onClick={enableScroll}>
+              Worker Signup
+            </div>
+          </Link>
+          <Link to="/signup">
+            <div className="btn not-filled" onClick={enableScroll}>
+              Buyer Signup
+            </div>
+          </Link>
         </div>
       </div>
       <div className="upper-section-wrapper">
@@ -66,8 +78,8 @@ const Navbar = () => {
         <Router>
           <div className="navbar-background">
             <div className="navbar-wrapper">
-              <Link to='/'>
-              <img alt="" className="navbar-logo" src={logo}></img>
+              <Link to="/">
+                <img alt="" className="navbar-logo" src={logo}></img>
               </Link>
               <nav>
                 <Link to="/solutions">
@@ -96,15 +108,15 @@ const Navbar = () => {
                 </Link>
               </nav>
               <div className="navbar-right-section">
-            
-                  <div className="navbar-btn-border-wrap" id="signup" onClick={openSignup}>
-                    <div className="navbar-btn">Signup</div>
-                  </div>
-               
                 <div
                   className="navbar-btn-border-wrap"
-                  onClick={openLogin}
+                  id="signup"
+                  onClick={openSignup}
                 >
+                  <div className="navbar-btn">Signup</div>
+                </div>
+
+                <div className="navbar-btn-border-wrap" onClick={openLogin}>
                   <div className="navbar-btn">Login</div>
                 </div>
               </div>
