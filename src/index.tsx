@@ -5,13 +5,16 @@ import App from './App'
 import { ScrollToTop } from './components/helpers/hooks'
 import { HashRouter as Router } from 'react-router-dom'
 // import reportWebVitals from './reportWebVitals'
+import { CookiesProvider } from 'react-cookie'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ScrollToTop />
-      <App />
-    </Router>
+    <CookiesProvider>
+      <Router>
+        <ScrollToTop />
+        <App />
+      </Router>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 )

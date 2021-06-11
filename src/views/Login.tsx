@@ -1,29 +1,51 @@
 import '../assets/scss/Login.scss'
 import logo from '../assets/img/logo.svg'
 
+import { useState } from 'react'
 import * as yup from 'yup'
 import { TiWarning } from 'react-icons/ti'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useCookies } from 'react-cookie'
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
+  const [loginStatus, setLoginStatus] = useState<number>()
+  const [cookies, setCookie] = useCookies(['user'])
+
+  let history = useHistory()
+
   type LoginCred = {
     email: string
     password: string
   }
   const onSubmit = (d: LoginCred) => {
-    alert(JSON.stringify(d))
+    axios
+      .post('http://localhost:5000/user/login', { ...d })
+      .then((res) => {
+        setLoginStatus(1)
+        setCookie('user', res.data)
+        axios.defaults.headers.common[
+          'Authorization'
+        ] = `Basic ${res.data}`
+        history.push('/app/dashboard')
+      })
+      .catch((err) => {
+        setLoginStatus(0)
+      })
   }
 
-  const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-  })
+  const schema = yup
+    .object()
+    .shape({
+      email: yup.string().email().required(),
+      password: yup.string().required(),
+    })
 
-  const { register, handleSubmit, errors } = useForm<LoginCred>({
-    resolver: yupResolver(schema),
-  })
+  const { register, handleSubmit, errors } =
+    useForm<LoginCred>({ resolver: yupResolver(schema) })
 
   return (
     <>
@@ -34,19 +56,29 @@ const Login = () => {
         </Link>
         <div className="form-wrapper">
           <h1>Login to DataPoint™</h1>
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
             <div className="element">
               <label>Email</label>
               <div className="input-wrapper">
-                <input name="email" id="email" type="email" ref={register()} />
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  ref={register()}
+                />
                 <div className="decoration email" />
               </div>
-              {errors.email && errors.email.type === 'required' && (
-                <ErrorMessage message="Please enter your email!" />
-              )}
-              {errors.email && errors.email.type === 'email' && (
-                <ErrorMessage message="Please enter valid email!" />
-              )}
+              {errors.email &&
+                errors.email.type === 'required' && (
+                  <ErrorMessage message="Please enter your email!" />
+                )}
+              {errors.email &&
+                errors.email.type === 'email' && (
+                  <ErrorMessage message="Please enter valid email!" />
+                )}
             </div>
             <div className="element">
               <label>Password</label>
@@ -59,10 +91,16 @@ const Login = () => {
                 />
                 <div className="decoration password" />
               </div>
-              {errors.password && errors.password.type === 'required' && (
-                <ErrorMessage message="Please enter your password!" />
-              )}
+
+              {errors.password &&
+                errors.password.type === 'required' && (
+                  <ErrorMessage message="Please enter your password!" />
+                )}
             </div>
+            {loginStatus == 0 && (
+              <ErrorMessage message="Bad login or password!" />
+            )}
+
             <div className="btn">
               <button type="submit">Login</button>
             </div>

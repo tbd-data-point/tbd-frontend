@@ -1,10 +1,13 @@
 import '../assets/scss/Signup.scss'
 import logo from '../assets/img/logo.svg'
+
 import * as yup from 'yup'
 import { TiWarning } from 'react-icons/ti'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
 
 type SignupCred = {
   fname?: string
@@ -15,20 +18,36 @@ type SignupCred = {
 }
 
 const Signup = () => {
-  const schema = yup
-    .object()
-    .shape({
-      fname: yup.string().required(),
-      lname: yup.string().required(),
-      email: yup.string().email().required(),
-      password: yup.string().required(),
-      passwordMatch: yup.string().oneOf([yup.ref('password'), null]),
-    })
-  const { register, handleSubmit, errors } = useForm<SignupCred>({
-    resolver: yupResolver(schema),
+  const [signupStatus, setSignupStatus] = useState<any>()
+  const history = useHistory()
+
+  const schema = yup.object().shape({
+    fname: yup.string().required(),
+    lname: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().required(),
+    passwordMatch: yup
+      .string()
+      .oneOf([yup.ref('password'), null]),
   })
+  const { register, handleSubmit, errors } =
+    useForm<SignupCred>({ resolver: yupResolver(schema) })
   const onSubmit = (data: SignupCred) => {
     alert(JSON.stringify(data))
+    axios
+      .post('http://localhost:5000/user/register', {
+        ...data,
+      })
+      .then((suc) => {
+        setTimeout(() => {
+          history.push('/login')
+        }, 1000)
+      })
+      .catch((err) => {
+        setSignupStatus(
+          'There was an error while adding new user',
+        )
+      })
   }
 
   return (
@@ -40,39 +59,61 @@ const Signup = () => {
         </Link>
         <div className="form-wrapper">
           <h1>Signup to DataPoint™</h1>
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
             <div className="element">
               <label>First Name</label>
               <div className="input-wrapper">
-                <input name="fname" id="fname" type="text" ref={register()} />
+                <input
+                  name="fname"
+                  id="fname"
+                  type="text"
+                  ref={register()}
+                />
                 <div className="decoration" />
               </div>
-              {errors.fname && errors.fname.type === 'required' && (
-                <ErrorMessage message="Please enter your first name!" />
-              )}
+              {errors.fname &&
+                errors.fname.type === 'required' && (
+                  <ErrorMessage message="Please enter your first name!" />
+                )}
             </div>
             <div className="element">
               <label>Last Name</label>
               <div className="input-wrapper">
-                <input name="lname" id="lname" type="text" ref={register()} />
+                <input
+                  name="lname"
+                  id="lname"
+                  type="text"
+                  ref={register()}
+                />
                 <div className="decoration" />
               </div>
-              {errors.lname && errors.lname.type === 'required' && (
-                <ErrorMessage message="Please enter your last name!" />
-              )}
+              {errors.lname &&
+                errors.lname.type === 'required' && (
+                  <ErrorMessage message="Please enter your last name!" />
+                )}
             </div>
             <div className="element">
               <label>Email</label>
               <div className="input-wrapper">
-                <input name="email" id="email" type="email" ref={register()} />
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  ref={register()}
+                />
                 <div className="decoration" />
               </div>
-              {errors.email && errors.email.type === 'required' && (
-                <ErrorMessage message="Please enter your email!" />
-              )}
-              {errors.email && errors.email.type === 'email' && (
-                <ErrorMessage message="Please enter valid email!" />
-              )}
+              {errors.email &&
+                errors.email.type === 'required' && (
+                  <ErrorMessage message="Please enter your email!" />
+                )}
+              {errors.email &&
+                errors.email.type === 'email' && (
+                  <ErrorMessage message="Please enter valid email!" />
+                )}
             </div>
             <div className="element">
               <label>Password</label>
@@ -85,9 +126,10 @@ const Signup = () => {
                 />
                 <div className="decoration" />
               </div>
-              {errors.password && errors.password.type === 'required' && (
-                <ErrorMessage message="Please enter your password!" />
-              )}
+              {errors.password &&
+                errors.password.type === 'required' && (
+                  <ErrorMessage message="Please enter your password!" />
+                )}
             </div>
 
             <div className="element">
@@ -106,6 +148,10 @@ const Signup = () => {
                   <ErrorMessage message="Passwords must match!" />
                 )}
             </div>
+            {signupStatus && (
+              <ErrorMessage message={signupStatus} />
+            )}
+
             <div className="btn">
               <button type="submit">Submit</button>
             </div>

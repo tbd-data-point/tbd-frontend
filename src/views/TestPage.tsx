@@ -2,6 +2,7 @@
 
 import PhotoReview from '../components/PhotoReview'
 import styled from 'styled-components'
+import UploadModal from '../components/UploadModal'
 
 const Wrapper = styled.div`
   height: 100vh;
