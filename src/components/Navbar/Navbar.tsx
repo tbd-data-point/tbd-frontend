@@ -1,5 +1,4 @@
-import Login from './Login'
-import Signup from './Signup'
+import SignInUp from './SignInUp'
 import styled from 'styled-components'
 import logo from '../../assets/img/logo.svg'
 import { useState, useEffect } from 'react'
@@ -91,8 +90,8 @@ const Navbar = () => {
 
   return (
     <>
-      <Login isOpen={login} changeOpen={changeLogin} />
-      <Signup isOpen={signup} changeOpen={changeSignup} />
+      <SignInUp isOpen = {login} changeOpen={changeLogin} mode = "Login"/>
+      <SignInUp isOpen = {signup} changeOpen={changeSignup} mode = "Signup"/>
       <AdditionalInfo>
         Lorem Ipsum klasdjf;lkasjf lfkjdsa;lk
         dsakjfhdlkjashfldkjahlfkdjhalfkdjhlkjdfhslkjdslaujhfkdsjhaflkjdshlfkjdhlafdjhldksj

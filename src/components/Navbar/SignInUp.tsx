@@ -73,15 +73,17 @@ const ButtonWrapper = styled(Link)<ButtonWrapperProps>`
   }
 `
 
-type LoginProps = {
+type SignInUpProps = {
   isOpen: boolean
   changeOpen: () => void
+  mode: string
 }
 
-const Signup = ({ isOpen, changeOpen }: LoginProps) => {
+const SignInUp = ({ isOpen, changeOpen, mode }: SignInUpProps) => {
   const style = useSpring({
     top: isOpen ? '0vh' : '-100vh',
   })
+  const modeForLinks = "/"+mode.toLocaleLowerCase();
   return (
     <>
       <Wrapper style={style}>
@@ -96,15 +98,15 @@ const Signup = ({ isOpen, changeOpen }: LoginProps) => {
         >
           <CloseButton />
         </div>
-        <ButtonWrapper to="/signup">
-          <Button>Buyer Signup</Button>
+        <ButtonWrapper to={modeForLinks}>
+          <Button>Buyer {mode}</Button>
         </ButtonWrapper>
-        <ButtonWrapper to="/signup" margin="0 0 0 80px">
-          <Button inverted>Worker Signup</Button>
+        <ButtonWrapper to={modeForLinks} margin="0 0 0 80px">
+          <Button inverted>Worker {mode}</Button>
         </ButtonWrapper>
       </Wrapper>
     </>
   )
 }
 
-export default Signup
+export default SignInUp
