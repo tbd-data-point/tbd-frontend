@@ -47,13 +47,10 @@ const Sidebar = (props: PropsType) => {
     <>
       <Wrapper>
         <Options>
-          {props.items.map((v) => {
-            if (v.isFocus) {
-              return <Focused>{v.label}</Focused>
-            } else {
-              return <Option to={v.link}>{v.label}</Option>
-            }
-          })}
+          {props.items.map((v, index) => 
+            v.isFocus ? <Focused key = {"sidebarElem"+index}>{v.label}</Focused> : 
+            <Option to={v.link} key = {"sidebarElem"+index}>{v.label}</Option>
+          )}
         </Options>
       </Wrapper>
     </>

@@ -53,6 +53,7 @@ const FooterTiles = () => {
 
     return <div className="links">
       {tilesData.map(elem => <FooterTile
+      key = {elem["headlineContent"]}
       className={elem["className"]}
       headline={elem["headlineContent"]}
       lines={elem["linesContent"]}/>)}

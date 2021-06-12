@@ -31,7 +31,7 @@ const SocialMedia = () => {
         <Link to="/" className="tbd">
             <img alt="" src={logo} className="tbd-logo" />
         </Link>
-        {SocialMediaLinks.map(elem => <Link to={elem["href"]} className={elem["className"]}>
+        {SocialMediaLinks.map(elem => <Link to={elem["href"]} className={elem["className"]} key = {elem["className"]}>
             <IconContext.Provider
             value={iconStyle}>
             {elem["icon"]}
