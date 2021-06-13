@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useState, useRef } from "react"
-import { string } from "yup/lib/locale"
+// /import { string } from "yup/lib/locale"
 
 const TaggedInputWrapper = styled.div`
     display: flex;
@@ -122,12 +122,12 @@ const TaggedInput = ({ tags, setTags, style = { height: "100%", width: "100%", f
     ]
 
     const handleKeywords = (e: any) => {
-        if (e.type == "blur") e.target.value = ""
+        if (e.type === "blur") e.target.value = ""
         if (e.target.value.length > 0) {
             let matches = keywords.filter((element) => {
                 return !tags.includes(element)
             })
-            if (matches.length == 0) {
+            if (matches.length === 0) {
                 matches = matches.filter((element) => {
                     return element.match(e.target.value)
                 })
@@ -164,7 +164,7 @@ const TaggedInput = ({ tags, setTags, style = { height: "100%", width: "100%", f
                                         onClick={() =>
                                             setTags((tagList: string[]) =>
                                                 tagList.filter((e: string, i: number) => {
-                                                    return i != index
+                                                    return i !== index
                                                 })
                                             )
                                         }>
@@ -177,7 +177,7 @@ const TaggedInput = ({ tags, setTags, style = { height: "100%", width: "100%", f
                             onBlur={handleKeywords}
                             onChange={handleKeywords}
                             ref={inputDOM}
-                            placeholder={tags.length == 0 ? "Start typing your keywords..." : ""}
+                            placeholder={tags.length === 0 ? "Start typing your keywords..." : ""}
                             style={{ fontSize: style.fontSize }}
                         />
                     </InputForeground>
