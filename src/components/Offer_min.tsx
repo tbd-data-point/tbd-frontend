@@ -83,9 +83,9 @@ const OfferMin = (props: PropsType) => {
     }
 
     const swipeSmallPreview = (direction: String) => {
-        if (direction == "right") {
+        if (direction === "right") {
             smallPreview - 1 < 0 ? setSmallPreview(props.data.imgLink.length - 1) : setSmallPreview(smallPreview - 1)
-        } else if (direction == "left") {
+        } else if (direction === "left") {
             smallPreview + 1 > props.data.imgLink.length - 1 ? setSmallPreview(0) : setSmallPreview(smallPreview + 1)
         }
     }

@@ -6,6 +6,7 @@ import { ScrollToTop } from './components/helpers/hooks'
 import { HashRouter as Router } from 'react-router-dom'
 // import reportWebVitals from './reportWebVitals'
 import { CookiesProvider } from 'react-cookie'
+import * as serviceWorker from './service-worker.js';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,3 +24,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals()
+
+serviceWorker.register();

@@ -13,7 +13,7 @@ const LinkWrapperComponent = () => {
     return <LinkWrapper>
     {navbarElements.map((v, i) => {
       return (
-        <Link to={v.url}>
+        <Link to={v.url} key = {"link"+i}>
           <LinkElement key={i}>
             <Flex>
               <Decoration />

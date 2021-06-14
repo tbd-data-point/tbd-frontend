@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
+   sodipodi:docname="logo.svg"
+   width="200.0px"
+   height="200.0px"
+   viewBox="0 0 200.0 200.0"
+   version="1.1"
+   id="SVGRoot">
+  <sodipodi:namedview
+     inkscape:current-layer="SVGRoot"
+     inkscape:window-maximized="0"
+     inkscape:window-y="25"
+     inkscape:window-x="0"
+     inkscape:cy="102.60025"
+     inkscape:cx="65.53584"
+     inkscape:zoom="2.3982015"
+     showgrid="false"
+     id="namedview134"
+     inkscape:window-height="940"
+     inkscape:window-width="1680"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs27" />
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     transform="scale(1.3988016,1.4449054)"
+     inkscape:transform-center-y="8.6117917"
+     inkscape:transform-center-x="1.7912296"
+     d="M 120.30594,4.8714948 142.97954,90.418132 68.626377,138.41737 1.1159812e-6,82.53589 31.939728,1.3473987e-6 Z"
+     inkscape:randomized="0"
+     inkscape:rounded="0"
+     inkscape:flatsided="true"
+     sodipodi:arg2="-0.25908655"
+     sodipodi:arg1="-0.88740508"
+     sodipodi:r2="60.905167"
+     sodipodi:r1="75.282928"
+     sodipodi:cy="63.248577"
+     sodipodi:cx="72.770317"
+     sodipodi:sides="5"
+     id="path48"
+     style="fill:#000000"
+     sodipodi:type="star" />
+  <text
+     id="text52"
+     y="114.24577"
+     x="22.993507"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.8831px;line-height:1.25;font-family:Didot;-inkscape-font-specification:'Didot Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.67207"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.8831px;font-family:Didot;-inkscape-font-specification:'Didot Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.67207"
+       y="114.24577"
+       x="22.993507"
+       id="tspan50"
+       sodipodi:role="line">Logo</tspan></text>
+</svg>

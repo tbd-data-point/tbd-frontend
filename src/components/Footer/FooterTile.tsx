@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 type FooterTileProps = {
     className: string
     headline: string
-    lines: { link?: string; line: string }[]
+    lines: { link?: string; line: string }[],
+    tileKey: string
 }
   
-const FooterTile = ({ className, headline, lines }: FooterTileProps) => {
+const FooterTile = ({ className, headline, lines, tileKey }: FooterTileProps) => {
     return (
-      <div className={`bottom-tile-wrapper ${className}`}>
+      <div className={`bottom-tile-wrapper ${className}`} key={tileKey}>
         <Router>
           <Link to="/">
             <h4>{headline}</h4>
