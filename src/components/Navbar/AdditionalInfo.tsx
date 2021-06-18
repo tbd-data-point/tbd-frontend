@@ -5,13 +5,24 @@ import { useSpring, animated as a } from 'react-spring'
 import { useState } from 'react'
 
 const Wrapper = styled(a.section)`
-  height: 40px;
+  height: 6vh;
   background: black;
   color: white;
   display: flex;
   align-items: center;
   overflow: hidden;
   padding: 0px 80px;
+
+  @media (max-width: 1020px){
+    font-size: 0.8em;
+  }
+  @media (max-width: 836px){
+    font-size: 0.6em;
+  }
+  @media (max-width: 740px){
+    display: none;
+    height: 0;
+  }
 `
 
 type PropsTypes = {
@@ -21,7 +32,7 @@ type PropsTypes = {
 const AdditionalInfo = ({ children }: PropsTypes) => {
   const [toggle, setToggle] = useState(false)
   const style = useSpring({
-    height: toggle ? '0px' : '40px',
+    height: toggle ? '0px' : '6vh',
   })
   return (
     <Wrapper style={style}>
@@ -31,8 +42,8 @@ const AdditionalInfo = ({ children }: PropsTypes) => {
         onClick={() => setToggle(true)}
         style={{
           margin: '0px 0px 0px auto',
-          width: '0.7em',
-          height: '0.7em',
+          width: '1.5vh',
+          height: '1.5vh',
         }}
       />
     </Wrapper>

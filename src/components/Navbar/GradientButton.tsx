@@ -15,6 +15,14 @@ const Button = styled.div`
   border-radius: 25px;
   padding: 2px 16px;
   cursor: pointer;
+
+  @media (max-width: 923px){
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 823px){
+    font-size: 0.6em;
+  }
 `
 
 type PropsTypes = {
