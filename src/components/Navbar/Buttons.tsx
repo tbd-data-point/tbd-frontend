@@ -6,21 +6,22 @@ const ButtonWrapper = NavbarStyledComponents.ButtonWrapper;
 
 type ButtonsProps = {
     loginCallback: () => void,
-    signupCallback: () => void
+    signupCallback: () => void,
+    isResp: boolean
 };
 
-const Buttons = ({loginCallback, signupCallback}: ButtonsProps) => {
-    return         <ButtonWrapper>
-    <GradientButton
-      onClick={loginCallback}
-      role="button"
-    >
-      Login
-    </GradientButton>
-    <GradientButton onClick={signupCallback}>
-      Signup
-    </GradientButton>
-  </ButtonWrapper>;
+const Buttons = ({loginCallback, signupCallback, isResp}: ButtonsProps) => {
+    return <ButtonWrapper isResp={isResp}>
+      <GradientButton
+        onClick={loginCallback}
+        role="button" topPos = "55vh"
+      >
+        Login
+      </GradientButton>
+      <GradientButton onClick={signupCallback} topPos = "62vh">
+        Signup
+      </GradientButton>
+    </ButtonWrapper>;
 }
 
 export default Buttons;

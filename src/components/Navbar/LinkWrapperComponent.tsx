@@ -9,12 +9,12 @@ const LinkElement = NavbarStyledComponents.LinkElement;
 const Flex = NavbarStyledComponents.Flex;
 const Decoration = NavbarStyledComponents.Decoration;
 
-const LinkWrapperComponent = () => {
-    return <LinkWrapper>
+const LinkWrapperComponent = ({isResp}:any) => {
+    return <LinkWrapper isResp = {isResp}>
     {navbarElements.map((v, i) => {
       return (
         <Link to={v.url} key = {"link"+i}>
-          <LinkElement key={i}>
+          <LinkElement key={i} topPosition = {((i*10)+10)+"vh"}>
             <Flex>
               <Decoration />
               {v.label}
