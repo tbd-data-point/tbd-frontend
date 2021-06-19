@@ -15,6 +15,10 @@ const OpeningWrapper = styled.div`
     @media (max-width: 738px){
         display: flex;
     }
+
+    @media (max-width: 408px){
+        margin-left: 60vw;
+    }
 `;
 
 const OpeningBar = styled.div<OpeningBarProps>`
@@ -26,6 +30,10 @@ const OpeningBar = styled.div<OpeningBarProps>`
     position: absolute;
     top: ${(props) =>
         props.topPosition ? props.topPosition : "0px"};
+        
+    @media (max-width: 408px){
+        width: 25px;
+    }
 `;
 
 const RespOpeningBtn = ({openCallback}:any) => {

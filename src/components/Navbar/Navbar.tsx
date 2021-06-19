@@ -46,7 +46,7 @@ const Navbar = () => {
         <LogoLink to={'/'}>
           <Logo alt="Logo" src={logo} />
         </LogoLink>
-        <LinkWrapperComponent isResp={false}/>
+        <LinkWrapperComponent isResp = {false}/>
         <Buttons loginCallback = {changeLogin} signupCallback={changeSignup} isResp={false}/>
         <RespOpeningBtn openCallback = {changeResp}/>
       </Wrapper>

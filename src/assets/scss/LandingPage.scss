@@ -9,6 +9,14 @@ $blue-gradient: linear-gradient(
   #faffff 91.67%,
   rgba(255, 255, 255, 0) 100%
 );
+$green-gradient-resp: linear-gradient(180deg, colors.$green_9 0%, colors.$white 100%);
+$blue-gradient-resp: linear-gradient(
+  0deg,
+  rgba(204, 253, 255, 0.67) 0%,
+  #f1ffff 71.35%,
+  #faffff 91.67%,
+  rgba(255, 255, 255, 0) 100%
+);
 
 $text-gradient: linear-gradient(
   180deg,
@@ -33,7 +41,7 @@ h1 {
 h2 {
   font-weight: 300;
   font-size: fonts.$medium;
-  margin: 2em 0 2em 0;
+  margin: 2em 0;
 }
 
 #text-under-headline {
@@ -80,11 +88,11 @@ h2 {
 
 .button {
   font-size: fonts.$medium;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
 }
 
 .button-filled {
-  padding: 6px 11px 6px 11px;
+  padding: 6px 11px;
 }
 
 .button-not-filled {
@@ -94,6 +102,10 @@ h2 {
 
 .right-button {
   margin-left: 1.2em;
+}
+
+.hidden-button{
+  display: none;
 }
 
 #black-button {
@@ -243,4 +255,87 @@ h2 {
 .login-section.close,
 .signup-section.close {
   top: -100vh;
+}
+@media screen and (max-width: 1112px) {
+  .button{
+      font-size: 1.1em;
+      padding: 7px 20px;
+  }
+  .landing-text-section{
+    width: 69%;
+    .headline-wrapper > h1{
+      font-size: 2em;    
+    }
+  }
+}
+@media screen and (max-width: 742px) {
+  .landing-text-section{
+    width: 79%;
+    .headline-wrapper > h1{
+      font-size: 1.6em;    
+    }
+  }
+  #headline-color{
+    display: none;
+  }
+  .button{
+    display: none;
+  }
+  .hidden-button{
+    display: flex;
+  }
+}
+@media screen and (max-width: 598px) {
+  .right-gradient, .left-gradient{
+    width: 10%;
+  }
+  .landing-text-section{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .headline-wrapper > h1{
+      font-size: 1.3em;    
+    }
+    h2{
+      font-size: 1em;
+      width: 100%;
+    }
+  }
+  .hidden-button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 464px) {
+  .right-gradient, .left-gradient, .landing-text-section{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: absolute;
+  }
+  .left-gradient{
+    height: 10%;
+    background: $green-gradient-resp;
+  }
+  .right-gradient{
+    height: 30%;
+    bottom: 0;
+    background: $blue-gradient-resp;
+  }
+
+  .landing-text-section{
+    height: 60%;
+    .headline-wrapper > h1{
+      font-size: 1.2em;    
+    }
+    h2{
+      font-size: 0.87em;
+      width: 100%;
+    }
+  }
 }

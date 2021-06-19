@@ -41,6 +41,14 @@ const LandingPage = () => {
                 See solutions
               </div>
             </Link>
+            <Link to="/">
+              <div
+                className="button button-filled hidden-button"
+                id="black-button"
+              >
+                Sign up
+              </div>
+            </Link>
           </div>
         </div>
         <div className="right-gradient" />
