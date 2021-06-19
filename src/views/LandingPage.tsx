@@ -69,7 +69,7 @@ const LandingPage = () => {
           <div className="text-button-section">
             <Link to="/">
               <div
-                className="button button-not-filled"
+                className="button button-not-filled staying-button"
                 id="white-button-not-filled"
               >
                 Learn more
@@ -77,7 +77,7 @@ const LandingPage = () => {
             </Link>
             <Link to="/">
               <div
-                className="button button-filled right-button"
+                className="button button-filled right-button staying-button"
                 id="white-button-filled"
               >
                 Signup
