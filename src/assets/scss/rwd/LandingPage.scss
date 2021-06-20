@@ -18,6 +18,32 @@
       }
     }
 }
+@media screen and (max-width: 1053px) {
+  .bottom-section-wrapper{
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    .bottom-headline-wrapper{
+      width: 100%;
+      .bottom-headline-section{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      h1{
+        font-size: 2em;
+        width: fit-content;
+        display: inline-block;
+      }
+      #bottom-subtitle{
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
 @media screen and (max-width: 861px) {
     #middle-section-headline{
         font-size: 1.7em;
@@ -34,6 +60,27 @@
     .staying-button{
         font-size: 0.9em;
     }
+}
+@media screen and (max-width: 815px) {
+  .bottom-tiles-wrapper {
+    .tiles-non-rwd{
+      display: none;
+    }
+    .swiper-slide-container{
+      width: 100%;
+    }
+    .tiles-rwd{
+      display: block;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      .thumbnail{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 }
 @media screen and (max-width: 742px) {
     .landing-text-section{
@@ -108,6 +155,13 @@
           }
     }
 }
+@media screen and (max-width: 515px) {
+  .bottom-tiles-wrapper {
+    .tiles-rwd{
+      width: 90%;
+    }
+  }
+}
 @media screen and (max-width: 464px) {
     .landing-wrapper{
         .right-gradient, .left-gradient, .landing-text-section{
@@ -154,4 +208,35 @@
             }
         }
     }
+}
+@media screen and (max-width: 385px) {
+  .bottom-section-wrapper{
+    .bottom-headline-wrapper{
+      h1{
+        font-size: 1.6em;
+      }
+      #bottom-subtitle{
+        font-size: 1em;
+      }
+    }
+  }
+  .bottom-tiles-wrapper {
+    .tiles-rwd{
+      width: 95%;
+      .headline{
+        font-size: 1.2em;
+      }
+      .description{
+        font-size: 1em;
+      }
+    }
+  }
+}
+@media screen and (max-width: 317px) {
+  .bottom-tiles-wrapper{
+    .tiles-rwd{
+      width: 100%;
+      font-size: 0.8em;
+    }
+  }
 }

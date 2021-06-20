@@ -1,9 +1,13 @@
 import { Navbar, Footer } from '../components'
 import { Link } from 'react-router-dom'
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import leaders from '../assets/img/leaders.jpg'
 import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
+import "swiper/swiper.min.css";
+
+import LandingPageData from "../assets/data/LandingPage.json";
 
 const LandingPage = () => {
   return (
@@ -107,24 +111,26 @@ const LandingPage = () => {
           </h2>
         </div>
         <div className="bottom-tiles-wrapper">
-          <BottomTile
-            headline="Lorem Ipsum"
-            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
-            link="/test2"
-            bg="linear-gradient(90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
-          />
-          <BottomTile
-            headline="Lorem Ipsum"
-            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
-            link="/test1"
-            bg="radial-gradient(circle, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
-          />
-          <BottomTile
-            headline="Lorem Ipsum"
-            description="Phasellus sit amet, sodales eu, purus. Phasellus aliquet quis, justo. Nulla porta sapien eleifend mauris sit amet, nonummy commodo magna, sollicitudin eget, dignissim a, hendrerit "
-            link="/test3"
-            bg="linear-gradient(-90deg, rgba(0,243,255,1) 0%, rgba(175,255,49,1) 100%)"
-          />
+          {LandingPageData["sliders"].map((tile, index) => <BottomTile
+              key = {"tile"+index}
+              classes = "tile-wrapper tiles-non-rwd"
+              headline={tile["headline"]}
+              description={tile["description"]}
+              link={tile["link"]}
+              bg={tile["bg"]}
+            />)}
+            <Swiper className="tiles-rwd" spaceBetween={2}
+                    slidesPerView={1}
+                    loop = {true}>
+            {LandingPageData["sliders"].map((tile, index) => <SwiperSlide className = "swiper-slide-container"><BottomTile
+              key = {"tile"+index}
+              classes = "tile-wrapper tiles-rwd"
+              headline={tile["headline"]}
+              description={tile["description"]}
+              link={tile["link"]}
+              bg={tile["bg"]}
+            /></SwiperSlide>)}
+            </Swiper>
         </div>
       </div>
       <Footer />
@@ -137,6 +143,7 @@ type BottomTileProps = {
   headline: string
   description: string
   link: string
+  classes: string
 }
 
 const BottomTile = ({
@@ -144,9 +151,10 @@ const BottomTile = ({
   headline,
   description,
   link,
+  classes
 }: BottomTileProps) => {
   return (
-    <div className="tile-wrapper">
+    <div className={classes}>
       <div
         className="thumbnail"
         style={{ background: bg }}
