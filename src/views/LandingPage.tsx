@@ -123,7 +123,7 @@ const LandingPage = () => {
                     slidesPerView={1}
                     loop = {true}>
             {LandingPageData["sliders"].map((tile, index) => <SwiperSlide className = "swiper-slide-container"><BottomTile
-              key = {"tile"+index}
+              key = {"tileRWD"+index}
               classes = "tile-wrapper tiles-rwd"
               headline={tile["headline"]}
               description={tile["description"]}

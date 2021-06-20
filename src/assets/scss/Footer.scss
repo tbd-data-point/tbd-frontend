@@ -96,3 +96,45 @@ footer .line {
   color: colors.$white;
   margin: 0.5em 0 0.5em 0;
 }
+
+@media screen and (max-width: 912px) {
+  .footer-wrapper{
+    width: 90%;
+    margin-left: 5%;
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 728px) {
+  .footer-wrapper{
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 646px) {
+  .logos {
+    grid-template-columns: 2.5em auto 2em 2em 2em;
+  }
+  .bottom-tile-wrapper{
+    font-size: 1.3em;
+    margin-bottom: 3.5vh;
+  }
+  .footer-contact{
+    margin-top: 10vh;
+  }
+  .links{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    .non-rwd-lines{
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 434px) {
+  .logos {
+    grid-template-columns: 2.5em auto 1.7em 1.7em 1.7em;
+  }
+  .bottom-tile-wrapper{
+    font-size: 1.1em;
+  }
+}

@@ -20,7 +20,7 @@ const FooterTile = ({ className, headline, lines, tileKey }: FooterTileProps) =>
               <>
                 {l.link && (
                   <Link key={i} to={l.link}>
-                    <p key={i + 100} className="bottom-tile-adress-line">
+                    <p key={i + 100} className="bottom-tile-adress-line non-rwd-lines">
                       {l.line}
                     </p>
                   </Link>
