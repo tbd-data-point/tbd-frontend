@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Navbar, Footer } from '../components/'
-import PlaceholderImg from '../assets/img/a.jpg'
 import { Link } from 'react-router-dom'
+import resourcesData from "../assets/data/Resources.js";
 
 const blue_1 = '#002d2f'
 const gray_7 = '#d7d7d7'
@@ -12,6 +12,19 @@ const BlogWrapper = styled.div`
   display: grid;
   grid-template-columns: 20% 60% 20%;
   row-gap: 60px;
+
+  @media (max-width: 1060px){
+    grid-template-columns: 10% 80% 10%;
+  }
+
+  @media (max-width: 702px){
+    grid-template-columns: 5% 90% 5%;
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 434px){
+    font-size: 0.6em;
+  }
 `
 
 const Tile = styled.div`
@@ -23,13 +36,24 @@ const Tile = styled.div`
 
 const Header = styled.h1`
   font-size: 42px;
+
+  @media (max-width: 1060px){
+    font-size: 2.3em;
+  }
 `
 
 const Image = styled.img`
   object-fit: contain;
-  height: 500px;
+  height: auto;
   width: 100%;
   object-fit: cover;
+  
+  @media (max-width: 320px){
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `
 
 const Author = styled.div`
@@ -39,12 +63,20 @@ const Author = styled.div`
   font-weight: 300;
   font-size: 18px;
   width: fit-content;
+  
+  @media (max-width: 1060px){
+    font-size: 1em;
+  }
 `
 
 const Subtitle = styled.p`
   font-size: 24px;
   font-weight: 300;
   color: ${gray_2};
+    
+  @media (max-width: 1060px){
+    font-size: 1.3em;
+  }
 `
 
 const ReadMore = styled.div`
@@ -60,6 +92,10 @@ const ReadMore = styled.div`
   &:hover {
     transform: translateX(8px);
   }
+      
+  @media (max-width: 1060px){
+    font-size: 1.3em;
+  }
 `
 
 const EntryDivider = styled.div`
@@ -70,48 +106,7 @@ const EntryDivider = styled.div`
 `
 
 const Resources = () => {
-  const entries = [
-    {
-      id: 1,
-      image: PlaceholderImg,
-      header: 'Lorem Ipsum Title',
-      author: 'Jan Kowalski | 21/03/2021',
-      subtitle:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo nulla, ac rutrum nunc. Aenean quam lectus, congue vitae arcu eget, ultrices scelerisque purus.',
-      divid: true,
-      link: '/',
-    },
-    {
-      id: 2,
-      image: PlaceholderImg,
-      header: 'Lorem Ipsum Title',
-      author: 'Jan Kowalski | 21/03/2021',
-      subtitle:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo nulla, ac rutrum nunc. Aenean quam lectus, congue vitae arcu eget, ultrices scelerisque purus.',
-      divid: true,
-      link: '/',
-    },
-    {
-      id: 3,
-      image: PlaceholderImg,
-      header: 'Lorem Ipsum Title',
-      author: 'Jan Kowalski | 21/03/2021',
-      subtitle:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo nulla, ac rutrum nunc. Aenean quam lectus, congue vitae arcu eget, ultrices scelerisque purus.',
-      divid: true,
-      link: '/',
-    },
-    {
-      id: 4,
-      image: PlaceholderImg,
-      header: 'Lorem Ipsum Title',
-      author: 'Jan Kowalski | 21/03/2021',
-      subtitle:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo nulla, ac rutrum nunc. Aenean quam lectus, congue vitae arcu eget, ultrices scelerisque purus.',
-      divid: false,
-      link: '/',
-    },
-  ]
+  const entries = resourcesData["entries"];
 
   return (
     <>
