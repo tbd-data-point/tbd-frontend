@@ -1,5 +1,6 @@
 import phone_man from "../img/phone_man.svg";
 import phone_woman from "../img/phone_woman.svg";
+import solutions_column from "../img/solutions_column.svg";
 
 const SolutionsData = {
     "topContent" : [
@@ -34,6 +35,24 @@ const SolutionsData = {
           header: "Lorem ipsum dolor sit amet",
           description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.",
           imageSource: phone_woman
+        },
+      ],
+
+      "SolutionsTilesContents" : [
+        {
+          header: "Test",
+          desc: "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
+          imgSrc: solutions_column
+        },
+        {
+          header: "Test",
+          desc: "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
+          imgSrc: solutions_column
+        },
+        {
+          header: "Test",
+          desc: "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
+          imgSrc: solutions_column
         },
       ]
 };

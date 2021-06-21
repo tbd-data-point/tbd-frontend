@@ -9,6 +9,7 @@ const OpeningWrapper = styled.div`
     width: 30px;
     height: 40px;
     margin: 10px 20px 2px 70vw;
+    float: right;
     display: none;
     align-items: center;
     
@@ -17,7 +18,7 @@ const OpeningWrapper = styled.div`
     }
 
     @media (max-width: 408px){
-        margin-left: 60vw;
+        margin: 10px 50px 2px 70vw;
     }
 `;
 

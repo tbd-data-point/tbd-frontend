@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navbar,
   Footer,
@@ -7,10 +8,13 @@ import {
 } from '../components'
 import styled from 'styled-components'
 import a from '../assets/img/a2.jpg';
-import solutions_column from "../assets/img/solutions_column.svg";
 
 import PhoneWrapper from "../components/PhoneWrapper";
+import SolutionsTile from "../components/SolutionsTile";
 import SolutionsData from "../assets/data/Solutions.js";
+
+import "swiper/swiper.min.css";
+import "../assets/scss/Solutions.scss";
 
 interface WrapperProps {
   readonly shadow?: boolean
@@ -86,41 +90,13 @@ const TopImage = styled.img`
   }
 `
 
-const Tile = styled.div`
-  width: 20%;
-  margin: 0 2%;
-  height: 90%;
-  position: relative;
-  top: 1%;
-  left: 12%;
-`;
-
-const TileHeader = styled.header`
-  width: 100%;
-  text-align: center;
-  font-size: 1.7em;
-  letter-spacing: 0.05em;
-  margin-bottom: 12vh;
-`;
-
-const TileDesc = styled.div`
-  width: 70%;
-  font-size: 1.3em;
-  margin-left: 10%;
-  margin-bottom: 9vh;
-`;
-
-const TileImg = styled.img`
-    width: 80%;
-    height: auto;
-    margin-left: 10%;
-`;
-
 const Solutions = () => {
 
   const topContent = SolutionsData["topContent"];
 
   const PhoneWrapperContent = SolutionsData["PhoneWrapperContents"];
+
+  const TilesContent = SolutionsData["SolutionsTilesContents"];
 
   const [openIdx, setOpen] = useState(0)
 
@@ -153,21 +129,22 @@ const Solutions = () => {
         description={PhoneWrapperContent[0]["description"]}
         imageSource={PhoneWrapperContent[0]["imageSource"]}/>
         <ContentWrapper height = "110vh">
-            <Tile>
-              <TileHeader>Test</TileHeader>
-              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
-              <TileImg src={solutions_column}/>
-            </Tile>
-            <Tile>
-              <TileHeader>Test</TileHeader>
-              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
-              <TileImg src={solutions_column}/>
-            </Tile>
-            <Tile>
-              <TileHeader>Test</TileHeader>
-              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
-              <TileImg src={solutions_column}/>
-            </Tile>
+          {TilesContent.map((elem,index) => <SolutionsTile
+              key = {"solutionsTile"+index}
+              classes = "solutions-tiles-non-rwd"
+              header = {elem["header"]}
+              desc = {elem["desc"]}
+              imgSrc = {elem["imgSrc"]}/>)}
+          <Swiper className = "solutions-tiles-swiper"
+          spaceBetween = {2} slidesPerView = {1} loop = {true}>
+          {TilesContent.map((elem,index) => <SwiperSlide className = "swiper-slide-container"><SolutionsTile
+                key = {"solutionsTileResp"+index}
+                classes = "solutions-tiles-rwd"
+                header = {elem["header"]}
+                desc = {elem["desc"]}
+                imgSrc = {elem["imgSrc"]}/>
+              </SwiperSlide>)}
+          </Swiper>
         </ContentWrapper>
         <PhoneWrapper
         header={PhoneWrapperContent[1]["header"]}

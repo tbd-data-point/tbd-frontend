@@ -101,11 +101,6 @@ namespace SignInUpStyledComponents{
             margin: ${(props) =>
                 props.margin ? props.margin : "50vh auto"};
         }
-
-        @media (max-width: 336px){
-            margin: ${(props) =>
-                props.margin ? props.margin : "60vh auto"};
-        }
     `
 };
 

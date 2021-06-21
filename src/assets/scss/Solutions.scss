@@ -1,0 +1,28 @@
+.solutions-tiles-swiper{
+    display: none;
+    .solutions-tiles-rwd{
+        display: none;
+    }
+}
+@media screen and (max-width: 534px) {
+    .solutions-tiles-swiper{
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        .swiper-slide-container{
+            width: 100%;
+        }
+        .solutions-tiles-rwd{
+            display: block;
+            width: 95% !important;
+            height: 100% !important;
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+    }
+    .solutions-tiles-non-rwd{
+        display: none;
+    }
+}
