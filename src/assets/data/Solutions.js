@@ -1,4 +1,5 @@
-import logo from '../img/logo.svg'
+import phone_man from "../img/phone_man.svg";
+import phone_woman from "../img/phone_woman.svg";
 
 const SolutionsData = {
     "topContent" : [
@@ -23,26 +24,16 @@ const SolutionsData = {
         },
       ],
     
-      "tilesContent" : [
+      "PhoneWrapperContents" : [
         {
-          "title": "Comprehensive customer service",
-          "text": "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
-          "graphic": logo,
+          header: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.",
+          imageSource: phone_man
         },
         {
-          "title": "Comprehensive customer service",
-          "text": "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
-          "graphic": logo,
-        },
-        {
-          "title": "Comprehensive customer service",
-          "text": "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
-          "graphic": logo,
-        },
-        {
-          "title": "Comprehensive customer service",
-          "text": "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.",
-          "graphic": logo,
+          header: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.",
+          imageSource: phone_woman
         },
       ]
 };

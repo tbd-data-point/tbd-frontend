@@ -5,13 +5,11 @@ import {
   Accordion,
   FiftyFifty,
 } from '../components'
-import {Link} from "react-router-dom";
 import styled from 'styled-components'
 import a from '../assets/img/a2.jpg';
 import solutions_column from "../assets/img/solutions_column.svg";
-import phone_man from "../assets/img/phone_man.svg";
-import phone_woman from "../assets/img/phone_woman.svg";
 
+import PhoneWrapper from "../components/PhoneWrapper";
 import SolutionsData from "../assets/data/Solutions.js";
 
 interface WrapperProps {
@@ -31,11 +29,24 @@ const ContentWrapper = styled.section<WrapperProps>`
     props.shadow ? 'box-shadow: 0px 0px 10px;' : ''}
   ${(props) => 
     props.background ? "background: "+props.background+";" : ""}
+
+    @media (max-width: 1294px){
+      height: ${(props) =>
+        props.height ? props.height : '85vh'};
+    }
 `
 
 const LeftTop = styled.div`
   padding: 4%;
   width: 35%;
+
+  @media (max-width: 1598px){
+    width: 45%;
+    font-size: 0.8em;
+  }
+  @media (max-width: 1294px){
+    font-size: 0.6em;
+  }
 `
 
 const AccorditionsBorder = styled.div`
@@ -44,6 +55,9 @@ const AccorditionsBorder = styled.div`
   height: 60vh;
   margin-left: 5%;
   margin-top: 10%;
+  @media (max-width: 1316px){
+    height: 50vh;
+  }
 `
 
 const Title = styled.h1`
@@ -51,54 +65,26 @@ const Title = styled.h1`
   color: #000;
   text-align: center;
   letter-spacing: 2px;
+
+  @media (max-width: 879px){
+    font-size: 3.7em;
+  }
 `
 
 const TopImage = styled.img`
   width: 35%;
   position: relative;
   left: 15%;
+  
+  @media (max-width: 1598px){
+    left: 7%;
+    width: 30%;
+  }
+  @media (max-width: 1009px){
+    width: 30%;
+    left: 5%;
+  }
 `
-
-const PhoneSection = styled.div`
-  width: 100%;
-  height: 50vh;
-  background: #F5F5F5;
-  flex-direction: row;
-`;
-
-const PhoneHeader = styled.div`
-  width: 30%;
-  margin-left: 7%;
-  position: relative;
-  top: 7%;
-  font-size: 2em;
-  letter-spacing: 0.06em;
-`;
-
-const PhoneDescription = styled.div`
-  width: 25%;
-  margin-left: 7%;
-  position: relative;
-  top: 14%;
-  font-size: 1em;
-  letter-spacing: 0.06em;
-`;
-
-const PhoneButtonWrapper = styled.div`
-  width: 10%;
-  margin-left: 7%;
-  position: relative;
-  top: 28%;
-  text-align: center;
-`;
-
-const PhoneImg = styled.img`
-  width: 20%;
-  height: auto;
-  float: right;
-  margin-right: 10%;
-  margin-top: -16vh;
-`;
 
 const Tile = styled.div`
   width: 20%;
@@ -134,9 +120,7 @@ const Solutions = () => {
 
   const topContent = SolutionsData["topContent"];
 
-  const tilesContent = SolutionsData["tilesContent"];
-
-  const bottomContent = [0, 1, 2]
+  const PhoneWrapperContent = SolutionsData["PhoneWrapperContents"];
 
   const [openIdx, setOpen] = useState(0)
 
@@ -164,25 +148,10 @@ const Solutions = () => {
           </LeftTop>
           <TopImage src={a}></TopImage>
         </ContentWrapper>
-        <PhoneSection>
-            <PhoneHeader>
-              Lorem ipsum dolor sit amet
-            </PhoneHeader>
-            <PhoneDescription>
-            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.
-            </PhoneDescription>
-            <Link to="/">
-              <PhoneButtonWrapper>
-                <div
-                  className="button button-filled"
-                  id="black-button"
-                >
-                  Sign up
-                </div>
-              </PhoneButtonWrapper>
-            </Link>
-            <PhoneImg src = {phone_man}/>
-        </PhoneSection>
+        <PhoneWrapper
+        header={PhoneWrapperContent[0]["header"]}
+        description={PhoneWrapperContent[0]["description"]}
+        imageSource={PhoneWrapperContent[0]["imageSource"]}/>
         <ContentWrapper height = "110vh">
             <Tile>
               <TileHeader>Test</TileHeader>
@@ -200,25 +169,10 @@ const Solutions = () => {
               <TileImg src={solutions_column}/>
             </Tile>
         </ContentWrapper>
-        <PhoneSection>
-            <PhoneHeader>
-              Lorem ipsum dolor sit amet
-            </PhoneHeader>
-            <PhoneDescription>
-              Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.
-            </PhoneDescription>
-            <Link to="/">
-              <PhoneButtonWrapper>
-                <div
-                  className="button button-filled"
-                  id="black-button"
-                >
-                  Sign up
-                </div>
-              </PhoneButtonWrapper>
-            </Link>
-            <PhoneImg src = {phone_woman}/>
-        </PhoneSection>
+        <PhoneWrapper
+        header={PhoneWrapperContent[1]["header"]}
+        description={PhoneWrapperContent[1]["description"]}
+        imageSource={PhoneWrapperContent[1]["imageSource"]}/>
         <ContentWrapper height = "10vh"/>
       </main>
       <Footer />

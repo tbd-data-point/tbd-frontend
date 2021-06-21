@@ -20,12 +20,20 @@ const Label = styled.span`
   font-size: 38px;
   cursor: pointer;
   margin: 15px 0 0 0;
+    
+  @media (max-width: 1316px){
+    font-size: 28px;
+  }
 `
 
 const Content = styled(a.div)`
   cursor: pointer;
   color: #000000;
   font-size: 26px;
+  
+  @media (max-width: 1316px){
+    font-size: 20px;
+  }
 `
 
 type TreeType = {
