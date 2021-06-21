@@ -13,6 +13,7 @@ body {
   scroll-behavior: smooth;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
+  overflow-y: auto !important;
 }
 
 a,

@@ -16,7 +16,7 @@ const Label = styled.span`
   align-items: center;
   text-overflow: ellipsis;
   overflow-x: hidden;
-  color: #ffffff;
+  color: #000000;
   font-size: 38px;
   cursor: pointer;
   margin: 15px 0 0 0;
@@ -24,7 +24,7 @@ const Label = styled.span`
 
 const Content = styled(a.div)`
   cursor: pointer;
-  color: #fdfdfd;
+  color: #000000;
   font-size: 26px;
 `
 

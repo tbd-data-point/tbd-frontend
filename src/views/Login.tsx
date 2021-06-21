@@ -1,4 +1,4 @@
-import '../assets/scss/Login.scss'
+import '../assets/scss/Signup.scss'
 import logo from '../assets/img/logo.svg'
 
 import { useState } from 'react'

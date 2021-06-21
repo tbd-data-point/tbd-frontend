@@ -5,174 +5,136 @@ import {
   Accordion,
   FiftyFifty,
 } from '../components'
+import {Link} from "react-router-dom";
 import styled from 'styled-components'
-import logo from '../assets/img/logo.svg'
-import a from '../assets/img/a.jpg'
+import a from '../assets/img/a2.jpg';
+import solutions_column from "../assets/img/solutions_column.svg";
+import phone_man from "../assets/img/phone_man.svg";
+import phone_woman from "../assets/img/phone_woman.svg";
+
+import SolutionsData from "../assets/data/Solutions.js";
 
 interface WrapperProps {
   readonly shadow?: boolean
   readonly height?: string
+  readonly background?: string
 }
 
 const ContentWrapper = styled.section<WrapperProps>`
   height: ${(props) =>
-    props.height ? props.height : '85vh'};
+    props.height ? props.height : '95vh'};
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   ${(props) =>
     props.shadow ? 'box-shadow: 0px 0px 10px;' : ''}
+  ${(props) => 
+    props.background ? "background: "+props.background+";" : ""}
 `
 
 const LeftTop = styled.div`
-  background: #002d2f;
   padding: 4%;
   width: 35%;
 `
 
+const AccorditionsBorder = styled.div`
+  background: linear-gradient(to bottom, #008389, #80CC08);
+  width: 4px;
+  height: 60vh;
+  margin-left: 5%;
+  margin-top: 10%;
+`
+
 const Title = styled.h1`
   font-size: 48px;
-  color: #ffffff;
+  color: #000;
+  text-align: center;
+  letter-spacing: 2px;
 `
 
 const TopImage = styled.img`
-  width: 65%;
+  width: 35%;
+  position: relative;
+  left: 15%;
 `
 
-const TileWrapper = styled.div`
-  margin: 10% 7%;
-  display: grid;
-  grid-template-columns: 40vw 40vw;
-  grid-template-rows: 40vw 40vw;
-  column-gap: 60px;
-  row-gap: 60px;
-`
-
-type GradientProps = {
-  children: React.ReactNode
-  i: number
-}
-
-const getCords = (i: number) => {
-  if (i === 0) return [1, 1]
-  if (i === 1) return [1, 2]
-  if (i === 2) return [2, 2]
-  if (i === 3) return [2, 1]
-  return []
-}
-
-interface BackgroundProps {
-  readonly i: number
-}
-
-const Background = styled.div<BackgroundProps>`
-  background: linear-gradient(
-    ${(props) => -45 + props.i * 90}deg,
-    rgba(0, 243, 255, 1) 0%,
-    rgba(175, 255, 49, 1) 100%
-  );
-  padding: 3px;
-  grid-row: ${(props) => getCords(props.i)[0]};
-  grid-column: ${(props) => getCords(props.i)[1]};
+const PhoneSection = styled.div`
   width: 100%;
-  height: 100%;
-`
+  height: 50vh;
+  background: #F5F5F5;
+  flex-direction: row;
+`;
 
-const InsideGradient = styled.div`
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`
+const PhoneHeader = styled.div`
+  width: 30%;
+  margin-left: 7%;
+  position: relative;
+  top: 7%;
+  font-size: 2em;
+  letter-spacing: 0.06em;
+`;
 
-const GradientTile = ({ children, i }: GradientProps) => {
-  return (
-    <>
-      <Background i={i}>
-        <InsideGradient>{children}</InsideGradient>
-      </Background>
-    </>
-  )
-}
+const PhoneDescription = styled.div`
+  width: 25%;
+  margin-left: 7%;
+  position: relative;
+  top: 14%;
+  font-size: 1em;
+  letter-spacing: 0.06em;
+`;
 
-interface HProps {
-  readonly fSize?: string
-  readonly color?: string
-  readonly align?: boolean
-}
+const PhoneButtonWrapper = styled.div`
+  width: 10%;
+  margin-left: 7%;
+  position: relative;
+  top: 28%;
+  text-align: center;
+`;
 
-const H = styled.h1<HProps>`
-  font-size: ${(props) => '30px' && props.fSize};
-  ${(props) => props.align && 'text-align: center;'}
-`
-
-interface PProps {
-  readonly fSize?: string
-  readonly color?: string
-  readonly align?: boolean
-}
-
-const P = styled.p<PProps>`
-  font-size: ${(props) => '18px' && props.fSize};
-  color: ${(props) => 'white' && props.color};
-  margin-top: 0px;
-  ${(props) => props.align && 'text-align: center;'}
-`
-
-const I = styled.img`
+const PhoneImg = styled.img`
+  width: 20%;
   height: auto;
-  align-self: center;
-  object-fit: fill;
-`
+  float: right;
+  margin-right: 10%;
+  margin-top: -16vh;
+`;
+
+const Tile = styled.div`
+  width: 20%;
+  margin: 0 2%;
+  height: 90%;
+  position: relative;
+  top: 1%;
+  left: 12%;
+`;
+
+const TileHeader = styled.header`
+  width: 100%;
+  text-align: center;
+  font-size: 1.7em;
+  letter-spacing: 0.05em;
+  margin-bottom: 12vh;
+`;
+
+const TileDesc = styled.div`
+  width: 70%;
+  font-size: 1.3em;
+  margin-left: 10%;
+  margin-bottom: 9vh;
+`;
+
+const TileImg = styled.img`
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+`;
 
 const Solutions = () => {
-  const topContent = [
-    {
-      title: 'Order',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    },
-    {
-      title: 'Realization',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    },
-    {
-      title: 'Delivery',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    },
-    {
-      title: 'Review',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    },
-  ]
 
-  const tilesContent = [
-    {
-      title: 'Comprehensive customer service',
-      text: 'Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.',
-      graphic: logo,
-    },
-    {
-      title: 'Comprehensive customer service',
-      text: 'Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.',
-      graphic: logo,
-    },
-    {
-      title: 'Comprehensive customer service',
-      text: 'Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.',
-      graphic: logo,
-    },
-    {
-      title: 'Comprehensive customer service',
-      text: 'Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.',
-      graphic: logo,
-    },
-  ]
+  const topContent = SolutionsData["topContent"];
+
+  const tilesContent = SolutionsData["tilesContent"];
 
   const bottomContent = [0, 1, 2]
 
@@ -183,6 +145,7 @@ const Solutions = () => {
       <Navbar />
       <main>
         <ContentWrapper>
+          <AccorditionsBorder/>
           <LeftTop>
             <Title>How we work</Title>
             {topContent.map((v, i) => {
@@ -201,53 +164,62 @@ const Solutions = () => {
           </LeftTop>
           <TopImage src={a}></TopImage>
         </ContentWrapper>
-        <TileWrapper>
-          {tilesContent.map((v, i) => {
-            return (
-              <GradientTile key={`${v.title}_${i}`} i={i}>
+        <PhoneSection>
+            <PhoneHeader>
+              Lorem ipsum dolor sit amet
+            </PhoneHeader>
+            <PhoneDescription>
+            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.
+            </PhoneDescription>
+            <Link to="/">
+              <PhoneButtonWrapper>
                 <div
-                  style={{
-                    padding: '20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    height: '100%',
-                  }}
+                  className="button button-filled"
+                  id="black-button"
                 >
-                  <H align>{v.title}</H>
-                  <P align fSize="24px">
-                    {v.text}
-                  </P>
-                  <I src={v.graphic} alt=""></I>
+                  Sign up
                 </div>
-              </GradientTile>
-            )
-          })}
-        </TileWrapper>
-
-        {bottomContent.map((v, i) => {
-          return (
-            <FiftyFifty
-              textRight={v === 1 ? true : false}
-              color={v % 2 === 1 ? 'white' : 'black'}
-              height="100vh"
-              src={a}
-              background={v % 2 === 0 ? 'white' : '#002D2F'}
-            >
-              <H fSize="48px">
-                Lorem ipsum dolor sit amet, consectetur
-              </H>
-              <P
-                fSize="36px"
-                color={v % 2 === 1 ? '#D7D7D7;' : '#393939'}
-              >
-                Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </P>
-            </FiftyFifty>
-          )
-        })}
+              </PhoneButtonWrapper>
+            </Link>
+            <PhoneImg src = {phone_man}/>
+        </PhoneSection>
+        <ContentWrapper height = "110vh">
+            <Tile>
+              <TileHeader>Test</TileHeader>
+              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
+              <TileImg src={solutions_column}/>
+            </Tile>
+            <Tile>
+              <TileHeader>Test</TileHeader>
+              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
+              <TileImg src={solutions_column}/>
+            </Tile>
+            <Tile>
+              <TileHeader>Test</TileHeader>
+              <TileDesc>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</TileDesc>
+              <TileImg src={solutions_column}/>
+            </Tile>
+        </ContentWrapper>
+        <PhoneSection>
+            <PhoneHeader>
+              Lorem ipsum dolor sit amet
+            </PhoneHeader>
+            <PhoneDescription>
+              Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.
+            </PhoneDescription>
+            <Link to="/">
+              <PhoneButtonWrapper>
+                <div
+                  className="button button-filled"
+                  id="black-button"
+                >
+                  Sign up
+                </div>
+              </PhoneButtonWrapper>
+            </Link>
+            <PhoneImg src = {phone_woman}/>
+        </PhoneSection>
+        <ContentWrapper height = "10vh"/>
       </main>
       <Footer />
     </>
