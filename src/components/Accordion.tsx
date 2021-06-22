@@ -3,6 +3,10 @@ import React from 'react'
 import { useSpring, animated as a } from 'react-spring'
 import { useMeasure } from '../components/helpers/hooks'
 
+interface ContentProps{
+  readonly color?: string
+}
+
 const TreeView = styled.div`
   position: relative;
   padding: 0 0 16px 8px;
@@ -34,9 +38,10 @@ const Label = styled.span`
   }
 `
 
-const Content = styled(a.div)`
+const Content = styled(a.div)<ContentProps>`
   cursor: pointer;
-  color: #000000;
+  color: ${(props) => 
+    props.color ? props.color : "#000000"};
   font-size: 26px;
   
   @media (max-width: 1316px){
@@ -52,7 +57,8 @@ type TreeType = {
   children: React.ReactNode
   open: boolean
   id: number
-  clickHandler: (i: number) => void
+  clickHandler: (i: number) => void,
+  color?: string
 }
 
 const Accordion = React.memo(
@@ -62,6 +68,7 @@ const Accordion = React.memo(
     children,
     id,
     clickHandler,
+    color = "#000"
   }: TreeType) => {
     const [
       bind,
@@ -101,6 +108,7 @@ const Accordion = React.memo(
           <Content
             onClick={() => clickHandler(id)}
             style={{ height, opacity }}
+            color={color}
           >
             <a.div {...bind} style={{ transform }}>
               {children}

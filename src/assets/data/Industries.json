@@ -1,0 +1,20 @@
+{
+    "firstSectionContent": [
+        {
+            "title": "Medicine",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+            "title": "Aerospace",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+            "title": "Insurance",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+            "title": "Energy",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        }
+    ]
+}
