@@ -179,10 +179,11 @@ const Solutions = () => {
         <PhoneWrapper
         header={PhoneWrapperContent[0]["header"]}
         description={PhoneWrapperContent[0]["description"]}
-        imageSource={PhoneWrapperContent[0]["imageSource"]}/>
+        imageSource={PhoneWrapperContent[0]["imageSource"]}
+        isBackground={true}/>
         <ContentWrapper height = "110vh">
           {TilesContent.map((elem,index) => <SolutionsTile
-              key = {"solutionsTile"+index}
+              tileKey = {"solutionsTile"+index}
               classes = "solutions-tiles-non-rwd"
               header = {elem["header"]}
               desc = {elem["desc"]}
@@ -190,7 +191,7 @@ const Solutions = () => {
           <Swiper className = "solutions-tiles-swiper"
           spaceBetween = {2} slidesPerView = {1} loop = {true}>
           {TilesContent.map((elem,index) => <SwiperSlide className = "swiper-slide-container"><SolutionsTile
-                key = {"solutionsTileResp"+index}
+                tileKey = {"solutionsTileResp"+index}
                 classes = "solutions-tiles-rwd"
                 header = {elem["header"]}
                 desc = {elem["desc"]}
@@ -201,7 +202,8 @@ const Solutions = () => {
         <PhoneWrapper
         header={PhoneWrapperContent[1]["header"]}
         description={PhoneWrapperContent[1]["description"]}
-        imageSource={PhoneWrapperContent[1]["imageSource"]}/>
+        imageSource={PhoneWrapperContent[1]["imageSource"]}
+        isBackground={true}/>
         <ContentWrapper height = "10vh"/>
       </main>
       <Footer />

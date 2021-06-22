@@ -50,3 +50,25 @@ button:active {
   text-align: center !important;
   justify-content: center !important;
 }
+
+.large-phone-button{
+  width: 20% !important;
+}
+
+@media screen and (max-width: 966px) {
+  .large-phone-button{
+    width: 30%;
+  }
+}
+@media screen and (max-width: 772px) {
+  .large-phone-button{
+    width: 40% !important;
+    left: 30% !important;
+  }
+}
+@media screen and (max-width: 412px) {
+  .large-phone-button{
+    width: 60% !important;
+    left: 20% !important;
+  }
+}

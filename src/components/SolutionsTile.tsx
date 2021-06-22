@@ -5,7 +5,8 @@ type SolutionsProps = {
     header?: string, 
     desc?: string,
     imgSrc?: any,
-    classes?: string
+    classes?: string,
+    tileKey?: string
 };
 
 const Tile = styled.div`
@@ -55,8 +56,8 @@ const TileImg = styled.img`
     margin-left: 10%;
 `;
 
-const SolutionsTile = ({header,desc,imgSrc, classes} : SolutionsProps) => {
-    return <Tile className = {classes}>
+const SolutionsTile = ({header,desc,imgSrc, classes, tileKey} : SolutionsProps) => {
+    return <Tile className = {classes} key = {tileKey}>
         <TileHeader>{header}</TileHeader>
         <TileDesc>{desc}</TileDesc>
         <TileImg src={imgSrc}/>

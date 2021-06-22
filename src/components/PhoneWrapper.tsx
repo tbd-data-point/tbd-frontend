@@ -5,13 +5,29 @@ import styled from "styled-components";
 type PhoneWrapperProps = {
     header?: string,
     description?: string,
-    imageSource?: any
+    buttonText?: string,
+    imageSource?: any,
+    isBackground?: boolean,
+    isButtonHidden?: boolean
 };
 
-const PhoneSection = styled.div`
+interface SectionProps{
+  readonly isBackground?: boolean
+}
+
+interface ButtonProps{
+  readonly isButtonHidden?: boolean
+}
+
+interface ImageProps{
+  readonly isButtonHidden?: boolean
+}
+
+const PhoneSection = styled.div<SectionProps>`
   width: 100%;
   height: 50vh;
-  background: #F5F5F5;
+  ${(props) => 
+  props.isBackground ? "background: #F5F5F5;" : ""}
   flex-direction: row;
   @media (max-width: 648px){
     height: 60vh;
@@ -68,12 +84,14 @@ const PhoneDescription = styled.div`
   }
 `;
 
-const PhoneButtonWrapper = styled.div`
+const PhoneButtonWrapper = styled.div<ButtonProps>`
   width: 10%;
   position: relative;
   top: 28%;
   left: 7%;
   text-align: center;
+  ${(props) => 
+  props.isButtonHidden ? "display: none;" : ""}
     
   @media (max-width: 1214px){
     width: 15%;
@@ -96,7 +114,7 @@ const PhoneButtonWrapper = styled.div`
   }
 `;
 
-const PhoneImg = styled.img`
+const PhoneImg = styled.img<ImageProps>`
   width: 20%;
   height: auto;
   float: right;
@@ -110,24 +128,31 @@ const PhoneImg = styled.img`
 
   @media (max-width: 772px){
     float: none;
-    top: 7vh;
-    left: 43%;
-    width: 14%;
+    top: ${(props) => 
+    props.isButtonHidden ? "10vh" : "7vh"};
+    left: ${(props) => 
+      props.isButtonHidden ? "36%" : "43%"};
+    width: ${(props) => 
+      props.isButtonHidden ? "28%" : "14%"};
   }
 
   @media (max-width: 650px){
-    width: 20%;
-    left: 40%;
+    left: ${(props) => 
+      props.isButtonHidden ? "33%" : "40%"};
+    width: ${(props) => 
+      props.isButtonHidden ? "34%" : "20%"};
   }
   
   @media (max-width: 475px){
-    width: 24%;
-    left: 38%;
+    left: ${(props) => 
+      props.isButtonHidden ? "20%" : "33%"};
+    width: ${(props) => 
+      props.isButtonHidden ? "60%" : "34%"};
   }
 `;
 
-const PhoneWrapper = ({header,description, imageSource} : PhoneWrapperProps ) => {
-    return <PhoneSection>
+const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, isBackground, isButtonHidden} : PhoneWrapperProps ) => {
+    return <PhoneSection isBackground = {isBackground}>
         <PhoneHeader>
             {header}
         </PhoneHeader>
@@ -135,16 +160,16 @@ const PhoneWrapper = ({header,description, imageSource} : PhoneWrapperProps ) =>
             {description}
         </PhoneDescription>
         <Link to="/">
-            <PhoneButtonWrapper>
+            <PhoneButtonWrapper isButtonHidden = {isButtonHidden} className={buttonText.length > 10 ? "large-phone-button" : ""}>
             <div
                 className="button button-filled staying-button phone-wrapper-button"
                 id="black-button"
             >
-                Sign up
+                {buttonText}
             </div>
             </PhoneButtonWrapper>
         </Link>
-        <PhoneImg src = {imageSource}/>
+        <PhoneImg src = {imageSource} isButtonHidden = {isButtonHidden}/>
     </PhoneSection>;
 };
 
