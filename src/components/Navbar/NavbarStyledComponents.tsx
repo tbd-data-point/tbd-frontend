@@ -37,7 +37,6 @@ namespace NavbarStyledComponents{
     background: white;
     z-index: 10;
     @media (max-width: 738px){
-      width: 100%;
       display: ${(props) =>
         props.isOpen ? 'flex' : 'none'};
     }
