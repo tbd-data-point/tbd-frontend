@@ -9,16 +9,11 @@ const OpeningWrapper = styled.div`
     width: 30px;
     height: 40px;
     float: right;
-    display: none;
     align-items: center;
     
     @media (max-width: 738px){
-        display: flex;
-        margin: 30px 50px 2px 70vw;
-    }
-
-    @media (max-width: 408px){
-        margin: 30px 50px 2px 70vw;
+        float: right;
+        grid-column: buttons;
     }
 `;
 
