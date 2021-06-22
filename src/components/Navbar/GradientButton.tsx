@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { colors } from '../../assets/styles/colors'
 import React from 'react'
 
-interface ButtonBackgroundProps{
+interface ButtonBackgroundProps {
   readonly topPosition?: string
-};
+}
 
 const ButtonBackground = styled.div<ButtonBackgroundProps>`
   background: ${colors.gradientBtn};
@@ -13,7 +13,7 @@ const ButtonBackground = styled.div<ButtonBackgroundProps>`
   float: right;
   margin-right: 20px;
 
-  @media (max-width: 738px){
+  @media (max-width: 738px) {
     width: 40%;
     justify-content: center;
     align-items: center;
@@ -29,15 +29,15 @@ const Button = styled.div`
   padding: 2px 16px;
   cursor: pointer;
 
-  @media (max-width: 923px){
+  @media (max-width: 923px) {
     font-size: 0.8em;
   }
 
-  @media (max-width: 823px){
+  @media (max-width: 823px) {
     font-size: 0.6em;
   }
 
-  @media (max-width: 738px){
+  @media (max-width: 738px) {
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -58,13 +58,13 @@ const GradientButton = ({
   children,
   onClick,
   role = 'button',
-  topPos = 'auto'
+  topPos = 'auto',
 }: PropsTypes) => {
   return (
     <ButtonBackground
       role={role}
       onClick={onClick ? onClick : () => {}}
-      topPosition = {topPos}
+      topPosition={topPos}
     >
       <Button>{children}</Button>
     </ButtonBackground>
