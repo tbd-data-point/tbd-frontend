@@ -1,11 +1,11 @@
 import { useSpring } from 'react-spring'
 
-import SignInUpStyledComponents from "./SignInUpStyledComponents";
-
-const Wrapper = SignInUpStyledComponents.Wrapper;
-const CloseButton = SignInUpStyledComponents.CloseButton;
-const Button = SignInUpStyledComponents.Button;
-const ButtonWrapper = SignInUpStyledComponents.ButtonWrapper;
+import {
+  Wrapper,
+  CloseButton,
+  ButtonWrapper,
+  Button,
+} from './SignInUpStyledComponents'
 
 type SignInUpProps = {
   isOpen: boolean
@@ -13,11 +13,15 @@ type SignInUpProps = {
   mode: string
 }
 
-const SignInUp = ({ isOpen, changeOpen, mode }: SignInUpProps) => {
+const SignInUp = ({
+  isOpen,
+  changeOpen,
+  mode,
+}: SignInUpProps) => {
   const style = useSpring({
     top: isOpen ? '0vh' : '-100%',
   })
-  const modeForLinks = "/"+mode.toLocaleLowerCase();
+  const modeForLinks = '/' + mode.toLocaleLowerCase()
   return (
     <>
       <Wrapper style={style}>
@@ -32,7 +36,7 @@ const SignInUp = ({ isOpen, changeOpen, mode }: SignInUpProps) => {
         >
           <CloseButton />
         </div>
-        <ButtonWrapper to={modeForLinks} respTop={"120px"}>
+        <ButtonWrapper to={modeForLinks} respTop={'120px'}>
           <Button>Buyer {mode}</Button>
         </ButtonWrapper>
         <ButtonWrapper to={modeForLinks}>

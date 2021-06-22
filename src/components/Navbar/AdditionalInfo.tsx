@@ -13,13 +13,13 @@ const Wrapper = styled(a.section)`
   overflow: hidden;
   padding: 0px 80px;
 
-  @media (max-width: 1020px){
+  @media (max-width: 1020px) {
     font-size: 0.8em;
   }
-  @media (max-width: 836px){
+  @media (max-width: 836px) {
     font-size: 0.6em;
   }
-  @media (max-width: 740px){
+  @media (max-width: 740px) {
     display: none;
     height: 0;
   }
