@@ -35,7 +35,7 @@ const ContentWrapper = styled.section<WrapperProps>`
 
     @media (max-width: 1294px){
       height: ${(props) =>
-        props.height ? props.height : '105vh'};
+        props.height ? props.height : '115vh'};
     }
     @media (max-width: 618px){
       height: ${(props) =>
