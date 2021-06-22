@@ -10,6 +10,7 @@ const OpeningWrapper = styled.div`
     height: 40px;
     float: right;
     align-items: center;
+    display: none;
     
     @media (max-width: 738px){
         float: right;
