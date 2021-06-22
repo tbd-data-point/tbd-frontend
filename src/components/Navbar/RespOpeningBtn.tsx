@@ -8,17 +8,17 @@ interface OpeningBarProps {
 const OpeningWrapper = styled.div`
     width: 30px;
     height: 40px;
-    margin: 10px 20px 2px 70vw;
     float: right;
     display: none;
     align-items: center;
     
     @media (max-width: 738px){
         display: flex;
+        margin: 30px 50px 2px 70vw;
     }
 
     @media (max-width: 408px){
-        margin: 10px 50px 2px 70vw;
+        margin: 30px 50px 2px 70vw;
     }
 `;
 

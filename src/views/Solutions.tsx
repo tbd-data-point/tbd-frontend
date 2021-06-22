@@ -22,6 +22,10 @@ interface WrapperProps {
   readonly background?: string
 }
 
+interface TopImageProps {
+  readonly ifResp?: boolean
+}
+
 const ContentWrapper = styled.section<WrapperProps>`
   height: ${(props) =>
     props.height ? props.height : '95vh'};
@@ -36,7 +40,15 @@ const ContentWrapper = styled.section<WrapperProps>`
 
     @media (max-width: 1294px){
       height: ${(props) =>
-        props.height ? props.height : '85vh'};
+        props.height ? props.height : '105vh'};
+    }
+    @media (max-width: 618px){
+      height: ${(props) =>
+        props.height ? props.height : '95vh'};
+    }
+    @media (max-width: 454px){
+      height: ${(props) =>
+        props.height ? props.height : '110vh'};
     }
 `
 
@@ -51,6 +63,17 @@ const LeftTop = styled.div`
   @media (max-width: 1294px){
     font-size: 0.6em;
   }
+  @media (max-width: 1037px){
+    width: 55%;
+    padding: 10px;
+  }  
+  @media (max-width: 896px){
+    position: relative;
+    width: 100%;
+  }
+  @media (max-width: 454px){
+    font-size: 0.4em;
+  }
 `
 
 const AccorditionsBorder = styled.div`
@@ -61,6 +84,16 @@ const AccorditionsBorder = styled.div`
   margin-top: 10%;
   @media (max-width: 1316px){
     height: 50vh;
+  }
+  @media (max-width: 896px){
+    height: 40vh;
+    margin-top: 46%;
+  }
+  @media (max-width: 594px){
+    margin-top: 50%;
+  }
+  @media (max-width: 454px){
+    margin-top: 70%;
   }
 `
 
@@ -73,20 +106,38 @@ const Title = styled.h1`
   @media (max-width: 879px){
     font-size: 3.7em;
   }
+
+  @media (max-width: 787px){
+    position: relative;
+    width: 100%;
+  }
 `
 
-const TopImage = styled.img`
+const TopImage = styled.img<TopImageProps>`
   width: 35%;
   position: relative;
   left: 15%;
+
+  display: ${(props) => 
+  props.ifResp ? "none" : "block"};
   
   @media (max-width: 1598px){
     left: 7%;
     width: 30%;
   }
-  @media (max-width: 1009px){
+  @media (max-width: 1037px){
+    width: 25%;
+    left: 2%;
+  }
+  @media (max-width: 896px){
+    display: ${(props) => 
+      props.ifResp ? "block" : "none"};
     width: 30%;
-    left: 5%;
+    left: 35%;
+  }
+  @media (max-width: 454px){
+    width: 50%;
+    left: 25%;
   }
 `
 
@@ -108,6 +159,7 @@ const Solutions = () => {
           <AccorditionsBorder/>
           <LeftTop>
             <Title>How we work</Title>
+            <TopImage src={a} ifResp={true}></TopImage>
             {topContent.map((v, i) => {
               return (
                 <Accordion
@@ -122,7 +174,7 @@ const Solutions = () => {
               )
             })}
           </LeftTop>
-          <TopImage src={a}></TopImage>
+          <TopImage src={a} ifResp={false}></TopImage>
         </ContentWrapper>
         <PhoneWrapper
         header={PhoneWrapperContent[0]["header"]}

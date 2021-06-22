@@ -24,6 +24,14 @@ const Label = styled.span`
   @media (max-width: 1316px){
     font-size: 28px;
   }
+  
+  @media (max-width: 1037px){
+    font-size: 22px;
+  }  
+
+  @media (max-width: 454px){
+    font-size: 16px;
+  }
 `
 
 const Content = styled(a.div)`
@@ -33,6 +41,9 @@ const Content = styled(a.div)`
   
   @media (max-width: 1316px){
     font-size: 20px;
+  }
+  @media (max-width: 454px){
+    font-size: 14px;
   }
 `
 
