@@ -59,7 +59,7 @@ const PhoneHeader = styled.div<HeaderProps>`
     width: 50%;
   }
   @media (max-width: 955px){
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
   @media (max-width: 772px){
     float: none;
@@ -151,7 +151,7 @@ const PhoneImg = styled.img<ImageProps>`
     width: ${(props) => 
       props.isCompanySection ? "25%" : "20%"};
     top: ${(props) => 
-      props.isCompanySection ? props.isReversed ? "-10vh" : "-12vh" : "-10vh"};
+      props.isCompanySection ? props.isReversed ? "-10vh" : "-11vh" : "-10vh"};
   }
   @media (max-width: 772px){
     float: none;
