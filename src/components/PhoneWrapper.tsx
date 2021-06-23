@@ -8,7 +8,8 @@ type PhoneWrapperProps = {
     buttonText?: string,
     imageSource?: any,
     isBackground?: boolean,
-    isButtonHidden?: boolean
+    isButtonHidden?: boolean,
+    isCompanySection?: boolean
 };
 
 interface SectionProps{
@@ -21,6 +22,7 @@ interface ButtonProps{
 
 interface ImageProps{
   readonly isButtonHidden?: boolean
+  readonly isCompanySection?: boolean
 }
 
 const PhoneSection = styled.div<SectionProps>`
@@ -29,7 +31,7 @@ const PhoneSection = styled.div<SectionProps>`
   ${(props) => 
   props.isBackground ? "background: #F5F5F5;" : ""}
   flex-direction: row;
-  @media (max-width: 648px){
+  @media (max-width: 772px){
     height: 60vh;
   }
 `;
@@ -120,7 +122,8 @@ const PhoneImg = styled.img<ImageProps>`
   float: right;
   margin-right: 10%;
   position: relative;
-  top: -16vh;
+  top: ${(props) => 
+    props.isCompanySection ? "-10vh" : "-16vh"};
     
   @media (max-width: 1214px){
     top: -10vh;
@@ -145,13 +148,13 @@ const PhoneImg = styled.img<ImageProps>`
   
   @media (max-width: 475px){
     left: ${(props) => 
-      props.isButtonHidden ? "20%" : "33%"};
+      props.isButtonHidden ? props.isCompanySection ? "25%" :"20%" : "33%"};
     width: ${(props) => 
-      props.isButtonHidden ? "60%" : "34%"};
+      props.isButtonHidden ? props.isCompanySection ? "50%" : "60%" : "34%"};
   }
 `;
 
-const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, isBackground, isButtonHidden} : PhoneWrapperProps ) => {
+const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, isBackground, isButtonHidden, isCompanySection} : PhoneWrapperProps ) => {
     return <PhoneSection isBackground = {isBackground}>
         <PhoneHeader>
             {header}
@@ -169,7 +172,7 @@ const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, is
             </div>
             </PhoneButtonWrapper>
         </Link>
-        <PhoneImg src = {imageSource} isButtonHidden = {isButtonHidden}/>
+        <PhoneImg src = {imageSource} isButtonHidden = {isButtonHidden} isCompanySection={isCompanySection}/>
     </PhoneSection>;
 };
 

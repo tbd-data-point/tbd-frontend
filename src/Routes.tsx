@@ -13,6 +13,7 @@ import {
   UploadOffer,
   Dashboard,
   ClientDashboard,
+  Company
 } from './views'
 
 const Routes = () => {
@@ -24,6 +25,7 @@ const Routes = () => {
       <Route path="/solutions" component={Solutions} />
       <Route path="/industries" component={Industries} />
       <Route path="/resources" component={Resources} />
+      <Route path="/company" component={Company}/>
       <Route
         path="/app/settings"
         component={WorkerSettings}
