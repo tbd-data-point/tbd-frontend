@@ -13,7 +13,6 @@ body {
   scroll-behavior: smooth;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  overflow-y: auto !important;
 }
 
 a,
@@ -42,7 +41,7 @@ button:active {
   color: black;
 }
 
-.phone-wrapper-button{
+.phone-wrapper-button {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -51,23 +50,23 @@ button:active {
   justify-content: center !important;
 }
 
-.large-phone-button{
+.large-phone-button {
   width: 20% !important;
 }
 
 @media screen and (max-width: 966px) {
-  .large-phone-button{
+  .large-phone-button {
     width: 30%;
   }
 }
 @media screen and (max-width: 772px) {
-  .large-phone-button{
+  .large-phone-button {
     width: 40% !important;
     left: 30% !important;
   }
 }
 @media screen and (max-width: 412px) {
-  .large-phone-button{
+  .large-phone-button {
     width: 60% !important;
     left: 20% !important;
   }

@@ -5,27 +5,18 @@ import GradientButton from './GradientButton'
 type ButtonsProps = {
   loginCallback: () => void
   signupCallback: () => void
-  isResp: boolean
 }
 
 const Buttons = ({
   loginCallback,
   signupCallback,
-  isResp,
 }: ButtonsProps) => {
   return (
-    <ButtonWrapper isResp={isResp}>
-      <GradientButton
-        onClick={loginCallback}
-        role="button"
-        topPos="55vh"
-      >
+    <ButtonWrapper>
+      <GradientButton onClick={loginCallback} role="button">
         Login
       </GradientButton>
-      <GradientButton
-        onClick={signupCallback}
-        topPos="62vh"
-      >
+      <GradientButton onClick={signupCallback}>
         Signup
       </GradientButton>
     </ButtonWrapper>

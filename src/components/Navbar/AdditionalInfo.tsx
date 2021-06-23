@@ -1,27 +1,20 @@
 import styled from 'styled-components'
-import React from 'react'
+import React, { useState } from 'react'
 import CloseButton from '../CloseButton'
 import { useSpring, animated as a } from 'react-spring'
-import { useState } from 'react'
+import { device } from '../../assets/styles/breakpoints'
 
 const Wrapper = styled(a.section)`
-  height: 6vh;
+  height: 20px;
   background: black;
   color: white;
-  display: flex;
   align-items: center;
   overflow: hidden;
   padding: 0px 80px;
+  display: none;
 
-  @media (max-width: 1020px) {
-    font-size: 0.8em;
-  }
-  @media (max-width: 836px) {
-    font-size: 0.6em;
-  }
-  @media (max-width: 740px) {
-    display: none;
-    height: 0;
+  @media ${device.laptop} {
+    display: flex;
   }
 `
 

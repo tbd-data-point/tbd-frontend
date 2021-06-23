@@ -1,50 +1,56 @@
-import React from 'react'
+import { device } from '../../assets/styles/breakpoints'
 import styled from 'styled-components'
 
-interface OpeningBarProps {
-  readonly topPosition?: string
+const OpenNavbarButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-column: openButton;
+  height: 23px;
+  width: 30px;
+  @media ${device.laptop} {
+    display: none;
+  }
+`
+
+type Test = {
+  readonly transformTop?: boolean
+  readonly transformMiddle?: boolean
+  readonly transformBottom?: boolean
 }
 
-const OpeningWrapper = styled.div`
-  width: 30px;
-  height: 40px;
-  align-items: center;
-  display: none;
-  @media (max-width: 738px) {
-    display: block;
-    position: relative;
-    left: 70vw;
-  }
-  @media (max-width: 446px) {
-    left: 60vw;
-  }
-  @media (max-width: 320px) {
-    left: 55vw;
-  }
-`
-
-const OpeningBar = styled.div<OpeningBarProps>`
-  width: 30px;
-  height: 5px;
-  margin: 2px 0px;
+const Line = styled.div<Test>`
+  width: 100%;
+  height: 3px;
   background: black;
-  display: block;
-  position: absolute;
-  top: ${(props) =>
-    props.topPosition ? props.topPosition : '0px'};
-
-  @media (max-width: 408px) {
-    width: 25px;
-  }
+  transition: ${(props) =>
+      props.transformMiddle ? '100ms' : '250ms'}
+    ease-out;
+  transform: ${(props) =>
+    props.transformTop
+      ? 'translate3d(0px, 10px, 0) rotate(45deg)'
+      : props.transformBottom
+      ? 'translate3d(0px, -10px, 0) rotate(-45deg)'
+      : 'none'};
+  opacity: ${(props) =>
+    props.transformMiddle ? '0' : '1'};
 `
 
-const RespOpeningBtn = ({ openCallback }: any) => {
+type RespOpeningBtn = {
+  openCallback: () => void
+  isOpen: boolean
+}
+
+const RespOpeningBtn = ({
+  openCallback,
+  isOpen,
+}: RespOpeningBtn) => {
   return (
-    <OpeningWrapper onClick={() => openCallback()}>
-      <OpeningBar topPosition="16px" />
-      <OpeningBar topPosition="26px" />
-      <OpeningBar topPosition="36px" />
-    </OpeningWrapper>
+    <OpenNavbarButton role="button" onClick={openCallback}>
+      <Line transformTop={isOpen} />
+      <Line transformMiddle={isOpen} />
+      <Line transformBottom={isOpen} />
+    </OpenNavbarButton>
   )
 }
 
