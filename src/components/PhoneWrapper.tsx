@@ -9,11 +9,20 @@ type PhoneWrapperProps = {
     imageSource?: any,
     isBackground?: boolean,
     isButtonHidden?: boolean,
-    isCompanySection?: boolean
+    isCompanySection?: boolean,
+    isReversed?: boolean
 };
 
 interface SectionProps{
   readonly isBackground?: boolean
+}
+
+interface HeaderProps{
+  readonly isReversed?: boolean
+}
+
+interface DescProps{
+  readonly isReversed?: boolean
 }
 
 interface ButtonProps{
@@ -23,6 +32,7 @@ interface ButtonProps{
 interface ImageProps{
   readonly isButtonHidden?: boolean
   readonly isCompanySection?: boolean
+  readonly isReversed?: boolean
 }
 
 const PhoneSection = styled.div<SectionProps>`
@@ -36,16 +46,20 @@ const PhoneSection = styled.div<SectionProps>`
   }
 `;
 
-const PhoneHeader = styled.div`
+const PhoneHeader = styled.div<HeaderProps>`
   width: 30%;
   position: relative;
-  left: 7%;
+  left: ${(props) => 
+    props.isReversed? "47%" : "7%"};
   top: 7%;
   font-size: 2em;
   letter-spacing: 0.06em;
   
   @media (max-width: 1214px){
     width: 50%;
+  }
+  @media (max-width: 955px){
+    font-size: 1.8em;
   }
   @media (max-width: 772px){
     float: none;
@@ -61,16 +75,19 @@ const PhoneHeader = styled.div`
   }
 `;
 
-const PhoneDescription = styled.div`
-  width: 25%;
+const PhoneDescription = styled.div<DescProps>`
+  width: ${(props) => 
+    props.isReversed? "35%" : "25%"};
   position: relative;
-  left: 7%;
+  left: ${(props) => 
+    props.isReversed? "47%" : "7%"};
   top: 14%;
   font-size: 1em;
   letter-spacing: 0.06em;
     
   @media (max-width: 1214px){
-    width: 45%;
+    width: ${(props) => 
+      props.isReversed? "40%" : "45%"};
   }
   @media (max-width: 772px){
     float: none;
@@ -119,16 +136,23 @@ const PhoneButtonWrapper = styled.div<ButtonProps>`
 const PhoneImg = styled.img<ImageProps>`
   width: 20%;
   height: auto;
-  float: right;
-  margin-right: 10%;
+  float: ${(props) => 
+    props.isReversed ? "left" : "right"};
+  ${(props) => 
+      props.isReversed ? "margin-left" : "margin-right"} : 10%;
   position: relative;
   top: ${(props) => 
-    props.isCompanySection ? "-10vh" : "-16vh"};
+    props.isCompanySection ? props.isReversed ? "-9vh" : "-13vh" : "-16vh"};
     
   @media (max-width: 1214px){
     top: -10vh;
   }
-
+  @media (max-width: 955px){
+    width: ${(props) => 
+      props.isCompanySection ? "25%" : "20%"};
+    top: ${(props) => 
+      props.isCompanySection ? props.isReversed ? "-10vh" : "-12vh" : "-10vh"};
+  }
   @media (max-width: 772px){
     float: none;
     top: ${(props) => 
@@ -137,6 +161,7 @@ const PhoneImg = styled.img<ImageProps>`
       props.isButtonHidden ? "36%" : "43%"};
     width: ${(props) => 
       props.isButtonHidden ? "28%" : "14%"};
+    margin: 0;
   }
 
   @media (max-width: 650px){
@@ -154,12 +179,12 @@ const PhoneImg = styled.img<ImageProps>`
   }
 `;
 
-const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, isBackground, isButtonHidden, isCompanySection} : PhoneWrapperProps ) => {
+const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, isBackground, isButtonHidden, isCompanySection, isReversed} : PhoneWrapperProps ) => {
     return <PhoneSection isBackground = {isBackground}>
-        <PhoneHeader>
+        <PhoneHeader isReversed={isReversed}>
             {header}
         </PhoneHeader>
-        <PhoneDescription>
+        <PhoneDescription isReversed={isReversed}>
             {description}
         </PhoneDescription>
         <Link to="/">
@@ -172,7 +197,8 @@ const PhoneWrapper = ({header,description, buttonText="Sign up", imageSource, is
             </div>
             </PhoneButtonWrapper>
         </Link>
-        <PhoneImg src = {imageSource} isButtonHidden = {isButtonHidden} isCompanySection={isCompanySection}/>
+        <PhoneImg src = {imageSource} isButtonHidden = {isButtonHidden} isCompanySection={isCompanySection}
+        isReversed={isReversed}/>
     </PhoneSection>;
 };
 

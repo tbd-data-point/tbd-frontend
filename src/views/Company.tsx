@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import company_start from "../assets/img/company_start.png";
 import company_photo from "../assets/img/company_photo.svg";
+import company_photo_reversed from "../assets/img/company_photo_reversed.svg";
 import PhoneWrapper from '../components/PhoneWrapper';
 
 const Wrapper = styled.div`
@@ -78,7 +79,8 @@ const Company = () => {
           header = "Lorem ipsum"
           description = "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave"
           isButtonHidden={true} isCompanySection={true}
-          imageSource={company_photo} isBackground={true}/>
+          imageSource={company_photo_reversed} isBackground={true}
+          isReversed={true}/>
         <PhoneWrapper
           header = "Lorem ipsum"
           description = "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave"
@@ -88,7 +90,8 @@ const Company = () => {
           header = "Lorem ipsum"
           description = "Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave"
           isButtonHidden={true} isCompanySection={true}
-          imageSource={company_photo} isBackground={true}/>
+          imageSource={company_photo_reversed} isBackground={true}
+          isReversed={true}/>
       </Wrapper>
       <Footer />
     </>
