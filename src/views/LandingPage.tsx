@@ -1,138 +1,301 @@
 import { Navbar, Footer } from '../components'
 import { Link } from 'react-router-dom'
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import styled from 'styled-components'
 
 import leaders from '../assets/img/leaders.jpg'
 import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
-import "swiper/swiper.min.css";
+import 'swiper/swiper.min.css'
 
-import LandingPageData from "../assets/data/LandingPage.json";
+import { device } from '../assets/styles/breakpoints'
+import { colors } from '../assets/styles/colors'
+
+import LandingPageData from '../assets/data/LandingPage.json'
+
+const Wrapper = styled.main`
+  width: 100%;
+  postiton: relative;
+`
+
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  @media ${device.tablet} {
+    flex-direction: row;
+    height: 100vh;
+    min-height: 600px;
+  }
+`
+
+const GreenGradient = styled.div`
+  width 100%;
+  height: 100px;
+  transform: rotate(180deg);
+  background: ${colors.greenGradientLight};
+  @media ${device.tablet} {
+    height: 100%;
+    width: 12%;
+    background: ${colors.greenGradientLightRotated};
+  }
+`
+
+const BlueGradient = styled.div`
+  width: 100%;
+  height: 150px;
+  background: ${colors.blueGradientLight};
+  @media ${device.tablet} {
+    height: 100%;
+    width: 30%;
+    background: ${colors.blueGradientLightRotated};
+  }
+  @media ${device.laptop} {
+    width: 44%;
+  }
+`
+
+const TopTextWrapper = styled.div`
+  width: 100%;
+  padding: 50px 60px;
+  font-size: 14px;
+  @media ${device.tablet} {
+    max-width: 58%;
+  }
+  @media ${device.laptop} {
+    max-width: 44%;
+  }
+  @media ${device.mobileM} {
+    font-size: 18px;
+  }
+  @media ${device.laptop} {
+    font-size: 20px;
+  }
+  @media ${device.laptopL} {
+    font-size: 24px;
+  }
+`
+
+const Header = styled.h1`
+  margin: 0;
+  font-size: 24px;
+  @media ${device.mobileM} {
+    font-size: 32px;
+  }
+  @media ${device.laptop} {
+    font-size: 34px;
+  }
+  @media ${device.laptopL} {
+    font-size: 42px;
+  }
+`
+
+const Colored = styled.span`
+  color: ${colors.blue1};
+`
+
+const Header2 = styled.h2`
+  color: ${colors.grey3};
+  font-size: inherit;
+  margin: 3em 0;
+`
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${device.mobileL} {
+    flex-direction: row;
+  }
+`
+
+interface ButtonProps {
+  readonly background?: string
+  readonly margin?: string
+  readonly fontSize?: string
+  readonly border?: string
+  readonly padding?: string
+  readonly color?: string
+}
+
+const Button = styled.div<ButtonProps>`
+  float: left;
+  padding: ${(props) =>
+    props.padding ? props.padding : '10px'};
+  background: ${(props) =>
+    props.background ? props.background : 'white'};
+  font-size: ${(props) =>
+    props.fontSize ? props.fontSize : 'inherit'};
+  border: ${(props) =>
+    props.border ? props.border : 'none'};
+  color: ${(props) =>
+    props.color ? props.color : 'black'};
+  margin: 10px 0px;
+
+  @media ${device.mobileL} {
+    margin: ${(props) =>
+      props.margin ? props.margin : '0'};
+  }
+`
+
+const MiddleTextWrapper = styled(TopTextWrapper)`
+  display: flex;
+  flex-direction: column;
+  padding: 6em 3em;
+  align-items: flex-start;
+  justify-content: center;
+  @media ${device.tablet} {
+    order: 0;
+  }
+`
+
+const Image = styled.img`
+  width: 100%;
+  @media ${device.tablet} {
+    height: 100%;
+    width: auto;
+    order: 1;
+    width: 50%;
+  }
+`
+
+const BottomSection = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20% 15%;
+`
+
+const Gradient = styled.span`
+  background: ${colors.textGradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
 
 const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <div className="landing-wrapper">
-        <div className="left-gradient" />
-        <div className="landing-text-section">
-          <div className="headline-wrapper">
-            <h1 id="headline-no-color">
+      <Wrapper>
+        <Section>
+          <GreenGradient />
+          <TopTextWrapper>
+            <Header>
               Lorem ipsum dolor sit amet consectetur
-              adipiscing
-            </h1>
-            <h1 id="headline-color">
-              elit sed do eiusmod tempor
-            </h1>
-          </div>
-          <h2 id="text-under-headline">
-            Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.{' '}
-          </h2>
+              adipiscing elit&nbsp;
+              <Colored>sed do eiusmod tempor</Colored>
+            </Header>
+            <Header2>
+              Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </Header2>
+            <ButtonsWrapper>
+              <Link to="/">
+                <Button
+                  padding="8px 12px"
+                  border="black 0.03em solid"
+                >
+                  Get started
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button
+                  padding="9px 12px"
+                  background={colors.grey1}
+                  color="white"
+                  margin="0 0 0 20px"
+                >
+                  See solutions
+                </Button>
+              </Link>
+            </ButtonsWrapper>
+          </TopTextWrapper>
+          <BlueGradient />
+        </Section>
+        <Section style={{ background: colors.blue1 }}>
+          <Image alt="leaders" src={leaders} />
+          <MiddleTextWrapper>
+            <Header style={{ margin: '0', color: 'white' }}>
+              Why are we the leaders in the industry?
+            </Header>
+            <Header2 style={{ color: colors.grey7 }}>
+              Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+              Aliquet sagittis id consectetur purus ut
+              faucibus pulvinar elementum.
+            </Header2>
 
-          <div className="text-button-section">
-            <Link to="/">
-              <div
-                className="button button-filled"
-                id="black-button"
-              >
-                Get started
-              </div>
-            </Link>
-            <Link to="/">
-              <div className="button button-not-filled right-button">
-                See solutions
-              </div>
-            </Link>
-            <Link to="/">
-              <div
-                className="button button-filled hidden-button"
-                id="black-button"
-              >
-                Sign up
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className="right-gradient" />
-      </div>
-      <div className="middle-section">
-        <div className="middle-text-section">
-          <h1 id="middle-section-headline">
-            Why are we leaders in the industry?
-          </h1>
+            <ButtonsWrapper>
+              <Link to="/">
+                <Button>Learn more</Button>
+              </Link>
+              <Link to="/">
+                <Button
+                  background={colors.blue1}
+                  border="white 0.03em solid"
+                  margin="0 0 0 15px"
+                  color="white"
+                >
+                  Sign up
+                </Button>
+              </Link>
+            </ButtonsWrapper>
+          </MiddleTextWrapper>
+        </Section>
 
-          <h2 id="middle-section-text">
-            Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-            Aliquet sagittis id consectetur purus ut
-            faucibus pulvinar elementum.
-          </h2>
-          <div className="text-button-section">
-            <Link to="/">
-              <div
-                className="button button-not-filled staying-button"
-                id="white-button-not-filled"
-              >
-                Learn more
-              </div>
-            </Link>
-            <Link to="/">
-              <div
-                className="button button-filled right-button staying-button"
-                id="white-button-filled"
-              >
-                Signup
-              </div>
-            </Link>
-          </div>
-        </div>
-        <img
-          id="middle-section-image"
-          alt=""
-          src={leaders}
-        />
-      </div>
-      <div className="bottom-section-wrapper">
-        <div className="bottom-headline-wrapper">
-          <div className="bottom-headline-section">
-            <h1 id="headline-no-color">Lorem</h1>
-            <h1 id="headline-gradient">
-              &nbsp;ipsum dolor sit
-            </h1>
-          </div>
-          <h2 id="bottom-subtitle">
+        <BottomSection>
+          <Header style={{ width: '100%' }}>
+            Lorem<Gradient>&nbsp;ipsum dolor sit</Gradient>
+          </Header>
+          <Header2>
             Lorem ipsum dolor sit amet enim. Etiam
             ullamcorper. Suspendisse a pellentesque dui, non
             felis. Maecenas malesuada elit lectus felis,
             malesuada ultricies
-          </h2>
-        </div>
-        <div className="bottom-tiles-wrapper">
-          {LandingPageData["sliders"].map((tile, index) => <BottomTile
-              key = {"tile"+index}
-              classes = "tile-wrapper tiles-non-rwd"
-              headline={tile["headline"]}
-              description={tile["description"]}
-              link={tile["link"]}
-              bg={tile["bg"]}
-            />)}
-            <Swiper className="tiles-rwd" spaceBetween={2}
-                    slidesPerView={1}
-                    loop = {true}>
-            {LandingPageData["sliders"].map((tile, index) => <SwiperSlide className = "swiper-slide-container"><BottomTile
-              key = {"tileRWD"+index}
-              classes = "tile-wrapper tiles-rwd"
-              headline={tile["headline"]}
-              description={tile["description"]}
-              link={tile["link"]}
-              bg={tile["bg"]}
-            /></SwiperSlide>)}
+          </Header2>
+
+          <div className="bottom-tiles-wrapper">
+            {LandingPageData['sliders'].map(
+              (tile, index) => (
+                <BottomTile
+                  key={'tile' + index}
+                  classes="tile-wrapper tiles-non-rwd"
+                  headline={tile['headline']}
+                  description={tile['description']}
+                  link={tile['link']}
+                  bg={tile['bg']}
+                />
+              ),
+            )}
+            <Swiper
+              className="tiles-rwd"
+              spaceBetween={2}
+              slidesPerView={1}
+              loop={false}
+            >
+              {LandingPageData['sliders'].map(
+                (tile, index) => (
+                  <SwiperSlide className="swiper-slide-container">
+                    <BottomTile
+                      key={'tileRWD' + index}
+                      classes="tile-wrapper tiles-rwd"
+                      headline={tile['headline']}
+                      description={tile['description']}
+                      link={tile['link']}
+                      bg={tile['bg']}
+                    />
+                  </SwiperSlide>
+                ),
+              )}
             </Swiper>
-        </div>
-      </div>
+          </div>
+        </BottomSection>
+      </Wrapper>
       <Footer />
     </>
   )
@@ -151,7 +314,7 @@ const BottomTile = ({
   headline,
   description,
   link,
-  classes
+  classes,
 }: BottomTileProps) => {
   return (
     <div className={classes}>

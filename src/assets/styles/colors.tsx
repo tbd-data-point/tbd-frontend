@@ -56,4 +56,15 @@ export const colors = {
 
   progressGradient3:
     'linear-gradient(75deg,rgba(107, 232, 88, 1) 0%,rgba(155, 238, 24, 1) 100%)',
+  greenGradientLight:
+    'linear-gradient(0deg, #ebffcb 0%, white 100%)',
+  greenGradientLightRotated:
+    'linear-gradient(-90deg, #ebffcb 0%, white 100%)',
+  blueGradientLight:
+    'linear-gradient(0deg,rgba(204, 253, 255, 0.67) 0%,#f1ffff 71.35%,#faffff 91.67%,rgba(255, 255, 255, 0) 100%)',
+  blueGradientLightRotated:
+    'linear-gradient(-90deg,rgba(204, 253, 255, 0.67) 0%,#f1ffff 71.35%,#faffff 91.67%,rgba(255, 255, 255, 0) 100%)',
+
+  textGradient:
+    'linear-gradient(180deg, #5a9300 0%, #008389 100%)',
 }
