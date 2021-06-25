@@ -1,17 +1,16 @@
 import { Navbar, Footer } from '../components'
 import { Link } from 'react-router-dom'
-import { Swiper, SwiperSlide } from 'swiper/react'
+
 import styled from 'styled-components'
 
 import leaders from '../assets/img/leaders.jpg'
 import '../assets/scss/LandingPage.scss'
 import '../assets/scss/BottomTile.scss'
-import 'swiper/swiper.min.css'
 
 import { device } from '../assets/styles/breakpoints'
 import { colors } from '../assets/styles/colors'
 
-import LandingPageData from '../assets/data/LandingPage.json'
+import { slider } from '../assets/data/slider'
 
 const Wrapper = styled.main`
   width: 100%;
@@ -57,16 +56,8 @@ const BlueGradient = styled.div`
   }
 `
 
-const TopTextWrapper = styled.div`
-  width: 100%;
-  padding: 50px 60px;
+const TextWrapper = styled.div`
   font-size: 14px;
-  @media ${device.tablet} {
-    max-width: 58%;
-  }
-  @media ${device.laptop} {
-    max-width: 44%;
-  }
   @media ${device.mobileM} {
     font-size: 18px;
   }
@@ -75,6 +66,17 @@ const TopTextWrapper = styled.div`
   }
   @media ${device.laptopL} {
     font-size: 24px;
+  }
+`
+
+const TopTextWrapper = styled(TextWrapper)`
+  width: 100%;
+  padding: 50px 60px;
+  @media ${device.tablet} {
+    max-width: 58%;
+  }
+  @media ${device.laptop} {
+    max-width: 44%;
   }
 `
 
@@ -110,6 +112,10 @@ const ButtonsWrapper = styled.div`
   }
 `
 
+const MiddleSection = styled(Section)`
+  background: ${colors.blue1};
+`
+
 interface ButtonProps {
   readonly background?: string
   readonly margin?: string
@@ -139,7 +145,7 @@ const Button = styled.div<ButtonProps>`
   }
 `
 
-const MiddleTextWrapper = styled(TopTextWrapper)`
+const MiddleTextWrapper = styled(TextWrapper)`
   display: flex;
   flex-direction: column;
   padding: 6em 3em;
@@ -147,6 +153,7 @@ const MiddleTextWrapper = styled(TopTextWrapper)`
   justify-content: center;
   @media ${device.tablet} {
     order: 0;
+    max-width: 50%;
   }
 `
 
@@ -165,20 +172,101 @@ const BottomSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 20% 15%;
+  @media ${device.laptop} {
+    padding: 15% 10%;
+  }
+`
+
+const BottomTextWrapper = styled(TextWrapper)`
+  @media ${device.laptop} {
+    max-width: 60%;
+    margin-bottom: 3.2em;
+  }
 `
 
 const Gradient = styled.span`
-  background: ${colors.textGradient};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // background: ${colors.textGradient};
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  color: ${colors.green1};
+`
+
+const TilesWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex: none;
+  flex-flow: row nowrap;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+
+  & > div {
+    margin: 0 50px 10px 50px;
+    flex: none;
+    scroll-snap-align: center;
+  }
+
+  @media ${device.laptop} {
+    overflow: hidden;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    & > div {
+      flex: 0 1 auto;
+      margin: 0;
+    }
+  }
+`
+
+const Tile = styled(TextWrapper)`
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media ${device.laptop} {
+    width: 27%;
+  }
+`
+
+const TileHeader = styled(Header2)`
+  font-size: 1.4em;
+  width: 100%;
+  margin-bottom: 0;
+  color: black;
+`
+
+const TileDecoration = styled.div`
+  width: 200px;
+  height: 200px;
+`
+
+const TileDescription = styled.p`
+  font-size: inherit;
+  color: ${colors.grey3};
+`
+
+const TileLink = styled(Link)`
+  text-decoration: underline;
+  font-size: 1.1em;
+  display: inline-block;
+  margin: 0 auto 0 0;
+`
+
+const TileLinkDecoration = styled.div`
+  background: ${colors.gradientLight};
+  width: 0.5em;
+  height: 0.5em;
+  display: inline-block;
+  margin-left: 10px;
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
 `
 
 const LandingPage = () => {
   return (
     <>
       <Navbar />
+
       <Wrapper>
         <Section>
           <GreenGradient />
@@ -216,7 +304,8 @@ const LandingPage = () => {
           </TopTextWrapper>
           <BlueGradient />
         </Section>
-        <Section style={{ background: colors.blue1 }}>
+
+        <MiddleSection>
           <Image alt="leaders" src={leaders} />
           <MiddleTextWrapper>
             <Header style={{ margin: '0', color: 'white' }}>
@@ -246,91 +335,45 @@ const LandingPage = () => {
               </Link>
             </ButtonsWrapper>
           </MiddleTextWrapper>
-        </Section>
+        </MiddleSection>
 
         <BottomSection>
-          <Header style={{ width: '100%' }}>
-            Lorem<Gradient>&nbsp;ipsum dolor sit</Gradient>
-          </Header>
-          <Header2>
-            Lorem ipsum dolor sit amet enim. Etiam
-            ullamcorper. Suspendisse a pellentesque dui, non
-            felis. Maecenas malesuada elit lectus felis,
-            malesuada ultricies
-          </Header2>
-
-          <div className="bottom-tiles-wrapper">
-            {LandingPageData['sliders'].map(
-              (tile, index) => (
-                <BottomTile
-                  key={'tile' + index}
-                  classes="tile-wrapper tiles-non-rwd"
-                  headline={tile['headline']}
-                  description={tile['description']}
-                  link={tile['link']}
-                  bg={tile['bg']}
-                />
-              ),
-            )}
-            <Swiper
-              className="tiles-rwd"
-              spaceBetween={2}
-              slidesPerView={1}
-              loop={false}
+          <BottomTextWrapper>
+            <Header style={{ width: '100%' }}>
+              Lorem
+              <Gradient>&nbsp;ipsum dolor sit</Gradient>
+            </Header>
+            <Header2
+              style={{ marginTop: '1.5em', width: '100%' }}
             >
-              {LandingPageData['sliders'].map(
-                (tile, index) => (
-                  <SwiperSlide className="swiper-slide-container">
-                    <BottomTile
-                      key={'tileRWD' + index}
-                      classes="tile-wrapper tiles-rwd"
-                      headline={tile['headline']}
-                      description={tile['description']}
-                      link={tile['link']}
-                      bg={tile['bg']}
-                    />
-                  </SwiperSlide>
-                ),
-              )}
-            </Swiper>
-          </div>
+              Lorem ipsum dolor sit amet enim. Etiam
+              ullamcorper. Suspendisse a pellentesque dui,
+              non felis labore et dolore magna aliqua.
+              Aliquet sagittis id consectetur purus
+            </Header2>
+          </BottomTextWrapper>
+          <TilesWrapper>
+            {slider.map((tile, index) => (
+              <Tile key={`tile_${index}`}>
+                <TileDecoration
+                  style={{ background: tile.background }}
+                />
+                <TileHeader>{tile.header}</TileHeader>
+                <TileDescription>
+                  {tile.description}
+                </TileDescription>
+                <TileLink to={tile.url}>
+                  See more
+                  <TileLinkDecoration />
+                </TileLink>
+              </Tile>
+            ))}
+          </TilesWrapper>
         </BottomSection>
       </Wrapper>
+
       <Footer />
     </>
-  )
-}
-
-type BottomTileProps = {
-  bg: string
-  headline: string
-  description: string
-  link: string
-  classes: string
-}
-
-const BottomTile = ({
-  bg,
-  headline,
-  description,
-  link,
-  classes,
-}: BottomTileProps) => {
-  return (
-    <div className={classes}>
-      <div
-        className="thumbnail"
-        style={{ background: bg }}
-      />
-      <h2 className="headline">{headline}</h2>
-      <p className="description">{description}</p>
-      <Link to={link}>
-        <div className="link-wrapper">
-          <div className="link-text">See more</div>
-          <div className="link-icon" />
-        </div>
-      </Link>
-    </div>
   )
 }
 

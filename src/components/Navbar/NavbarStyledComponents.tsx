@@ -45,6 +45,13 @@ export const ResponsiveWrapper = styled.section<ResponsiveWrapperProps>`
   flex-direction: column;
   align-items: center;
   padding-top: 15%;
+  font-size: 24px;
+  @media ${device.mobileL} {
+    font-size: 26px;
+  }
+  @media ${device.tablet} {
+    font-size: 32px;
+  }
   @media ${device.laptop} {
     display: none;
   }

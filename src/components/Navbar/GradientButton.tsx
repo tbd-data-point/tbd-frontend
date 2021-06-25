@@ -21,7 +21,6 @@ const Button = styled.div`
   border-radius: 50px;
   padding: 6px 40px;
   cursor: pointer;
-  font-size: 32px;
 
   @media ${device.laptop} {
     padding: 2px 16px;

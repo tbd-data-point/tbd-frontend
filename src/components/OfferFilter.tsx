@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 
-import OfferMinStyledComponents from './OfferFilter/OfferFilterStyledComponents';
-import FilterFooterComponent from "./OfferFilter/FilterFooterComponent";
+import OfferMinStyledComponents from './OfferFilter/OfferFilterStyledComponents'
+import FilterFooterComponent from './OfferFilter/FilterFooterComponent'
 
-import Keywords from "./OfferFilter/Filters/Keywords";
-import FilterType from "./OfferFilter/Filters/FilterType";
-import Description from "./OfferFilter/Filters/Description";
+import Keywords from './OfferFilter/Filters/Keywords'
+import FilterType from './OfferFilter/Filters/FilterType'
+import Description from './OfferFilter/Filters/Description'
 
-const FilterRect = OfferMinStyledComponents.FilterRect;
+const FilterRect = OfferMinStyledComponents.FilterRect
 // const Title = OfferMinStyledComponents.Title;
-const FilterBody = OfferMinStyledComponents.FilterBody;
+const FilterBody = OfferMinStyledComponents.FilterBody
 
 type props = {
   props: {
@@ -23,7 +23,8 @@ const OfferFilter = (props: props) => {
   const [newFilter, setNewFilter] = useState(
     props.props.filter,
   )
-  const [toggle, setToggle] = useState<boolean>(true)
+  // const [toggle, setToggle] = useState<boolean>(true)
+  const toggle = true
 
   useEffect(() => {
     setNewFilter(
@@ -31,20 +32,29 @@ const OfferFilter = (props: props) => {
     )
   }, [tags])
 
-  const toggleFilter = () => {
-    setToggle(!toggle)
-  }
+  // const toggleFilter = () => {
+  //   setToggle(!toggle)
+  // }
 
   return (
     <>
       <FilterRect className={toggle ? 'show' : 'hide'}>
         {/* <Title>Filter</Title> */}
         <FilterBody>
-          <Keywords tags = {tags} setTags = {setTags}/>
-          <FilterType filterFunction = {setNewFilter} newFilter = {newFilter}/>
-          <Description filterFunction = {setNewFilter} newFilter = {newFilter}/>
+          <Keywords tags={tags} setTags={setTags} />
+          <FilterType
+            filterFunction={setNewFilter}
+            newFilter={newFilter}
+          />
+          <Description
+            filterFunction={setNewFilter}
+            newFilter={newFilter}
+          />
         </FilterBody>
-        <FilterFooterComponent newFilter = {newFilter} filterFunction = {props.props.setFilter}/>
+        <FilterFooterComponent
+          newFilter={newFilter}
+          filterFunction={props.props.setFilter}
+        />
       </FilterRect>
     </>
   )

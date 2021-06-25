@@ -4,7 +4,6 @@ import { navbarElements } from './NavbarElements'
 import GradientButton from './GradientButton'
 
 const LinkElement = styled(Link)`
-  font-size: 32px;
   margin: 12px 0px;
 `
 
