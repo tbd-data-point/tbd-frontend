@@ -1,16 +1,12 @@
-import { Navbar, Footer } from '../components'
 import { Link } from 'react-router-dom'
-
 import styled from 'styled-components'
 
-import leaders from '../assets/img/leaders.jpg'
-import '../assets/scss/LandingPage.scss'
-import '../assets/scss/BottomTile.scss'
-
+import { Navbar, Footer } from '../components'
 import { device } from '../assets/styles/breakpoints'
 import { colors } from '../assets/styles/colors'
 
 import { slider } from '../assets/data/slider'
+import leaders from '../assets/img/leaders.jpg'
 
 const Wrapper = styled.main`
   width: 100%;
