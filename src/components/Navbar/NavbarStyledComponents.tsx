@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { animated as a } from 'react-spring'
 import { colors } from '../../assets/styles/colors'
 import { Link } from 'react-router-dom'
+
+import { device } from '../../assets/styles/breakpoints'
 
 interface ResponsiveWrapperProps {
   readonly isOpen?: boolean
@@ -17,40 +18,53 @@ export const Wrapper = styled.nav`
   width: 100%;
   height: 70px;
   display: grid;
-  grid-template-columns: 80px [logo] auto [links] auto [buttons] 1fr 80px;
   border-bottom: 0.03em solid black;
   position: sticky;
   top: 0;
   background: white;
   z-index: 10;
+  align-items: center;
+  grid-template-columns: 8% [logo] auto 1fr [openButton] auto 8%;
+  @media ${device.laptop} {
+    grid-template-columns: 80px [logo] auto [links] auto [buttons] 1fr 80px;
+  }
 `
 
-export const ResponsiveWrapper = styled(
-  a.nav,
-)<ResponsiveWrapperProps>`
+export const ResponsiveWrapper = styled.section<ResponsiveWrapperProps>`
   width: 100%;
-  height: 100%;
-  display: none;
+  height: calc(100vh - 70px);
   position: fixed;
-  top: 10vh;
+  top: 70px;
   background: white;
   z-index: 10;
-  @media (max-width: 738px) {
-    width: 100%;
-    display: ${(props) => (props.isOpen ? 'flex' : 'none')};
+  transform: translateX(
+    ${(props) => (props.isOpen ? '0' : '100%')}
+  );
+  transition: 250ms ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
+  font-size: 24px;
+  @media ${device.mobileL} {
+    font-size: 26px;
+  }
+  @media ${device.tablet} {
+    font-size: 32px;
+  }
+  @media ${device.laptop} {
+    display: none;
   }
 `
 
 export const LinkWrapper = styled.ul<ButtonWrapperProps>`
   overflow: hidden;
+  display: none;
   list-style-type: none;
   grid-column: links;
-  display: flex;
-  align-items: center;
-  @media (max-width: 738px) {
-    display: ${(props) => (props.isResp ? 'flex' : 'none')};
-    grid-column: auto;
-    width: 100%;
+
+  @media ${device.laptop} {
+    display: flex;
   }
 `
 
@@ -67,32 +81,15 @@ export const Flex = styled.div`
 `
 
 export const LinkElement = styled.li<LinkElementProps>`
-  float: left;
-  margin-left: 13px;
   transition: 0.2s ease-out;
   border-radius: 4px;
   padding: 5px;
-  &:hover {
-    background: ${colors.grey8};
-  }
 
-  @media (max-width: 923px) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 823px) {
-    font-size: 0.6em;
-  }
-
-  @media (max-width: 738px) {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 27%;
-    top: ${(props) => props.topPosition};
-    font-size: 1em;
+  @media ${device.laptop} {
+    &:hover {
+      background: ${colors.grey8};
+    }
+    margin-left: 13px;
   }
 `
 
@@ -105,10 +102,6 @@ export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 738px) {
-    grid-column: auto;
-  }
 `
 
 export const Decoration = styled.div`
@@ -119,30 +112,16 @@ export const Decoration = styled.div`
   position: relative;
   top: 6px;
   margin-right: 8px;
-
-  @media (max-width: 923px) {
-    top: 4px;
-  }
-
-  @media (max-width: 823px) {
-    top: 2px;
-  }
-
-  @media (max-width: 738px) {
-    display: none;
-  }
 `
 
-export const ButtonWrapper = styled.div<ButtonWrapperProps>`
+export const ButtonWrapper = styled.div`
   grid-column: buttons;
-  display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
+  display: none;
 
-  @media (max-width: 738px) {
-    display: ${(props) => (props.isResp ? 'flex' : 'none')};
-    grid-column: auto;
-    width: 100%;
-    justify-content: center;
+  @media ${device.laptop} {
+    display: flex;
   }
 `

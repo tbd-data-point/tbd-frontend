@@ -18,13 +18,10 @@ const SignInUp = ({
   changeOpen,
   mode,
 }: SignInUpProps) => {
-  const style = useSpring({
-    top: isOpen ? '0vh' : '-100%',
-  })
   const modeForLinks = '/' + mode.toLocaleLowerCase()
   return (
     <>
-      <Wrapper style={style}>
+      <Wrapper isOpen={isOpen}>
         <div
           style={{
             cursor: 'pointer',
@@ -33,6 +30,7 @@ const SignInUp = ({
             right: '10%',
           }}
           onClick={changeOpen}
+          role="button"
         >
           <CloseButton />
         </div>

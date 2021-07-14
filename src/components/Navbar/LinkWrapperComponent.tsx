@@ -9,9 +9,9 @@ import {
 
 import { navbarElements } from './NavbarElements'
 
-const LinkWrapperComponent = ({ isResp }: any) => {
+const LinkWrapperComponent = () => {
   return (
-    <LinkWrapper isResp={isResp}>
+    <LinkWrapper>
       {navbarElements.map((v, i) => {
         return (
           <Link to={v.url} key={'link' + i}>

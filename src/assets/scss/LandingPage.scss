@@ -1,7 +1,11 @@
 @use '../styles/colors';
 @use '../styles/fonts';
 
-$green-gradient: linear-gradient(90deg, colors.$green_9 0%, colors.$white 100%);
+$green-gradient: linear-gradient(
+  90deg,
+  colors.$green_9 0%,
+  colors.$white 100%
+);
 $blue-gradient: linear-gradient(
   270deg,
   rgba(204, 253, 255, 0.67) 0%,
@@ -9,7 +13,11 @@ $blue-gradient: linear-gradient(
   #faffff 91.67%,
   rgba(255, 255, 255, 0) 100%
 );
-$green-gradient-resp: linear-gradient(180deg, colors.$green_9 0%, colors.$white 100%);
+$green-gradient-resp: linear-gradient(
+  180deg,
+  colors.$green_9 0%,
+  colors.$white 100%
+);
 $blue-gradient-resp: linear-gradient(
   0deg,
   rgba(204, 253, 255, 0.67) 0%,
@@ -36,12 +44,6 @@ h1 {
 #headline-color {
   margin: 0;
   color: colors.$blue_1;
-}
-
-h2 {
-  font-weight: 300;
-  font-size: fonts.$medium;
-  margin: 2em 0;
 }
 
 #text-under-headline {
@@ -104,7 +106,7 @@ h2 {
   margin-left: 1.2em;
 }
 
-.hidden-button{
+.hidden-button {
   display: none;
 }
 
@@ -191,7 +193,7 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .tiles-rwd{
+  .tiles-rwd {
     display: none;
   }
 }
@@ -259,4 +261,4 @@ h2 {
 .signup-section.close {
   top: -100vh;
 }
-@import "./rwd/LandingPage.scss";
+@import './rwd/LandingPage.scss';

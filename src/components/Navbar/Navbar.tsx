@@ -11,6 +11,7 @@ import {
 import SignInUp from './SignInUp'
 import LinkWrapperComponent from './LinkWrapperComponent'
 import RespOpeningBtn from './RespOpeningBtn'
+import MobileLinks from './MobileLinks'
 
 import logo from '../../assets/img/logo.svg'
 
@@ -30,8 +31,8 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow =
-      login || signup ? 'hidden' : 'auto'
-  }, [login, signup])
+      login || signup || resp ? 'hidden' : 'auto'
+  }, [login, signup, resp])
 
   return (
     <>
@@ -53,20 +54,20 @@ const Navbar = () => {
         <LogoLink to={'/'}>
           <Logo alt="Logo" src={logo} />
         </LogoLink>
-        <LinkWrapperComponent isResp={false} />
+        <LinkWrapperComponent />
         <Buttons
           loginCallback={changeLogin}
           signupCallback={changeSignup}
-          isResp={false}
         />
-        <RespOpeningBtn openCallback={changeResp} />
+        <RespOpeningBtn
+          isOpen={resp}
+          openCallback={changeResp}
+        />
       </Wrapper>
       <ResponsiveWrapper isOpen={resp}>
-        <LinkWrapperComponent isResp={true} />
-        <Buttons
+        <MobileLinks
           loginCallback={changeLogin}
           signupCallback={changeSignup}
-          isResp={true}
         />
       </ResponsiveWrapper>
     </>
