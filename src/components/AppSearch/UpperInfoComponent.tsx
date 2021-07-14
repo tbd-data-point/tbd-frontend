@@ -1,17 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
+import {useSpring} from "react-spring";
 import AppSearchStyledComponents from "./AppSearchStyledComponents";
 
 const UpperInfo = AppSearchStyledComponents.UpperInfo;
 const Prompt = AppSearchStyledComponents.Prompt;
-const CloseBtn = AppSearchStyledComponents.CloseBtn
+const CloseBtn = AppSearchStyledComponents.CloseBtn;
 
-const UpperInfoComponent = () => {
-    return <UpperInfo>
+type UpperInfoProps = {
+    dynamicStyles?: any,
+    closeCallback?: () => void
+};
+
+const UpperInfoComponent = ({
+    dynamicStyles,
+    closeCallback
+} : UpperInfoProps) => {
+
+    const [isClosed, closeThePrompt] = useState(false);
+
+    const additionalStyles = useSpring({
+        height: isClosed ? "0px" : "6vh"
+    });
+
+    return <UpperInfo style = {dynamicStyles}>
         <Prompt>
         Lorem Ipsum is simply dummy text of the printing
         and typesetting industry.
         </Prompt>
-        <CloseBtn />
+        <CloseBtn onClick = {closeCallback}/>
     </UpperInfo>;
 };
 

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import {animated as a} from "react-spring";
 
 namespace AppSearchStyledComponents{
-    export const UpperInfo = styled.div`
+    export const UpperInfo = styled(a.div)`
         width: 100%;
         background: black;
         color: #d7d7d7;
@@ -10,11 +11,20 @@ namespace AppSearchStyledComponents{
         align-items: center;
         font-weight: 400;
         position: relative;
+        overflow-y: hidden;
+        
+        @media (max-width: 637px){
+            display: none;
+        }
     `
     export const Prompt = styled.div`
         grid-column: 2;
         font-size: 14px;
         padding: 14px;
+
+        @media (max-width: 827px){
+            font-size: 12px;
+        }
     `
 
     export const CloseBtn = styled.div`
@@ -38,10 +48,14 @@ namespace AppSearchStyledComponents{
         grid-column: 3;
     `
 
-    export const Decoration = styled.div`
+    export const Decoration = styled(a.div)`
         width: 100%;
         height: 5px;
         background: linear-gradient(-90deg, #00d1db, #80cc08);
+                
+        @media (max-width: 637px){
+            display: none;
+        }
     `
 
     export const Search = styled.div`

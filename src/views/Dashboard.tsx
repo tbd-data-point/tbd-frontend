@@ -28,6 +28,7 @@ const StatsWrapper = styled.div`
 	& > p {
 		font-size: 20px;
 		font-weight: 500;
+		text-align: left;
 	}
 `
 const Header = styled.h1`

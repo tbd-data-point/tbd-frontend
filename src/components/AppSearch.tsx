@@ -2,6 +2,7 @@ import React from "react";
 import AppSearchStyledComponents from "./AppSearch/AppSearchStyledComponents";
 import UpperInfoComponent from "./AppSearch/UpperInfoComponent";
 import MiddleSection from "./AppSearch/MiddleSection";
+import ClosingInfoSection from "./AppSearch/ClosingInfoSection";
 
 import a from '../assets/img/a.jpg'
 import logo from '../assets/img/logo.svg'
@@ -19,8 +20,7 @@ const AppSearch = () => {
   return (
     <>
       <Wrapper>
-        <UpperInfoComponent/>
-        <Decoration />
+        <ClosingInfoSection/>
         <Search>
           <Left>
             <Logo src={logo}></Logo>
