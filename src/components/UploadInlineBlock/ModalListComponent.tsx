@@ -1,10 +1,7 @@
 import React from "react";
-import UploadInlineBlockStyledComponents from "./UploadInlineBlockStyledComponents";
+import {ModalList, SelectedFile} from "./UploadInlineBlockStyledComponents";
 
 import cross from '../../assets/img/cross.svg'
-
-const ModalList = UploadInlineBlockStyledComponents.ModalList;
-const SelectedFile = UploadInlineBlockStyledComponents.SelectedFile;
 
 const ModalListComponent = ({selectedFiles, previewImage, deleteFile}: any) => {
     return <ModalList>

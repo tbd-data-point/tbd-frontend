@@ -1,7 +1,5 @@
 import React from "react";
-import OfferFilterStyledComponents from "../OfferFilterStyledComponents";
-
-const Filter = OfferFilterStyledComponents.Filter;
+import {Filter} from "../OfferFilterStyledComponents";
 
 const FilterType = ({filterFunction, newFilter} : any) => {
     const options = [

@@ -1,9 +1,7 @@
 import React from "react";
 
-import OfferFilterStyledComponents from "../OfferFilterStyledComponents";
+import {Filter} from "../OfferFilterStyledComponents";
 import TaggedInput from "../../Tagged-input";
-
-const Filter = OfferFilterStyledComponents.Filter;
 
 
 const Keywords = ({tags,setTags}:any) => {

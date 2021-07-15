@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react'
 
-import OfferMinStyledComponents from './OfferFilter/OfferFilterStyledComponents'
+import {FilterRect, FilterBody} from './OfferFilter/OfferFilterStyledComponents'
 import FilterFooterComponent from './OfferFilter/FilterFooterComponent'
 
 import Keywords from './OfferFilter/Filters/Keywords'
 import FilterType from './OfferFilter/Filters/FilterType'
 import Description from './OfferFilter/Filters/Description'
-
-const FilterRect = OfferMinStyledComponents.FilterRect
-// const Title = OfferMinStyledComponents.Title;
-const FilterBody = OfferMinStyledComponents.FilterBody
 
 type props = {
   props: {

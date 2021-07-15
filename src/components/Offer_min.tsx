@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import OfferMinStyledComponents from './Offer_min/OfferMinStyledComponents'
+import {OfferRect, OfferContent, OfferDesc, StatusBar} from './Offer_min/OfferMinStyledComponents'
 import OfferHeaderComponent from './Offer_min/OfferHeaderComponent'
 import OfferPhotoComponent from './Offer_min/OfferPhotoComponent'
 import OfferButtonsComponent from './Offer_min/OfferButtonsComponent'
@@ -24,11 +24,6 @@ type PropsType = {
   }
   index: number
 }
-
-const OfferRect = OfferMinStyledComponents.OfferRect
-const OfferContent = OfferMinStyledComponents.OfferContent
-const OfferDesc = OfferMinStyledComponents.OfferDesc
-const StatusBar = OfferMinStyledComponents.StatusBar
 
 const OfferMin = (props: PropsType) => {
   const [status, setStatus] = useState<any>({

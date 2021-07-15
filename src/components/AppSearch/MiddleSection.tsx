@@ -2,11 +2,7 @@ import React from "react";
 import { AiOutlineSearch } from 'react-icons/ai'
 import { IconContext } from 'react-icons';
 
-import AppSearchStyledComponents from "./AppSearchStyledComponents";
-
-const Middle = AppSearchStyledComponents.Middle;
-const SearchBar = AppSearchStyledComponents.SearchBar;
-const SearchIcon = AppSearchStyledComponents.SearchIcon;
+import {Middle, SearchBar, SearchIcon} from "./AppSearchStyledComponents";
 
 const MiddleSection = () => {
     return  <Middle>

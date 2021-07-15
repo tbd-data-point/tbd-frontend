@@ -1,16 +1,9 @@
 import React from "react";
 
 import ModalListComponent from "./ModalListComponent";
-import UploadModeStyledComponents from "./UploadModalStyledComponents";
+import {ModalBody, ModalTitle, ModalInput, FileInput, ModalFooter, Button} from "./UploadModalStyledComponents";
 
 import upload from '../../assets/img/upload.svg';
-
-const ModalBody = UploadModeStyledComponents.ModalBody;
-const ModalTitle = UploadModeStyledComponents.ModalTitle;
-const ModalInput = UploadModeStyledComponents.ModalInput;
-const FileInput = UploadModeStyledComponents.FileInput;
-const ModalFooter = UploadModeStyledComponents.ModalFooter;
-const Button = UploadModeStyledComponents.Button;
 
 const ModalBodyComponent = ({
 	openFileBrowser,

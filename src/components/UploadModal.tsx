@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import axios from 'axios'
 
 import FilePreviewComponent from './FilePreviewComponent'
-import UploadModeStyledComponents from "./UploadModal/UploadModalStyledComponents";
+import {ModalWrapper, Bcg} from "./UploadModal/UploadModalStyledComponents";
 import ModalBodyComponent from "./UploadModal/ModalBodyComponent";
 
 //TODO: Add prev, next arrow photos for file preview
@@ -14,9 +14,6 @@ type PropsType = {
 	displayModal: boolean
 	setDisplayModal: any
 }
-
-const ModalWrapper = UploadModeStyledComponents.ModalWrapper;
-const Bcg = UploadModeStyledComponents.Bcg;
 
 const UploadModal = ({ id, displayModal, setDisplayModal }: PropsType) => {
 	const [selectedFiles, setSelectedFiles] = useState<any>([])

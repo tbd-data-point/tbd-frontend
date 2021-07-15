@@ -2,20 +2,10 @@ import React from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 
-import SearchStyledComponents from "./SearchStyledComponents";
+import {SearchBox, Left, Middle, Right, SearchIcon, SearchBar, Circle, DropDown, Logo} from "./SearchStyledComponents";
 
 import a from '../../assets/img/a.jpg';
 import logo from '../../assets/img/logo.svg';
-
-const SearchBox = SearchStyledComponents.SearchBox;
-const Left = SearchStyledComponents.Left;
-const Middle = SearchStyledComponents.Middle;
-const Right = SearchStyledComponents.Right;
-const SearchIcon = SearchStyledComponents.SearchIcon;
-const SearchBar = SearchStyledComponents.SearchBar;
-const Circle = SearchStyledComponents.Circle;
-const DropDown = SearchStyledComponents.DropDown;
-const Logo = SearchStyledComponents.Logo;
 
 const SearchBoxComponent = () => {
     return <SearchBox>

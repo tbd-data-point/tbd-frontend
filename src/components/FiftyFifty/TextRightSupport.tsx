@@ -1,5 +1,5 @@
 import React from "react"
-import StyledComponents from "./StyledComponents";
+import {Image, Text} from "./StyledComponents";
 
 type TextSupportProps = {
     textRight?: boolean,
@@ -23,13 +23,13 @@ type ImgFunctionProps = {
 };
 
 const ImageContainer = ({ textWidth, src }: ImgFunctionProps) => {
-    return <StyledComponents.Image width={textWidth} src = {src}/>;
+    return <Image width={textWidth} src = {src}/>;
 }
 
 const TextContainer = ({width, color, background, children}: TextFunctionProps) => {
-    return <StyledComponents.Text color={color} background={background} width={width}>
+    return <Text color={color} background={background} width={width}>
         {children}
-    </StyledComponents.Text>
+    </Text>
 }
 
 const TextRightSupport = ({textRight, textWidth, src, color, background, children} : TextSupportProps) => {

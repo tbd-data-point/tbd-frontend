@@ -1,8 +1,5 @@
 import React from "react";
-import OfferMinStyledComponents from "./OfferMinStyledComponents";
-
-const OfferPhotoWrap = OfferMinStyledComponents.OfferPhotoWrap;
-const SamplePhoto = OfferMinStyledComponents.SamplePhoto;
+import {OfferPhotoWrap, SamplePhoto} from "./OfferMinStyledComponents";
 
 const OfferPhotoComponent = ({filesLength, mappingData, photoClickCallback, smallPreview} : any) => {
     return <OfferPhotoWrap>

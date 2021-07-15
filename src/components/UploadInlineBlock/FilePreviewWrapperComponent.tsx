@@ -1,9 +1,5 @@
 import React from "react";
-import UploadInlineBlockStyledComponents from "./UploadInlineBlockStyledComponents";
-
-const FilePreviewWrapper = UploadInlineBlockStyledComponents.FilePreviewWrapper;
-const PreviewBcg = UploadInlineBlockStyledComponents.PreviewBcg;
-const FilePreview = UploadInlineBlockStyledComponents.FilePreview;
+import {FilePreviewWrapper, PreviewBcg, FilePreview} from "./UploadInlineBlockStyledComponents";
 
 const FilePreviewWrapperComponent = ({kindOfDisplay, contentRef, disablePreview, previewIndex, previewImage, previewsrc, filesLength} : any) => {
     return <FilePreviewWrapper style={{ display: kindOfDisplay ? 'flex' : 'none' }} ref={contentRef}>

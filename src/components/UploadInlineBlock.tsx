@@ -1,14 +1,10 @@
 import { useRef, useEffect } from 'react'
 
-import UploadInlineBlockStyledComponents from "./UploadInlineBlock/UploadInlineBlockStyledComponents";
+import {ModalBody, ModalInput, FileInput} from "./UploadInlineBlock/UploadInlineBlockStyledComponents";
 import FilePreviewWrapperComponent from "./UploadInlineBlock/FilePreviewWrapperComponent";
 import ModalListComponent from './UploadInlineBlock/ModalListComponent';
 
 import upload from '../assets/img/upload.svg'
-
-const ModalBody = UploadInlineBlockStyledComponents.ModalBody;
-const ModalInput = UploadInlineBlockStyledComponents.ModalInput;
-const FileInput = UploadInlineBlockStyledComponents.FileInput;
 
 type PropsType = {
 	data: {

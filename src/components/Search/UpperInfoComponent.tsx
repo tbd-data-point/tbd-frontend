@@ -1,9 +1,5 @@
 import React from "react";
-import SearchStyledComponents from "./SearchStyledComponents";
-
-const UpperInfo = SearchStyledComponents.UpperInfo;
-const Prompt = SearchStyledComponents.Prompt;
-const CloseBtn = SearchStyledComponents.CloseBtn;
+import {UpperInfo, Prompt, CloseBtn} from "./SearchStyledComponents";
 
 const UpperInfoComponent = () => {
     return <UpperInfo>

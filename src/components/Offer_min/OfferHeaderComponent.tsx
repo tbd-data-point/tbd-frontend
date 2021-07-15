@@ -1,10 +1,5 @@
 import React from "react";
-import OfferMinStyledComponents from "./OfferMinStyledComponents";
-
-const OfferHeader = OfferMinStyledComponents.OfferHeader;
-const OfferTitle = OfferMinStyledComponents.OfferTitle;
-const OfferIcon = OfferMinStyledComponents.OfferIcon;
-const StarIcon = OfferMinStyledComponents.StarIcon;
+import {OfferHeader, OfferTitle, OfferIcon, StarIcon} from "./OfferMinStyledComponents";
 
 const OfferHeaderComponent = ({title,small,unfollowed,followCallback}:any) => {
     return <OfferHeader>

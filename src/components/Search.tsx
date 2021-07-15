@@ -1,9 +1,6 @@
-import SearchStyledComponents from "./Search/SearchStyledComponents";
+import {Decoration, Wrapper} from "./Search/SearchStyledComponents";
 import UpperInfoComponent from "./Search/UpperInfoComponent";
 import SearchBoxComponent from './Search/SearchBoxComponent';
-
-const Decoration = SearchStyledComponents.Decoration;
-const Wrapper = SearchStyledComponents.Wrapper;
 
 const Search = () => {
   return (

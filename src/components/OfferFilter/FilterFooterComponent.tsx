@@ -1,8 +1,5 @@
 import React from "react";
-import OfferMinStyledComponents from "./OfferFilterStyledComponents";
-
-const FilterFooter = OfferMinStyledComponents.FilterFooter;
-const Button = OfferMinStyledComponents.Button;
+import {FilterFooter, Button} from "./OfferFilterStyledComponents";
 
 const FilterFooterComponent = ({filterFunction, newFilter}:any) => {
     return  <FilterFooter>

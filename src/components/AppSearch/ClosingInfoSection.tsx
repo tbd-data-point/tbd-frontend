@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import {useSpring} from "react-spring";
 
 import UpperInfoComponent from "./UpperInfoComponent";
-import AppSearchStyledComponents from "./AppSearchStyledComponents";
-
-const Decoration = AppSearchStyledComponents.Decoration;
+import {Decoration} from "./AppSearchStyledComponents";
 
 const ClosingInfoSection = () => {
 
