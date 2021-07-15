@@ -2,11 +2,19 @@ import React from "react";
 import {Search, Left, Right, Circle, DropDown, Logo, Wrapper} from "./AppSearch/AppSearchStyledComponents";
 import MiddleSection from "./AppSearch/MiddleSection";
 import ClosingInfoSection from "./AppSearch/ClosingInfoSection";
+import SearchIconComponent from "./AppSearch/SearchIconComponent";
+import RespOpeningBtn from "./Navbar/RespOpeningBtn";
 
 import a from '../assets/img/a.jpg'
 import logo from '../assets/img/logo.svg'
 
-const AppSearch = () => {
+type AppSearchProps = {
+  openMenu?: any,
+  openingStatus?: boolean
+};
+
+const AppSearch = ({openMenu, openingStatus} : AppSearchProps) => {
+  console.log(openingStatus);
   return (
     <>
       <Wrapper>
@@ -19,6 +27,8 @@ const AppSearch = () => {
           <Right>
             <Circle src={a} />
             <DropDown />
+            <SearchIconComponent isRWD={true} fontSize="20px"/>
+            <RespOpeningBtn openCallback={openMenu} isOpen={openingStatus}/>
           </Right>
         </Search>
       </Wrapper>

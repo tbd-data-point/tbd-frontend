@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import {animated as a} from "react-spring";
+import { device, deviceMaxWidth } from '../../assets/styles/breakpoints'
+
+interface SearchIconProps{
+    readonly isRWD?: boolean
+}
 
 export const UpperInfo = styled(a.div)`
     width: 100%;
@@ -66,6 +71,18 @@ export const Search = styled.div`
     column-gap: 70px;
     border-bottom: solid 0.03em #1e1e1e;
     background: white;
+    
+    @media ${deviceMaxWidth.laptop}{
+        grid-template-columns: 1fr 1.5fr 1fr;
+    }
+
+    @media (max-width: 530px){
+        grid-template-columns: 1fr 0.1fr 1fr;
+    }
+
+    @media (max-width: 372px){
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 export const Left = styled.div`
@@ -77,6 +94,10 @@ export const Left = styled.div`
 export const Middle = styled.div`
     grid-column: 2;
     display: flex;
+
+    @media ${deviceMaxWidth.laptop}{
+        display: none;
+    }
 `
 
 export const Right = styled.div`
@@ -84,16 +105,30 @@ export const Right = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+
+    @media (max-width: 372px){
+        grid-column: 2;
+    }
 `
 
-export const SearchIcon = styled.div`
+export const SearchIcon = styled.div<SearchIconProps>`
     width: 65px;
     height: 45px;
     background: #1e1e1e;
-    display: flex;
+    display: ${(props) => 
+        props.isRWD ? "none" : "flex"};
     align-items: center;
     justify-content: center;
     margin-left: 10px;
+    ${(props) => 
+    props.isRWD ? "margin-right: 10px;" : ""}
+    
+    @media ${deviceMaxWidth.laptop}{
+        display: ${(props) => 
+            props.isRWD ? "flex" : "none"};
+        width: 39px;
+        height: 27px;
+    }
 `
 
 export const SearchBar = styled.input`
@@ -134,6 +169,10 @@ export const Circle = styled.img`
     width: 45px;
     border-radius: 100%;
     border: solid black 0.003em;
+    
+    @media ${deviceMaxWidth.laptop}{
+        display: none;
+    }
 `
 
 export const DropDown = styled.div`
@@ -142,6 +181,10 @@ export const DropDown = styled.div`
     clip-path: polygon(50% 100%, 0 0, 100% 0);
     background: #1e1e1e;
     margin-left: 12px;
+    
+    @media ${deviceMaxWidth.laptop}{
+        display: none;
+    }
 `
 
 export const Logo = styled.img`

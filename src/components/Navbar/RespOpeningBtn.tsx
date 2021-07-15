@@ -37,8 +37,9 @@ const Line = styled.div<Test>`
 `
 
 type RespOpeningBtn = {
-  openCallback: () => void
-  isOpen: boolean
+  openCallback: () => void,
+  isOpen?: boolean,
+  
 }
 
 const RespOpeningBtn = ({

@@ -47,6 +47,8 @@ const Dashboard = () => {
 		balance: 0,
 	})
 
+	const [isRWDMenuOpened, openRWDMenu] = useState<boolean>(false);
+
 	useEffect(() => {
 		console.log(cookies.user)
 		axios
@@ -65,7 +67,7 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<AppSearch />
+			<AppSearch openMenu={openRWDMenu} openingStatus={isRWDMenuOpened}/>
 			<Wrapper>
 				<Sidebar
 					items={[
