@@ -23,6 +23,15 @@ const HeaderSection = styled.div`
   @media (max-width: 710px){
     background-position-y: center;
   }
+  @media (max-width: 582px){
+    height: 70vh;
+  }
+  @media (max-width: 387px){
+    height: 60vh;
+  }
+  @media (max-width: 293px){
+    height: 50vh;
+  }
 `;
 
 const Header = styled.header`
@@ -41,9 +50,16 @@ const Header = styled.header`
     font-size: 3em;
   }
   @media (max-width: 582px){
-    width: 95%;
+    width: 98%;
+    left: 1%;
+    text-align: center;
     font-size: 2.6em;
-    left: 2%;
+  }
+  @media (max-width: 387px){
+    font-size: 2em;
+  }
+  @media (max-width: 301px){
+    font-size: 1.5em;
   }
 `;
 
@@ -55,6 +71,19 @@ const Title = styled.div`
   color: black;
   font-size: 3.3em;
   letter-spacing: 0.02em;
+  @media (max-width: 772px){
+    text-indent: 0;
+    text-align: center;
+    font-size: 3em;
+  }
+  @media (max-width: 485px){
+    font-size: 2.6em;
+  }
+  @media (max-width: 293px){
+    font-size: 2.4em;
+    height: 17vh;
+    padding: 5vh 0 0 0;
+  }
 `;
 
 const Company = () => {

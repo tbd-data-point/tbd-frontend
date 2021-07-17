@@ -174,10 +174,8 @@ const PhoneImg = styled.img<ImageProps>`
     float: none;
     top: ${(props) => 
     props.isButtonHidden ? "10vh" : "7vh"};
-    left: ${(props) => 
-      props.isButtonHidden ? "36%" : "43%"};
-    width: ${(props) => 
-      props.isButtonHidden ? "28%" : "14%"};
+    left: 36%;
+    width: 28%;
     margin: 0;
   }
 
