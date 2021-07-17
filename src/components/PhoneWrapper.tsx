@@ -37,11 +37,14 @@ interface ImageProps{
 
 const PhoneSection = styled.div<SectionProps>`
   width: 100%;
-  height: 50vh;
+  height: 55vh;
   ${(props) => 
   props.isBackground ? "background: #F5F5F5;" : ""}
   flex-direction: row;
-  @media (max-width: 772px){
+  @media (min-width: 772px){
+    height: 50vh;
+  }
+  @media (min-width: 252px){
     height: 60vh;
   }
 `;
@@ -73,6 +76,11 @@ const PhoneHeader = styled.div<HeaderProps>`
     left: 5%;
     font-size: 1.5em;
   }
+  @media (max-width: 258px){
+    width: 100%;
+    left: 0;
+    font-size: 1.2em;
+  }
 `;
 
 const PhoneDescription = styled.div<DescProps>`
@@ -100,6 +108,11 @@ const PhoneDescription = styled.div<DescProps>`
     width: 80%;
     left: 10%;
     font-size: 0.8em;
+  }
+  @media (max-width: 258px){
+    width: 90%;
+    left: 5%;
+    font-size: 0.7em;
   }
 `;
 
@@ -130,6 +143,10 @@ const PhoneButtonWrapper = styled.div<ButtonProps>`
   @media (max-width: 332px){
     width: 40%;
     left: 30%;
+  }
+  @media (max-width: 258px){
+    width: 80%;
+    left: 10%;
   }
 `;
 
@@ -173,9 +190,22 @@ const PhoneImg = styled.img<ImageProps>`
   
   @media (max-width: 475px){
     left: ${(props) => 
-      props.isButtonHidden ? props.isCompanySection ? "25%" :"20%" : "33%"};
+      props.isButtonHidden ? props.isCompanySection ? "25%" : "20%" : "33%"};
     width: ${(props) => 
       props.isButtonHidden ? props.isCompanySection ? "50%" : "60%" : "34%"};
+  }
+
+  @media (max-width: 252px){
+    left: ${(props) => 
+      props.isButtonHidden ? props.isCompanySection ? "25%" : "15%" : "25%"};
+    width: ${(props) => 
+      props.isButtonHidden ? props.isCompanySection ? "50%" : "70%" : "50%"};
+  }
+  @media (max-width: 194px){
+    left: ${(props) => 
+      props.isButtonHidden ? props.isCompanySection ? "25%" : "10%" : "25%"};
+    width: ${(props) => 
+      props.isButtonHidden ? props.isCompanySection ? "50%" : "70%" : "50%"};
   }
 `;
 

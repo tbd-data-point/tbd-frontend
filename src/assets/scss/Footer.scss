@@ -138,3 +138,15 @@ footer .line {
     font-size: 1.1em;
   }
 }
+@media screen and (max-width: 276px) {
+  .tbd-logo {
+    height: 2em;
+  }
+  .logos {
+    grid-template-columns: 2em auto 1.5em 1.5em 1.5em;
+    column-gap: 2em;
+  }
+  .bottom-tile-wrapper{
+    font-size: 1.1em;
+  }
+}

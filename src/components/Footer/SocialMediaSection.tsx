@@ -6,7 +6,7 @@ import logo from '../../assets/img/logo.svg'
 
 const SocialMedia = () => {
 
-    const iconStyle = { color: '#fff', size: '2.3em'};
+    const iconStyle = { color: '#fff', size: '1.5em'};
 
     const SocialMediaLinks = [
         {

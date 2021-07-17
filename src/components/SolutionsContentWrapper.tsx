@@ -41,10 +41,7 @@ const ContentWrapper = styled.section<WrapperProps>`
       height: ${(props) =>
         props.height ? props.height : '95vh'};
     }
-    @media (max-width: 454px){
-      height: ${(props) =>
-        props.height ? props.height : '110vh'};
-    }
+
 `
 
 const LeftTop = styled.div`
@@ -85,11 +82,19 @@ const AccorditionsBorder = styled.div<BorderProps>`
     height: 40vh;
     margin-top: 46%;
   }
-  @media (max-width: 594px){
-    margin-top: 50%;
+  @media (max-width: 664px){
+    margin-top: 60%;
   }
   @media (max-width: 454px){
-    margin-top: 70%;
+    margin-top: 75%;
+  }
+  @media (max-width: 356px){
+    margin-top: 95%;
+    height: 35vh;
+  }
+  @media (max-width: 356px){
+    margin-top: 105%;
+    height: 40vh;
   }
 `
 
@@ -132,9 +137,17 @@ const TopImage = styled.img<TopImageProps>`
     width: 30%;
     left: 35%;
   }
+  @media (max-width: 664px){
+    width: 40%;
+    left: 30%;
+  }
   @media (max-width: 454px){
     width: 50%;
     left: 25%;
+  }
+  @media (max-width: 356px){
+    width: 70%;
+    left: 15%;
   }
 `
 
