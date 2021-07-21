@@ -14,7 +14,6 @@ type AppSearchProps = {
 };
 
 const AppSearch = ({openMenu, openingStatus} : AppSearchProps) => {
-  console.log(openingStatus);
   return (
     <>
       <Wrapper>

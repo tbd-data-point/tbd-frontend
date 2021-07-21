@@ -1,22 +1,33 @@
 import styled from 'styled-components'
+import {animated as a, useSpring} from "react-spring";
 import { Link } from 'react-router-dom'
+import { device } from '../assets/styles/breakpoints'
 
 type PropsType = {
   items: {
     label: string
     link: string
     isFocus?: boolean
-  }[]
+  }[],
+  responsiveStatus?: boolean
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(a.div)`
   height: 100%;
-  width: 300px;
   font-size: 32px;
-  border-right: solid 0.003em black;
   display: grid;
   grid-template-rows: 75px auto;
   background: white;
+  overflow-x: hidden;
+  z-index: 2;
+  position: fixed;
+  top: 9vh;
+
+  @media ${device.laptop}{
+    width: 300px !important;
+    border-right: solid 0.003em black;
+    position: relative;
+  }
 `
 
 const Options = styled.div`
@@ -32,6 +43,11 @@ const Option = styled(Link)`
   &:hover {
     transform: translateX(5px);
   }
+  text-align: center;
+
+  @media ${device.laptop}{
+    text-align: left;
+  }
 `
 
 const Focused = styled.p`
@@ -40,12 +56,22 @@ const Focused = styled.p`
   margin: 0;
   padding: 0.3em 0 0.3em 1.2em;
   cursor: default;
+  text-align: center;
+
+  @media ${device.laptop}{
+    text-align: left;
+  }
 `
 
 const Sidebar = (props: PropsType) => {
+
+  const currentWidth = useSpring({
+    width: props.responsiveStatus ? "100vw" : "0vw"
+  })
+
   return (
     <>
-      <Wrapper>
+      <Wrapper style = {currentWidth}>
         <Options>
           {props.items.map((v, index) => 
             v.isFocus ? <Focused key = {"sidebarElem"+index}>{v.label}</Focused> : 

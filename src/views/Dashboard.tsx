@@ -2,6 +2,7 @@ import AppSearch from '../components/AppSearch'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import MyOffers from '../components/MyOffers'
+import { device } from '../assets/styles/breakpoints'
 
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
@@ -11,18 +12,28 @@ import { useCookies } from 'react-cookie'
 const Wrapper = styled.div`
 	width: 100%;
 	min-height: 500px;
-	display: grid;
-	grid-template-columns: 300px auto;
+	display: block;
+
+	@media ${device.laptop}{
+		display: grid;
+		grid-template-columns: 300px auto;
+	}
 `
 
 const DashboardWrapper = styled.div`
 	width: 100%;
 	min-height: 500px;
-	display: flex;
-	flex-direction: column;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	justify-content: space-evenly;
 	align-items: center;
 	margin-top: 30px;
+
+	@media ${device.laptop}{
+		display: flex;
+		flex-direction: column;
+	}
 `
 const StatsWrapper = styled.div`
 	& > p {
@@ -67,7 +78,7 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<AppSearch openMenu={openRWDMenu} openingStatus={isRWDMenuOpened}/>
+			<AppSearch openMenu={() => openRWDMenu(!isRWDMenuOpened)} openingStatus={isRWDMenuOpened}/>
 			<Wrapper>
 				<Sidebar
 					items={[
@@ -76,6 +87,7 @@ const Dashboard = () => {
 						{ label: 'Earnings', link: 'earnings' },
 						{ label: 'Settings', link: '' },
 					]}
+					responsiveStatus = {isRWDMenuOpened}
 				/>
 				<DashboardWrapper>
 					<Header>My stats:</Header>
