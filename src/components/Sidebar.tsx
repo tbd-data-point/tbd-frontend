@@ -15,18 +15,23 @@ type PropsType = {
 const Wrapper = styled(a.div)`
   height: 100%;
   font-size: 32px;
-  display: grid;
-  grid-template-rows: 75px auto;
+  display: block;
   background: white;
   overflow-x: hidden;
   z-index: 2;
   position: fixed;
-  top: 9vh;
+  top: 14vh;
+
+  @media (min-width: 637px){
+    top: 20vh;
+  }
 
   @media ${device.laptop}{
+    grid-template-rows: 75px auto;
     width: 300px !important;
     border-right: solid 0.003em black;
     position: relative;
+    top: 0vh;
   }
 `
 
@@ -36,7 +41,7 @@ const Options = styled.div`
 
 const Option = styled(Link)`
   margin: 0;
-  padding: 0.3em 0 0.3em 1.2em;
+  padding: 0.3em 0 0.3em 0;
   color: #5f5f5f;
   transition: ease-out 0.3s;
   display: block;
@@ -44,9 +49,15 @@ const Option = styled(Link)`
     transform: translateX(5px);
   }
   text-align: center;
+  font-size: 0.8em;
+
+  @media ${device.mobileS}{
+    font-size: 1em;
+  }
 
   @media ${device.laptop}{
     text-align: left;
+    padding: 0.3em 0 0.3em 1.2em;
   }
 `
 
@@ -54,12 +65,18 @@ const Focused = styled.p`
   background: #1f1f1f;
   color: white;
   margin: 0;
-  padding: 0.3em 0 0.3em 1.2em;
+  padding: 0.3em 0 0.3em 0;
   cursor: default;
-  text-align: center;
+  text-align: center;  
+  font-size: 0.8em;
+
+  @media ${device.mobileS}{
+    font-size: 1em;
+  }
 
   @media ${device.laptop}{
     text-align: left;
+    padding: 0.3em 0 0.3em 1.2em;
   }
 `
 
