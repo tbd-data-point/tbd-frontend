@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { device } from '../assets/styles/breakpoints'
 import OfferMin from './Offer_min'
 
 const MyOffersWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70vw;
+  width: 100vw;
   height: 100%;
+
+  @media ${device.laptop}{
+    width: 70vw;
+  }
 `
 
 // interface ListWrapper {}

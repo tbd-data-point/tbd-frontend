@@ -37,16 +37,41 @@ const DashboardWrapper = styled.div`
 `
 const StatsWrapper = styled.div`
 	& > p {
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: 500;
 		text-align: left;
+		margin-left: 25%;
+	}
+
+	@media ${device.tablet}{
+		& > p {
+			font-size: 20px;
+		}
+	}
+
+	@media ${device.laptop}{
+		& > p {
+			text-align: left;
+			margin-left: 0px;
+		}
 	}
 `
 const Header = styled.h1`
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: 500;
 	align-self: flex-start;
-	margin-left: 50px;
+	margin-left: 20%;
+	margin-bottom: 40px;
+
+	
+	@media ${device.tablet}{
+		font-size: 30px;
+	}
+
+	@media ${device.laptop}{
+		text-align: left;
+		margin-left: 50px;
+	}
 `
 
 const Dashboard = () => {
